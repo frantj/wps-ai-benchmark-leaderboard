@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <link rel="icon" type="image/png" href="favicon.png">
+<title>Methodology — WPS AI Benchmark</title>
 </head>
 <body>
 <x-dc>
@@ -20,6 +21,7 @@
 </helmet>
 
 <div style="font-family:var(--font-sans);background:var(--white);min-height:100vh;">
+  <a href="#main" style="position:absolute;left:-9999px;top:0;background:var(--osf-navy);color:var(--white);padding:10px 16px;z-index:1000;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;" style-focus="left:0;">Skip to main content</a>
 
   <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:6px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:6px;min-height:36px;font-size:12px;color:var(--text-secondary);">
     <div style="display:flex;align-items:center;gap:10px;">
@@ -42,6 +44,8 @@
     </nav>
   </header>
 
+  <main id="main">
+
   <section style="background:var(--osf-sand);padding:56px clamp(16px,4vw,40px) 40px;">
     <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));">
       <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--osf-golden-deep);margin-bottom:14px;">Methodology</div>
@@ -53,8 +57,8 @@
   <section style="padding:44px clamp(16px,4vw,40px) 8px;">
     <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));">
       <div style="display:flex;gap:8px;border-bottom:1px solid var(--border-subtle);margin-bottom:28px;">
-        <button onClick="{{ showPlain }}" style="background:none;border:none;font-family:var(--font-sans);font-size:14.5px;font-weight:600;padding:10px 4px;cursor:pointer;color:{{ plainColor }};border-bottom:{{ plainBorder }};">Plain language</button>
-        <button onClick="{{ showTechnical }}" style="background:none;border:none;font-family:var(--font-sans);font-size:14.5px;font-weight:600;padding:10px 4px;margin-left:20px;cursor:pointer;color:{{ techColor }};border-bottom:{{ techBorder }};">Technical detail</button>
+        <button onClick="{{ showPlain }}" aria-pressed="{{ isPlain }}" style="background:none;border:none;font-family:var(--font-sans);font-size:14.5px;font-weight:600;padding:10px 4px;cursor:pointer;color:{{ plainColor }};border-bottom:{{ plainBorder }};">Plain language</button>
+        <button onClick="{{ showTechnical }}" aria-pressed="{{ isTechnical }}" style="background:none;border:none;font-family:var(--font-sans);font-size:14.5px;font-weight:600;padding:10px 4px;margin-left:20px;cursor:pointer;color:{{ techColor }};border-bottom:{{ techBorder }};">Technical detail</button>
       </div>
 
       <sc-if value="{{ isPlain }}" hint-placeholder-val="{{ true }}">
@@ -100,6 +104,8 @@
       <a href="#" style="display:inline-block;font-size:14px;font-weight:600;color:var(--white);background:var(--osf-navy);border-radius:5px;padding:11px 20px;text-decoration:none;">Download the benchmark</a>
     </div>
   </section>
+
+  </main>
 
   <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px clamp(16px,4vw,40px);">
     <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">

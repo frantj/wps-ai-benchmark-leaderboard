@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <link rel="icon" type="image/png" href="favicon.png">
+<title>Leaderboard — WPS AI Benchmark</title>
 </head>
 <body>
 <x-dc>
@@ -29,6 +30,7 @@ a:hover{color:var(--osf-teal-dark);}
 </helmet>
 
 <div style="font-family:var(--font-sans);background:var(--white);min-height:100vh;">
+  <a href="#main" style="position:absolute;left:-9999px;top:0;background:var(--osf-navy);color:var(--white);padding:10px 16px;z-index:1000;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;" style-focus="left:0;">Skip to main content</a>
 
   <!-- utility strip -->
   <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:6px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:6px;min-height:36px;font-size:12px;color:var(--text-secondary);">
@@ -52,6 +54,8 @@ a:hover{color:var(--osf-teal-dark);}
       <a href="contact.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;" style-hover="color:var(--osf-navy);">Contact</a>
     </nav>
   </header>
+
+  <main id="main">
 
   <!-- hero -->
   <section style="background:var(--osf-sand);padding:56px clamp(16px,4vw,40px) 44px;">
@@ -85,11 +89,15 @@ a:hover{color:var(--osf-teal-dark);}
         <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:700px;table-layout:fixed;">
           <thead>
             <tr style="background:var(--osf-sand);text-align:left;">
-              <th style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:44px;">#</th>
-              <th style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:auto;">System</th>
-              <th onClick="{{ setSortDate }}" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:150px;white-space:nowrap;cursor:pointer;">Evaluated ⇕</th>
-              <th onClick="{{ setSortOverall }}" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;white-space:nowrap;width:280px;">Overall ⇕</th>
-              <th style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:90px;">Details</th>
+              <th scope="col" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:44px;">#</th>
+              <th scope="col" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:auto;">System</th>
+              <th scope="col" aria-sort="{{ sortDateAria }}" style="width:150px;white-space:nowrap;">
+                <button onClick="{{ setSortDate }}" style="all:unset;display:block;box-sizing:border-box;width:100%;padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;cursor:pointer;font-family:inherit;text-align:left;">Evaluated ⇕</button>
+              </th>
+              <th scope="col" aria-sort="{{ sortOverallAria }}" style="white-space:nowrap;width:280px;">
+                <button onClick="{{ setSortOverall }}" style="all:unset;display:block;box-sizing:border-box;width:100%;padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;cursor:pointer;font-family:inherit;text-align:left;">Overall ⇕</button>
+              </th>
+              <th scope="col" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:90px;">Details</th>
             </tr>
           </thead>
           <tbody>
@@ -100,7 +108,7 @@ a:hover{color:var(--osf-teal-dark);}
                   <div style="display:flex;align-items:center;gap:8px;">
                     <span style="font-weight:600;color:var(--osf-navy);">{{ row.label }}</span>
                     <sc-if value="{{ row.isOurs }}" hint-placeholder-val="{{ false }}">
-                      <span style="background:var(--osf-teal);color:var(--white);font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:2px 6px;border-radius:3px;">Our Agent</span>
+                      <span style="background:var(--osf-teal-dark);color:var(--white);font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:2px 6px;border-radius:3px;">Our Agent</span>
                     </sc-if>
                   </div>
                   <div style="font-size:12.5px;color:var(--text-muted);margin-top:2px;">{{ row.provider }}</div>
@@ -125,7 +133,7 @@ a:hover{color:var(--osf-teal-dark);}
                 <tr>
                   <td colSpan="5" style="padding:0 10px 18px;background:var(--surface-sunken);">
                     <sc-if value="{{ row.hasNote }}" hint-placeholder-val="{{ false }}">
-                      <div style="font-size:12.5px;color:var(--osf-red);padding:10px 4px 4px;font-style:italic;">{{ row.note }}</div>
+                      <div style="font-size:12.5px;color:var(--osf-red-text);padding:10px 4px 4px;font-style:italic;">{{ row.note }}</div>
                     </sc-if>
                     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;padding:12px 4px;">
                       <sc-for list="{{ row.detailCriteria }}" as="dc" hint-placeholder-count="11">
@@ -165,6 +173,8 @@ a:hover{color:var(--osf-teal-dark);}
   </section>
 
   <!-- footer -->
+  </main>
+
   <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px clamp(16px,4vw,40px);margin-top:24px;">
     <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
       <div style="display:flex;align-items:center;gap:12px;">
@@ -256,6 +266,8 @@ class Component extends DCLogic {
       };
     });
 
+    const ariaSortFor = (key) => sortKey === key ? (sortDir === 'desc' ? 'descending' : 'ascending') : 'none';
+
     return {
       loaded: rows.length > 0,
       rows: rowsView,
@@ -263,7 +275,9 @@ class Component extends DCLogic {
       setSortDate: () => this.setSort('date'),
       setSortGender: () => this.setSort('gender-wps'),
       setSortDue: () => this.setSort('due-diligence'),
-      setSortFactual: () => this.setSort('factual-integrity')
+      setSortFactual: () => this.setSort('factual-integrity'),
+      sortDateAria: ariaSortFor('date'),
+      sortOverallAria: ariaSortFor('overall')
     };
   }
 }

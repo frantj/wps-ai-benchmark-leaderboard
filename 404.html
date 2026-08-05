@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,9 +10,14 @@
 <link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/spacing.css">
 <link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/base.css">
 <link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/styles.css">
-<style>body{margin:0;background:var(--white);} a{color:var(--osf-navy);} a:hover{color:var(--osf-teal-dark);}</style>
+<style>
+body{margin:0;background:var(--white);} a{color:var(--osf-navy);} a:hover{color:var(--osf-teal-dark);}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--osf-navy);color:var(--white);padding:10px 16px;z-index:1000;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;}
+.skip-link:focus{left:0;}
+</style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 <div style="font-family:var(--font-sans);background:var(--white);min-height:100vh;display:flex;flex-direction:column;">
 
   <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:6px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:6px;min-height:36px;font-size:12px;color:var(--text-secondary);">
@@ -35,6 +40,7 @@
     </nav>
   </header>
 
+  <main id="main" style="flex:1;display:flex;">
   <section style="flex:1;display:flex;align-items:center;justify-content:center;padding:64px clamp(16px,4vw,40px);background:var(--osf-sand);">
     <div style="max-width:600px;text-align:center;">
       <div style="font-family:var(--font-serif);font-size:clamp(56px,20vw,96px);font-weight:600;color:var(--osf-golden-deep);line-height:1;margin-bottom:8px;">404</div>
@@ -46,6 +52,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px clamp(16px,4vw,40px);">
     <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">

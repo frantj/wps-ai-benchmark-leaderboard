@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <link rel="icon" type="image/png" href="favicon.png">
+<title>Contact — WPS AI Benchmark</title>
 </head>
 <body>
 <x-dc>
@@ -20,6 +21,7 @@
 </helmet>
 
 <div style="font-family:var(--font-sans);background:var(--white);min-height:100vh;">
+  <a href="#main" style="position:absolute;left:-9999px;top:0;background:var(--osf-navy);color:var(--white);padding:10px 16px;z-index:1000;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;" style-focus="left:0;">Skip to main content</a>
 
   <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:6px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:6px;min-height:36px;font-size:12px;color:var(--text-secondary);">
     <div style="display:flex;align-items:center;gap:10px;">
@@ -41,6 +43,8 @@
       <a href="contact.html" style="font-size:14.5px;color:var(--osf-navy);font-weight:600;text-decoration:none;border-bottom:2px solid var(--osf-teal);padding-bottom:20px;">Contact</a>
     </nav>
   </header>
+
+  <main id="main">
 
   <section style="background:var(--osf-sand);padding:56px clamp(16px,4vw,40px) 44px;">
     <div style="max-width:640px;margin:0 auto 0 max(0px, calc(50% - 550px));">
@@ -77,20 +81,20 @@
         <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
           <div style="display:flex;flex-direction:column;gap:16px;">
             <div>
-              <label style="display:block;font-size:13px;font-weight:600;color:var(--osf-navy);margin-bottom:6px;">Name</label>
-              <input type="text" required="true" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border-subtle);border-radius:5px;font-size:14px;font-family:var(--font-sans);"/>
+              <label for="contact-name" style="display:block;font-size:13px;font-weight:600;color:var(--osf-navy);margin-bottom:6px;">Name</label>
+              <input id="contact-name" type="text" required="true" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border-subtle);border-radius:5px;font-size:14px;font-family:var(--font-sans);"/>
             </div>
             <div>
-              <label style="display:block;font-size:13px;font-weight:600;color:var(--osf-navy);margin-bottom:6px;">Organization</label>
-              <input type="text" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border-subtle);border-radius:5px;font-size:14px;font-family:var(--font-sans);"/>
+              <label for="contact-org" style="display:block;font-size:13px;font-weight:600;color:var(--osf-navy);margin-bottom:6px;">Organization</label>
+              <input id="contact-org" type="text" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border-subtle);border-radius:5px;font-size:14px;font-family:var(--font-sans);"/>
             </div>
             <div>
-              <label style="display:block;font-size:13px;font-weight:600;color:var(--osf-navy);margin-bottom:6px;">Email</label>
-              <input type="email" required="true" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border-subtle);border-radius:5px;font-size:14px;font-family:var(--font-sans);"/>
+              <label for="contact-email" style="display:block;font-size:13px;font-weight:600;color:var(--osf-navy);margin-bottom:6px;">Email</label>
+              <input id="contact-email" type="email" required="true" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border-subtle);border-radius:5px;font-size:14px;font-family:var(--font-sans);"/>
             </div>
             <div>
-              <label style="display:block;font-size:13px;font-weight:600;color:var(--osf-navy);margin-bottom:6px;">What are you interested in?</label>
-              <textarea rows="4" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border-subtle);border-radius:5px;font-size:14px;font-family:var(--font-sans);resize:vertical;"></textarea>
+              <label for="contact-interest" style="display:block;font-size:13px;font-weight:600;color:var(--osf-navy);margin-bottom:6px;">What are you interested in?</label>
+              <textarea id="contact-interest" rows="4" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border-subtle);border-radius:5px;font-size:14px;font-family:var(--font-sans);resize:vertical;"></textarea>
             </div>
             <button type="submit" style="align-self:flex-start;font-size:14px;font-weight:600;color:var(--white);background:var(--osf-navy);border:none;border-radius:5px;padding:11px 22px;cursor:pointer;font-family:var(--font-sans);">Send inquiry</button>
           </div>
@@ -100,6 +104,8 @@
       <p style="font-size:14px;color:var(--text-muted);margin-top:24px;text-align:center;">Prefer email? Reach us directly at <a href="mailto:benchmark@oursecurefuture.org" style="font-weight:600;">benchmark@oursecurefuture.org</a></p>
     </div>
   </section>
+
+  </main>
 
   <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px clamp(16px,4vw,40px);">
     <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
