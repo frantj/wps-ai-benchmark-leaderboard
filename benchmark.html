@@ -21,7 +21,7 @@
 
 <div style="font-family:var(--font-sans);background:var(--white);min-height:100vh;">
 
-  <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:36px;font-size:12px;color:var(--text-secondary);">
+  <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:6px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:6px;min-height:36px;font-size:12px;color:var(--text-secondary);">
     <div style="display:flex;align-items:center;gap:10px;">
       <img src="assets/OSF_Logo_Marchio.jpg" alt="Our Secure Future" style="height:22px;display:block;border-radius:3px;"/>
       <span>WPS AI Benchmark — A project of Our Secure Future, a PAX sapiens program</span>
@@ -29,9 +29,9 @@
     <a href="#" style="font-weight:600;color:var(--osf-navy);text-decoration:none;">Download the benchmark ↓</a>
   </div>
 
-  <header style="background:var(--white);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px;">
+  <header style="background:var(--white);border-bottom:1px solid var(--border-subtle);padding:10px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:10px;min-height:64px;">
     <a href="index.html" style="font-family:var(--font-serif);font-size:21px;font-weight:600;color:var(--osf-navy);text-decoration:none;letter-spacing:-0.01em;">WPS AI Benchmark</a>
-    <nav style="display:flex;align-items:center;gap:28px;">
+    <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,2.5vw,28px);">
       <a href="index.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">Leaderboard</a>
       <a href="benchmark.html" style="font-size:14.5px;color:var(--osf-navy);font-weight:600;text-decoration:none;border-bottom:2px solid var(--osf-teal);padding-bottom:20px;">The Benchmark</a>
       <a href="methodology.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">Methodology</a>
@@ -42,15 +42,15 @@
     </nav>
   </header>
 
-  <section style="background:var(--osf-sand);padding:56px 40px 48px;">
+  <section style="background:var(--osf-sand);padding:56px clamp(16px,4vw,40px) 48px;">
     <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));">
       <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--osf-golden-deep);margin-bottom:14px;">The WPS AI Benchmark</div>
-      <h1 style="font-family:var(--font-serif);font-size:38px;line-height:1.2;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">Gender mainstreaming is an operational requirement, not an ethical add-on</h1>
+      <h1 style="font-family:var(--font-serif);font-size:clamp(26px,6vw,38px);line-height:1.2;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">Gender mainstreaming is an operational requirement, not an ethical add-on</h1>
       <p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0;">Why Women, Peace and Security matters to AI systems used in real operations, and why this benchmark is built the way it is. For how scenarios are validated, see <a href="methodology.html" style="font-weight:600;">Methodology</a>.</p>
     </div>
   </section>
 
-  <section style="padding:48px 40px 20px;">
+  <section style="padding:48px clamp(16px,4vw,40px) 20px;">
     <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));">
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:0 0 14px;">Why WPS matters</h2>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">UN Security Council Resolution 1325 (2000) established that women's full and equal participation in peace and security efforts, and attention to how conflict affects women and girls, is not a peripheral concern — it is core to whether missions succeed. NATO's 2024 WPS Policy makes the same case in operational terms: gender-responsive planning improves situational awareness, community trust, and force protection. Evidence-based, gender-sensitive analysis is treated as a driver of mission effectiveness, not a values statement layered on top of it.</p>
@@ -96,7 +96,7 @@
     </div>
   </section>
 
-  <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px 40px;margin-top:24px;">
+  <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px clamp(16px,4vw,40px);margin-top:24px;">
     <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
       <div style="display:flex;align-items:center;gap:12px;">
         <img src="assets/OSF_Logo_Marchio.jpg" alt="" style="height:30px;display:block;border-radius:4px;"/>
@@ -105,7 +105,7 @@
           <div style="font-size:12.5px;">A project of Our Secure Future, a PAX sapiens program</div>
         </div>
       </div>
-      <div style="display:flex;gap:16px;font-size:13px;flex-wrap:nowrap;white-space:nowrap;">
+      <div style="display:flex;gap:16px;font-size:13px;flex-wrap:wrap;">
         <a href="index.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Leaderboard</a>
         <a href="methodology.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Methodology</a>
         <a href="contact.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Contact</a>

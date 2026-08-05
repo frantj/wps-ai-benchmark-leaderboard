@@ -21,7 +21,7 @@
 
 <div style="font-family:var(--font-sans);background:var(--white);min-height:100vh;">
 
-  <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:36px;font-size:12px;color:var(--text-secondary);">
+  <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:6px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:6px;min-height:36px;font-size:12px;color:var(--text-secondary);">
     <div style="display:flex;align-items:center;gap:10px;">
       <img src="assets/OSF_Logo_Marchio.jpg" alt="Our Secure Future" style="height:22px;display:block;border-radius:3px;"/>
       <span>WPS AI Benchmark — A project of Our Secure Future, a PAX sapiens program</span>
@@ -29,9 +29,9 @@
     <a href="#" style="font-weight:600;color:var(--osf-navy);text-decoration:none;">Download the benchmark ↓</a>
   </div>
 
-  <header style="background:var(--white);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px;">
+  <header style="background:var(--white);border-bottom:1px solid var(--border-subtle);padding:10px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:10px;min-height:64px;">
     <a href="index.html" style="font-family:var(--font-serif);font-size:21px;font-weight:600;color:var(--osf-navy);text-decoration:none;letter-spacing:-0.01em;">WPS AI Benchmark</a>
-    <nav style="display:flex;align-items:center;gap:28px;">
+    <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,2.5vw,28px);">
       <a href="index.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">Leaderboard</a>
       <a href="benchmark.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">The Benchmark</a>
       <a href="methodology.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">Methodology</a>
@@ -42,15 +42,15 @@
     </nav>
   </header>
 
-  <section style="background:var(--osf-sand);padding:56px 40px 44px;">
+  <section style="background:var(--osf-sand);padding:56px clamp(16px,4vw,40px) 44px;">
     <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));">
       <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--osf-golden-deep);margin-bottom:14px;">About</div>
-      <h1 style="font-family:var(--font-serif);font-size:38px;line-height:1.2;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">A project of Our Secure Future</h1>
+      <h1 style="font-family:var(--font-serif);font-size:clamp(26px,6vw,38px);line-height:1.2;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">A project of Our Secure Future</h1>
       <p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0;">The WPS AI Benchmark is a project of Our Secure Future, a PAX sapiens program. It is built, maintained, and published by the OSF team as part of its core mission.</p>
     </div>
   </section>
 
-  <section style="padding:40px 40px 8px;">
+  <section style="padding:clamp(16px,4vw,40px) 40px 8px;">
     <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));">
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:32px 0 12px;">Why we built this</h2>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Our Secure Future works to make Women, Peace and Security a functioning part of how peace and security institutions actually operate — not a policy commitment that stops at the National Action Plan. AI systems are now part of that operating layer: they draft the situation reports, planning documents, and analysis that feed real decisions. If those systems quietly default to gender-blind reasoning, WPS commitments erode in practice even where they remain intact on paper.</p>
@@ -90,7 +90,7 @@
     </div>
   </section>
 
-  <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px 40px;">
+  <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px clamp(16px,4vw,40px);">
     <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
       <div style="display:flex;align-items:center;gap:12px;">
         <img src="assets/OSF_Logo_Marchio.jpg" alt="" style="height:30px;display:block;border-radius:4px;"/>
@@ -99,7 +99,7 @@
           <div style="font-size:12.5px;">A project of Our Secure Future, a PAX sapiens program</div>
         </div>
       </div>
-      <div style="display:flex;gap:16px;font-size:13px;flex-wrap:nowrap;white-space:nowrap;">
+      <div style="display:flex;gap:16px;font-size:13px;flex-wrap:wrap;">
         <a href="index.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Leaderboard</a>
         <a href="methodology.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Methodology</a>
         <a href="contact.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Contact</a>

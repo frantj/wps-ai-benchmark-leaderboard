@@ -31,7 +31,7 @@ a:hover{color:var(--osf-teal-dark);}
 <div style="font-family:var(--font-sans);background:var(--white);min-height:100vh;">
 
   <!-- utility strip -->
-  <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:36px;font-size:12px;color:var(--text-secondary);">
+  <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:6px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:6px;min-height:36px;font-size:12px;color:var(--text-secondary);">
     <div style="display:flex;align-items:center;gap:10px;">
       <img src="assets/OSF_Logo_Marchio.jpg" alt="Our Secure Future" style="height:22px;display:block;border-radius:3px;"/>
       <span>WPS AI Benchmark — A project of Our Secure Future, a PAX sapiens program</span>
@@ -40,9 +40,9 @@ a:hover{color:var(--osf-teal-dark);}
   </div>
 
   <!-- main header -->
-  <header style="background:var(--white);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px;">
+  <header style="background:var(--white);border-bottom:1px solid var(--border-subtle);padding:10px clamp(16px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;row-gap:10px;min-height:64px;">
     <a href="index.html" style="font-family:var(--font-serif);font-size:21px;font-weight:600;color:var(--osf-navy);text-decoration:none;letter-spacing:-0.01em;">WPS AI Benchmark</a>
-    <nav style="display:flex;align-items:center;gap:28px;">
+    <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,2.5vw,28px);">
       <a href="index.html" style="font-size:14.5px;color:var(--osf-navy);font-weight:600;text-decoration:none;border-bottom:2px solid var(--osf-teal);padding-bottom:20px;">Leaderboard</a>
       <a href="benchmark.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;" style-hover="color:var(--osf-navy);">The Benchmark</a>
       <a href="methodology.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;" style-hover="color:var(--osf-navy);">Methodology</a>
@@ -54,10 +54,10 @@ a:hover{color:var(--osf-teal-dark);}
   </header>
 
   <!-- hero -->
-  <section style="background:var(--osf-sand);padding:56px 40px 44px;">
+  <section style="background:var(--osf-sand);padding:56px clamp(16px,4vw,40px) 44px;">
     <div style="max-width:900px;margin:0 auto;">
       <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--osf-golden-deep);margin-bottom:14px;">WPS AI Benchmark</div>
-      <h1 style="font-family:var(--font-serif);font-size:44px;line-height:1.15;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">How AI systems handle Women, Peace and Security</h1>
+      <h1 style="font-family:var(--font-serif);font-size:clamp(28px,6vw,44px);line-height:1.15;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">How AI systems handle Women, Peace and Security</h1>
       <p style="font-size:18px;line-height:1.6;color:var(--text-secondary);max-width:680px;margin:0 0 20px;">An expert-validated benchmark testing whether AI models apply Women, Peace and Security principles when a prompt spells them out — and, more importantly, when nobody asks.</p>
       <div style="background:var(--white);border:1px solid var(--border-subtle);border-left:4px solid var(--osf-red);border-radius:6px;padding:16px 20px;max-width:680px;">
         <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--osf-navy);"><strong>AI is no substitute for a human WPS advisor</strong> or for direct consultation with women on the ground, and should not be used for unsupervised warfare decision-making. This benchmark measures relative performance among AI systems — it is not a fitness-for-deployment certification.</p>
@@ -66,7 +66,7 @@ a:hover{color:var(--osf-teal-dark);}
   </section>
 
   <!-- leaderboard table -->
-  <section style="padding:40px 40px 20px;">
+  <section style="padding:clamp(16px,4vw,40px) 40px 20px;">
     <div style="max-width:1100px;margin:0 auto;">
       <div style="display:flex;align-items:baseline;margin-bottom:6px;flex-wrap:wrap;gap:8px;">
         <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:0;">Leaderboard</h2>
@@ -154,7 +154,7 @@ a:hover{color:var(--osf-teal-dark);}
   </section>
 
   <!-- download callout: for researchers and compliance/AI tooling -->
-  <section style="background:var(--white);padding:32px 40px;border-top:1px solid var(--border-subtle);">
+  <section style="background:var(--white);padding:32px clamp(16px,4vw,40px);border-top:1px solid var(--border-subtle);">
     <div style="max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
       <div>
         <div style="font-size:16px;font-weight:600;color:var(--osf-navy);margin-bottom:4px;">Download the benchmark and run it yourself</div>
@@ -165,7 +165,7 @@ a:hover{color:var(--osf-teal-dark);}
   </section>
 
   <!-- footer -->
-  <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px 40px;margin-top:24px;">
+  <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px clamp(16px,4vw,40px);margin-top:24px;">
     <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
       <div style="display:flex;align-items:center;gap:12px;">
         <img src="assets/OSF_Logo_Marchio.jpg" alt="" style="height:30px;display:block;border-radius:4px;"/>
@@ -174,7 +174,7 @@ a:hover{color:var(--osf-teal-dark);}
           <div style="font-size:12.5px;">A project of Our Secure Future, a PAX sapiens program</div>
         </div>
       </div>
-      <div style="display:flex;gap:16px;font-size:13px;flex-wrap:nowrap;white-space:nowrap;">
+      <div style="display:flex;gap:16px;font-size:13px;flex-wrap:wrap;">
         <a href="index.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Leaderboard</a>
         <a href="methodology.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Methodology</a>
         <a href="contact.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Contact</a>
