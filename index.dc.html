@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="The WPS AI Benchmark scores how leading AI models handle Women, Peace and Security content — sortable leaderboard, open methodology, and a downloadable benchmark suite. An Our Secure Future Program.">
+<meta property="og:title" content="WPS AI Benchmark — An Our Secure Future Program">
+<meta property="og:description" content="Expert-validated scores for how AI models handle Women, Peace and Security content. Sortable leaderboard, open methodology, downloadable benchmark suite.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/colors.css">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/typography.css">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/base.css">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/styles.css">
+<script src="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/_ds_bundle.js"></script>
+<style>
+body{margin:0;background:var(--white);}
+a{color:var(--osf-navy);}
+a:hover{color:var(--osf-teal-dark);}
+::selection{background:var(--osf-golden);}
+</style>
+</helmet>
+
+<div style="font-family:var(--font-sans);background:var(--white);min-height:100vh;">
+
+  <!-- utility strip -->
+  <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:36px;font-size:12px;color:var(--text-secondary);">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="assets/OSF_Logo_Marchio.jpg" alt="Our Secure Future" style="height:22px;display:block;border-radius:3px;"/>
+      <span>WPS AI Benchmark — A project of Our Secure Future, a PAX sapiens program</span>
+    </div>
+    <a href="#" style="font-weight:600;color:var(--osf-navy);text-decoration:none;" style-hover="color:var(--osf-teal-dark);">Download the benchmark ↓</a>
+  </div>
+
+  <!-- main header -->
+  <header style="background:var(--white);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px;">
+    <a href="index.dc.html" style="font-family:var(--font-serif);font-size:21px;font-weight:600;color:var(--osf-navy);text-decoration:none;letter-spacing:-0.01em;">WPS AI Benchmark</a>
+    <nav style="display:flex;align-items:center;gap:28px;">
+      <a href="index.dc.html" style="font-size:14.5px;color:var(--osf-navy);font-weight:600;text-decoration:none;border-bottom:2px solid var(--osf-teal);padding-bottom:20px;">Leaderboard</a>
+      <a href="benchmark.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;" style-hover="color:var(--osf-navy);">The Benchmark</a>
+      <a href="methodology.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;" style-hover="color:var(--osf-navy);">Methodology</a>
+      <a href="our-agent.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;" style-hover="color:var(--osf-navy);">Our Agent</a>
+      <a href="media.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">Media</a>
+      <a href="about.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;" style-hover="color:var(--osf-navy);">About</a>
+      <a href="contact.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;" style-hover="color:var(--osf-navy);">Contact</a>
+    </nav>
+  </header>
+
+  <!-- hero -->
+  <section style="background:var(--osf-sand);padding:56px 40px 44px;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--osf-golden-deep);margin-bottom:14px;">WPS AI Benchmark</div>
+      <h1 style="font-family:var(--font-serif);font-size:44px;line-height:1.15;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">How AI systems handle Women, Peace and Security</h1>
+      <p style="font-size:18px;line-height:1.6;color:var(--text-secondary);max-width:680px;margin:0 0 20px;">An expert-validated benchmark testing whether AI models apply Women, Peace and Security principles when a prompt spells them out — and, more importantly, when nobody asks.</p>
+      <div style="background:var(--white);border:1px solid var(--border-subtle);border-left:4px solid var(--osf-red);border-radius:6px;padding:16px 20px;max-width:680px;">
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--osf-navy);"><strong>AI is no substitute for a human WPS advisor</strong> or for direct consultation with women on the ground, and should not be used for unsupervised warfare decision-making. This benchmark measures relative performance among AI systems — it is not a fitness-for-deployment certification.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- leaderboard table -->
+  <section style="padding:40px 40px 20px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:8px;">
+        <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:0;">Leaderboard</h2>
+        <div style="font-size:13px;color:var(--text-muted);">Scores 0.00–1.00 · 0.60 pass threshold · click a column to sort</div>
+      </div>
+
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:14px 0 0;font-size:12.5px;color:var(--text-secondary);">
+        <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-teal);display:inline-block;"></span>0.75 and above — strong</span>
+        <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-golden-deep);display:inline-block;"></span>0.60–0.74 — meets threshold</span>
+        <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-red);display:inline-block;"></span>Below 0.60 — fails threshold</span>
+      </div>
+      <p style="font-size:14px;line-height:1.6;color:var(--text-secondary);margin:12px 0 0;max-width:760px;">Our own systems are included and labelled. They are scored on the identical scenarios, criteria, and judge panel as every bare commercial model here, and successive builds are shown together so the effect of purpose-built scaffolding is visible on the same test.</p>
+
+      <sc-if value="{{ loaded }}" hint-placeholder-val="{{ false }}">
+        <div style="overflow-x:auto;border:1px solid var(--border-subtle);border-radius:6px;margin-top:16px;">
+        <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:700px;table-layout:fixed;">
+          <thead>
+            <tr style="background:var(--osf-sand);text-align:left;">
+              <th style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:44px;">#</th>
+              <th style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:auto;">System</th>
+              <th onClick="{{ setSortDate }}" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:150px;white-space:nowrap;cursor:pointer;">Evaluated ⇕</th>
+              <th onClick="{{ setSortOverall }}" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;white-space:nowrap;width:280px;">Overall ⇕</th>
+              <th style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:90px;">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ rows }}" as="row" hint-placeholder-count="10">
+              <tr style="border-top:1px solid var(--border-subtle);">
+                <td style="padding:14px 10px;color:var(--text-muted);font-size:13px;">{{ row.rank }}</td>
+                <td style="padding:14px 10px;">
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <span style="font-weight:600;color:var(--osf-navy);">{{ row.label }}</span>
+                    <sc-if value="{{ row.isOurs }}" hint-placeholder-val="{{ false }}">
+                      <span style="background:var(--osf-teal);color:var(--white);font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:2px 6px;border-radius:3px;">Our Agent</span>
+                    </sc-if>
+                  </div>
+                  <div style="font-size:12.5px;color:var(--text-muted);margin-top:2px;">{{ row.provider }}</div>
+                  <sc-if value="{{ row.hasDescription }}" hint-placeholder-val="{{ false }}">
+                    <div style="font-size:12.5px;color:var(--text-muted);margin-top:3px;font-style:italic;">{{ row.description }}</div>
+                  </sc-if>
+                </td>
+                <td style="padding:14px 10px;color:var(--text-secondary);font-size:13px;">{{ row.date }}</td>
+                <td style="padding:14px 10px;">
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="flex:1;height:8px;background:var(--gray-100);border-radius:4px;overflow:hidden;">
+                      <div style="height:100%;border-radius:4px;width:{{ row.barWidth }};background:{{ row.barColor }};"></div>
+                    </div>
+                    <span style="font-weight:700;color:var(--osf-navy);font-size:13.5px;width:34px;">{{ row.overall }}</span>
+                  </div>
+                </td>
+                <td style="padding:14px 10px;">
+                  <button onClick="{{ row.toggle }}" style="background:none;border:1px solid var(--border-subtle);border-radius:4px;font-size:12px;color:var(--osf-navy);padding:5px 9px;cursor:pointer;font-family:var(--font-sans);">{{ row.toggleLabel }}</button>
+                </td>
+              </tr>
+              <sc-if value="{{ row.expanded }}" hint-placeholder-val="{{ false }}">
+                <tr>
+                  <td colSpan="5" style="padding:0 10px 18px;background:var(--surface-sunken);">
+                    <sc-if value="{{ row.hasNote }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size:12.5px;color:var(--osf-red);padding:10px 4px 4px;font-style:italic;">{{ row.note }}</div>
+                    </sc-if>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;padding:12px 4px;">
+                      <sc-for list="{{ row.detailCriteria }}" as="dc" hint-placeholder-count="11">
+                        <div style="background:var(--white);border:1px solid var(--border-subtle);border-radius:5px;padding:10px 12px;">
+                          <div style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px;">{{ dc.name }}</div>
+                          <div style="display:flex;align-items:center;gap:6px;">
+                            <div style="flex:1;height:5px;background:var(--gray-100);border-radius:3px;overflow:hidden;">
+                              <div style="height:100%;border-radius:3px;width:{{ dc.pct }}%;background:{{ dc.color }};"></div>
+                            </div>
+                            <span style="font-size:12px;font-weight:600;color:var(--osf-navy);">{{ dc.display }}</span>
+                          </div>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </td>
+                </tr>
+              </sc-if>
+            </sc-for>
+          </tbody>
+        </table>
+        </div>
+      </sc-if>
+
+      <p style="font-size:13px;color:var(--text-muted);margin-top:14px;line-height:1.6;">Scores are macro-averages (equal weight per prompt tier) across three independent AI judges. Differences under roughly 0.10–0.15 should be read as directional, not definitive — see the <a href="methodology.dc.html" style="color:var(--osf-navy);font-weight:600;">Methodology</a> page for judge-agreement caveats by run. Full per-criterion definitions are on the <a href="benchmark.dc.html" style="color:var(--osf-navy);font-weight:600;">WPS AI Benchmark</a> page.</p>
+    </div>
+  </section>
+
+  <!-- download callout: for researchers and compliance/AI tooling -->
+  <section style="background:var(--white);padding:32px 40px;border-top:1px solid var(--border-subtle);">
+    <div style="max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:16px;font-weight:600;color:var(--osf-navy);margin-bottom:4px;">Download the benchmark and run it yourself</div>
+        <div style="font-size:14px;color:var(--text-secondary);">The full scenario set, scoring criteria, and methodology — for researchers, developers, and compliance tooling.</div>
+      </div>
+      <a href="#" style="font-size:14px;font-weight:600;color:var(--white);background:var(--osf-navy);border-radius:5px;padding:11px 20px;text-decoration:none;white-space:nowrap;">Download the benchmark</a>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px 40px;margin-top:24px;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="assets/OSF_Logo_Marchio.jpg" alt="" style="height:30px;display:block;border-radius:4px;"/>
+        <div>
+          <div style="color:var(--white);font-weight:600;font-size:14px;">WPS AI Benchmark</div>
+          <div style="font-size:12.5px;">A project of Our Secure Future, a PAX sapiens program</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;font-size:13px;flex-wrap:nowrap;white-space:nowrap;">
+        <a href="methodology.dc.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Methodology</a>
+        <a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;">Download benchmark</a>
+        <a href="contact.dc.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Contact</a>
+      </div>
+    </div>
+
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { rows: [], criteria: [], sortKey: 'overall', sortDir: 'desc', expanded: {} };
+
+  componentDidMount() {
+    fetch('data/leaderboard.json').then(r => r.json()).then(rows => this.setState({ rows }));
+    fetch('data/criteria.json').then(r => r.json()).then(d => this.setState({ criteria: d.criteria }));
+  }
+
+  scoreColor(v) {
+    if (v >= 0.75) return 'var(--osf-teal)';
+    if (v >= 0.60) return 'var(--osf-golden-deep)';
+    return 'var(--osf-red)';
+  }
+
+  fmt(v) {
+    return v === undefined || v === null ? '—' : v.toFixed(2);
+  }
+
+  setSort(key) {
+    this.setState(s => ({ sortKey: key, sortDir: s.sortKey === key ? (s.sortDir === 'desc' ? 'asc' : 'desc') : 'desc' }));
+  }
+
+  toggleExpand(id) {
+    this.setState(s => ({ expanded: { ...s.expanded, [id]: !s.expanded[id] } }));
+  }
+
+  formatDate(iso) {
+    if (!iso) return '';
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const [y, m, d] = iso.split('-').map(Number);
+    return d + ' ' + months[m - 1] + ' ' + y;
+  }
+
+  renderVals() {
+    const { rows, criteria, sortKey, sortDir, expanded } = this.state;
+    const sorted = [...rows].sort((a, b) => {
+      if (sortKey === 'date') {
+        return sortDir === 'desc' ? b.dateIso.localeCompare(a.dateIso) : a.dateIso.localeCompare(b.dateIso);
+      }
+      const av = sortKey === 'overall' ? a.overall : (a.criteria[sortKey] ?? 0);
+      const bv = sortKey === 'overall' ? b.overall : (b.criteria[sortKey] ?? 0);
+      return sortDir === 'desc' ? bv - av : av - bv;
+    });
+
+    const rowsView = sorted.map((r, i) => {
+      const isExpanded = !!expanded[r.id];
+      return {
+        ...r,
+        rank: i + 1,
+        expanded: isExpanded,
+        toggleLabel: isExpanded ? 'Hide' : 'View all',
+        toggle: () => this.toggleExpand(r.id),
+        overall: this.fmt(r.overall),
+        barWidth: Math.round(r.overall * 100) + '%',
+        barColor: this.scoreColor(r.overall),
+        genderScore: this.fmt(r.criteria['gender-wps']),
+        dueScore: this.fmt(r.criteria['due-diligence']),
+        factualScore: this.fmt(r.criteria['factual-integrity']),
+        hasNote: !!r.note,
+        hasDescription: !!r.description,
+        date: this.formatDate(r.date),
+        dateIso: r.date,
+        detailCriteria: criteria.map(c => {
+          const val = r.criteria[c.id];
+          return { name: c.name, display: this.fmt(val), pct: Math.round((val || 0) * 100), color: this.scoreColor(val || 0) };
+        })
+      };
+    });
+
+    return {
+      loaded: rows.length > 0,
+      rows: rowsView,
+      setSortOverall: () => this.setSort('overall'),
+      setSortDate: () => this.setSort('date'),
+      setSortGender: () => this.setSort('gender-wps'),
+      setSortDue: () => this.setSort('due-diligence'),
+      setSortFactual: () => this.setSort('factual-integrity')
+    };
+  }
+}
+
+</script>
+</body>
+</html>

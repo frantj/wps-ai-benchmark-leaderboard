@@ -1,0 +1,5 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font-sans);color:var(--text-primary);background:var(--surface-page);font-size:var(--fs-body);line-height:var(--lh-body)}
+h1,h2,h3,h4{font-family:var(--font-serif);font-weight:var(--fw-medium);line-height:var(--lh-heading);margin:0;letter-spacing:var(--ls-tight)}
+a{color:var(--osf-teal-dark);text-decoration:underline}
+a:hover{color:var(--osf-navy)}

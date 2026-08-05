@@ -1,0 +1,24 @@
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--radius-sm:4px;
+--radius-md:8px;
+--radius-lg:16px;
+--radius-pill:999px;
+--container-max:1200px;
+--shadow-sm:0 1px 2px rgba(27,58,75,0.08);
+--shadow-md:0 4px 16px rgba(27,58,75,0.10);
+--shadow-lg:0 12px 32px rgba(27,58,75,0.14);
+--border-w:1px;
+--ease-standard:cubic-bezier(.4,0,.2,1); /* @kind other */
+--duration-fast:120ms; /* @kind other */
+--duration-base:200ms; /* @kind other */
+}

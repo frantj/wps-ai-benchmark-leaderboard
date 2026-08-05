@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="The WPS AI Agent — a purpose-built system evaluated on the WPS AI Benchmark as a reference point for what purpose-built tooling can achieve.">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/colors.css">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/typography.css">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/tokens/base.css">
+<link rel="stylesheet" href="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/styles.css">
+<script src="_ds/our-secure-future-design-system-3e86bd59-f139-4dc4-92a6-a3d618dbe994/_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--white);} a{color:var(--osf-navy);} a:hover{color:var(--osf-teal-dark);}</style>
+</helmet>
+
+<div style="font-family:var(--font-sans);background:var(--white);min-height:100vh;">
+
+  <div style="background:var(--osf-sand);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:36px;font-size:12px;color:var(--text-secondary);">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="assets/OSF_Logo_Marchio.jpg" alt="Our Secure Future" style="height:22px;display:block;border-radius:3px;"/>
+      <span>WPS AI Benchmark — A project of Our Secure Future, a PAX sapiens program</span>
+    </div>
+    <a href="#" style="font-weight:600;color:var(--osf-navy);text-decoration:none;">Download the benchmark ↓</a>
+  </div>
+
+  <header style="background:var(--white);border-bottom:1px solid var(--border-subtle);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px;">
+    <a href="index.dc.html" style="font-family:var(--font-serif);font-size:21px;font-weight:600;color:var(--osf-navy);text-decoration:none;letter-spacing:-0.01em;">WPS AI Benchmark</a>
+    <nav style="display:flex;align-items:center;gap:28px;">
+      <a href="index.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">Leaderboard</a>
+      <a href="benchmark.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">The Benchmark</a>
+      <a href="methodology.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">Methodology</a>
+      <a href="our-agent.dc.html" style="font-size:14.5px;color:var(--osf-navy);font-weight:600;text-decoration:none;border-bottom:2px solid var(--osf-teal);padding-bottom:20px;">Our Agent</a>
+      <a href="media.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">Media</a>
+      <a href="about.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">About</a>
+      <a href="contact.dc.html" style="font-size:14.5px;color:var(--text-secondary);text-decoration:none;padding-bottom:20px;">Contact</a>
+    </nav>
+  </header>
+
+  <section style="background:var(--osf-sand);padding:56px 40px 44px;">
+    <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--osf-golden-deep);margin-bottom:14px;">Our Agent</div>
+      <h1 style="font-family:var(--font-serif);font-size:38px;line-height:1.2;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">The WPS AI Agent</h1>
+      <p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0;">A purpose-built system, evaluated on this benchmark as one of the systems on the <a href="index.dc.html" style="font-weight:600;">leaderboard</a> — a reference point for what a system built specifically for WPS analysis can achieve, next to general-purpose commercial models.</p>
+    </div>
+  </section>
+
+  <section style="padding:48px 40px 8px;">
+    <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));">
+      <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:0 0 14px;">What it's built to fix</h2>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">General-purpose AI models tend to fail the same way on WPS content: they perform well when a prompt spells out the gender dimensions, and lose most of that performance on the terse, realistic requests practitioners actually send. Where they do respond, they often state claims with more confidence than the evidence supports, and rarely flag what they don't know. The WPS AI Agent is designed directly against those two failure modes — weak WPS reasoning without explicit cues, and unverified, overconfident claims.</p>
+
+      <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 18px;">How it works, conceptually</h2>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <sc-for list="{{ stages }}" as="s" hint-placeholder-count="4">
+          <div style="display:flex;gap:18px;padding:18px 0;border-top:1px solid var(--border-subtle);">
+            <div style="font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--osf-teal);width:36px;flex-shrink:0;">{{ s.num }}</div>
+            <div>
+              <div style="font-weight:600;color:var(--osf-navy);font-size:16px;margin-bottom:4px;">{{ s.title }}</div>
+              <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">{{ s.desc }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--osf-sand);border-radius:8px;padding:24px 28px;margin:32px 0;">
+        <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:0 0 10px;">Why verification is mandatory, not optional</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--text-secondary);margin:0;">The verification stage is the piece that most directly answers the "unverified claims" failure mode: every claim in a draft response is checked against sourced evidence before the response is finalized. In evaluation, this is the single largest improvement between the agent's first and current build — factual integrity and acknowledgment of uncertainty moved from the system's weakest scores to among its strongest, ahead of every general-purpose model tested. The tradeoff is real: verification takes time and, on an earlier base model, sometimes produced a more hedged voice — a known area of ongoing work, not a solved problem.</p>
+      </div>
+
+      <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">Where it stands today</h2>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">On the current leaderboard, the WPS AI Agent leads on sparse, practitioner-realistic prompts by a wide margin over every general-purpose model tested, and leads on factual integrity and acknowledgment of limitations by an even wider one. It does not lead on every measure — trust building and operational relevance are areas where the strongest commercial models are still ahead, and an honest reading of the results says so. See the full breakdown on the <a href="index.dc.html" style="font-weight:600;">Leaderboard</a>.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">This is a demonstration of what purpose-built scaffolding can add to WPS analysis. Results should always be read alongside a human WPS advisor, not in place of one.</p>
+
+      <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 18px;">Version history</h2>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;gap:20px;padding:16px 0;border-top:1px solid var(--border-subtle);align-items:baseline;">
+          <div style="font-size:13px;color:var(--text-muted);width:96px;flex-shrink:0;">July 2026</div>
+          <div style="flex:1;">
+            <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v2, frontier base model</div>
+            <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">The same workflow moved onto a current base model, with nothing else changed. Every criterion improved, and the gap between cued and uncued prompts — the pattern this benchmark exists to detect — disappeared.</div>
+          </div>
+          <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-teal);width:52px;text-align:right;flex-shrink:0;">0.84</div>
+        </div>
+        <div style="display:flex;gap:20px;padding:16px 0;border-top:1px solid var(--border-subtle);align-items:baseline;">
+          <div style="font-size:13px;color:var(--text-muted);width:96px;flex-shrink:0;">July 2026</div>
+          <div style="flex:1;">
+            <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v2</div>
+            <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">Rebuilt as the four-stage workflow described above, adding mandatory verification. Same base model as v1, so the improvement is attributable to the workflow rather than the model.</div>
+          </div>
+          <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-golden-deep);width:52px;text-align:right;flex-shrink:0;">0.71</div>
+        </div>
+        <div style="display:flex;gap:20px;padding:16px 0;border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);align-items:baseline;">
+          <div style="font-size:13px;color:var(--text-muted);width:96px;flex-shrink:0;">April 2026</div>
+          <div style="flex:1;">
+            <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v1</div>
+            <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">First build. Routed queries to research and policy specialists, with no verification stage — factual integrity and acknowledgment of uncertainty were its weakest scores.</div>
+          </div>
+          <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-red);width:52px;text-align:right;flex-shrink:0;">0.59</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">Scores are overall benchmark averages. All three builds appear on the <a href="index.dc.html" style="font-weight:600;">Leaderboard</a>.</p>
+    </div>
+  </section>
+
+  <section style="padding:12px 40px 56px;">
+    <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));background:var(--osf-navy);border-radius:8px;padding:36px;text-align:center;">
+      <h2 style="font-family:var(--font-serif);font-size:22px;color:var(--white);margin:0 0 10px;">Interested in a system built for your organization's WPS needs?</h2>
+      <p style="font-size:15px;line-height:1.6;color:rgba(255,255,255,0.85);margin:0 0 20px;">Get in touch — we work with organizations that need WPS-aligned analysis at scale.</p>
+      <a href="contact.dc.html" style="display:inline-block;font-size:14px;font-weight:600;color:var(--osf-navy);background:var(--osf-golden);border-radius:5px;padding:11px 22px;text-decoration:none;">Get in touch</a>
+    </div>
+  </section>
+
+  <footer style="background:var(--osf-navy-dark);color:rgba(255,255,255,0.75);padding:32px 40px;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="assets/OSF_Logo_Marchio.jpg" alt="" style="height:30px;display:block;border-radius:4px;"/>
+        <div>
+          <div style="color:var(--white);font-weight:600;font-size:14px;">WPS AI Benchmark</div>
+          <div style="font-size:12.5px;">A project of Our Secure Future, a PAX sapiens program</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;font-size:13px;flex-wrap:nowrap;white-space:nowrap;">
+        <a href="index.dc.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Leaderboard</a>
+        <a href="methodology.dc.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Methodology</a>
+        <a href="contact.dc.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Contact</a>
+      </div>
+    </div>
+
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      stages: [
+        { num: '01', title: 'Intake and routing', desc: 'Reads the incoming request and frames what kind of WPS analysis it calls for, before any specialist is engaged.' },
+        { num: '02', title: 'Domain specialists', desc: 'Routes to specialist agents grounded in WPS research and policy corpora — evidence and case literature on one side, national and institutional policy commitments on the other.' },
+        { num: '03', title: 'Synthesis', desc: 'Combines the specialists’ input into a single, coherent, decision-ready response.' },
+        { num: '04', title: 'Mandatory verification', desc: 'Checks every claim in the draft response against sourced evidence before the response is finalized, flagging what it cannot verify rather than presenting it as settled.' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
