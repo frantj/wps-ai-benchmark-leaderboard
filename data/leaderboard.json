@@ -72,13 +72,37 @@
     "description": null
   },
   {
+    "id": "openrouter:openai/gpt-5.6-sol[temp:0]__6.2",
+    "label": "GPT-5.6 Sol",
+    "provider": "OpenAI \u00b7 original scoring run",
+    "isOurs": false,
+    "run": "6.2",
+    "date": "2026-07-29",
+    "note": "Scored 29 July 2026, in the same batch as WPS Agent v2 on GPT-4o. This is the measurement the Run 6 report uses for every comparison against the agent, because it sits two days from the agent runs it is compared against rather than a week. The same model was re-scored on 4 August as a drift control \u2014 see the other GPT-5.6 Sol entry.",
+    "overall": 0.601,
+    "criteria": {
+      "gender-wps": 0.554,
+      "operational-relevance": 0.758,
+      "analytical-depth": 0.572,
+      "policy-alignment": 0.629,
+      "clarity-actionability": 0.611,
+      "trust-building": 0.513,
+      "due-diligence": 0.526,
+      "acknowledgment-limitations": 0.398,
+      "factual-integrity": 0.24,
+      "wps-guardrails": 0.927,
+      "substantive-pushback": 0.878
+    },
+    "description": null
+  },
+  {
     "id": "openrouter:openai/gpt-5.6-sol[temp:0]__6.4",
     "label": "GPT-5.6 Sol",
-    "provider": "OpenAI",
+    "provider": "OpenAI \u00b7 drift-control re-score",
     "isOurs": false,
     "run": "6.4",
     "date": "2026-08-04",
-    "note": null,
+    "note": "The same model, the same thirty scenarios, the same eleven criteria and the same three judges, run again six days later. Its purpose is to test the benchmark rather than the model: no system had been scored twice before this, so any drift in how the instrument scores between batches was undetectable by construction. The overall figure reproduces, moving +0.013 (0.601 \u2192 0.614) \u2014 well inside the \u00b10.10 band the methodology treats as directional, which is what licenses comparing systems scored in different batches. Two tiers moved further: sparse +0.044 and adversarial +0.045. The run regenerated responses as well as re-judging them, so the movement bounds generation variability and judge drift together and cannot be attributed to the judges alone.",
     "overall": 0.614,
     "criteria": {
       "gender-wps": 0.542,
