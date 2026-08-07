@@ -1,0 +1,24 @@
+# WPS AI Benchmark
+
+> An evaluation of how AI systems handle Women, Peace & Security (WPS) reasoning — realistic peace-and-security scenarios scored against an 11-criterion rubric grounded in UNSCR 1325 and successor frameworks, NATO's 2024 WPS Policy, and National Action Plans. Published by Our Secure Future, a PAX sapiens program.
+
+This site publishes a leaderboard of AI model/agent performance on the benchmark, the full methodology, and structured data for independent replication. Scores are judge-graded (three independent LLM judges, holistic + prompt-aware protocols) on a 0–1 scale across 30 prompts spanning five difficulty tiers (context-rich, gender-neutral, sparse/ambiguous, adversarial, and cue-stripped pairs).
+
+## Key pages
+
+- [Leaderboard](/index.html): Current model/agent rankings, overall and per-criterion scores, run version and date.
+- [The Benchmark](/benchmark.html): What WPS is and how the benchmark is structured.
+- [Methodology](/methodology.html): How scenarios are built and validated, the judging protocol, aggregation rules, and inter-judge reliability (Krippendorff's alpha).
+- [Our Agent](/our-agent.html): The WPS Agent architecture evaluated on this leaderboard.
+- [About](/about.html): About Our Secure Future / PAX sapiens and this project.
+
+## Structured data
+
+- [Leaderboard data (JSON)](/data/leaderboard.json): Per-model/agent overall and per-criterion scores, provider, run version, date.
+- [Criteria and tiers (JSON)](/data/criteria.json): The 11 scoring criteria (with judge questions) and the 5 prompt tiers, used to interpret leaderboard.json.
+
+## Notes for agents and researchers
+
+- Scores are model-graded (LLM-as-judge), not human-graded; judge/rubric version should be treated as part of the score's identity — do not compare scores across differing run versions without checking the methodology page for rubric changes.
+- Score differences under roughly 0.10–0.15 within a single run should not be treated as a reliable ranking (see Methodology > Judge agreement).
+- This is a dev/staging instance; data and structure may change before the production release.
