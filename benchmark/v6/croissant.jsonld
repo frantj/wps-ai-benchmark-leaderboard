@@ -1,0 +1,238 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "wps-ai-benchmark-v6-blueprint",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "description": "WPS AI Benchmark v6: a structured suite of 30 realistic peace-and-security scenarios and an 11-criterion scoring rubric used to evaluate how AI systems integrate Women, Peace and Security (WPS) principles. Scenarios span five prompt tiers of increasing difficulty (T1 Context-Rich, T2 Gender-Neutral, T3 Sparse/Ambiguous, T4 Adversarial/Operational-Cover, T1-neutral Cue-Stripped Pairs). Every scenario carries all 11 criteria (9 standard, 2 conditional-adversarial). Published as a single Weval blueprint YAML so any organization can independently replicate the benchmark and run it against its own models. Tier labels are documented in the file's header-comment convention and in the accompanying WPS AI Benchmark methodology page, not as a separate structured field in this file.",
+  "alternateName": "Evaluating AI Performance in Women, Peace & Security Scenarios",
+  "url": "https://github.com/frantj/wps-ai-benchmark-leaderboard",
+  "sameAs": [
+    "https://github.com/frantj/Weval-WPS-Eval"
+  ],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "sc:Organization",
+    "name": "Our Secure Future, a PAX sapiens Program",
+    "url": "https://oursecurefuture.org"
+  },
+  "publisher": {
+    "@type": "sc:Organization",
+    "name": "Our Secure Future, a PAX sapiens Program",
+    "url": "https://oursecurefuture.org"
+  },
+  "citeAs": "Our Secure Future. \"WPS AI Benchmark — Scenario & Rubric Blueprint (v6).\" 2026. CC BY 4.0.",
+  "datePublished": "2026-08-06",
+  "version": "6",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "contentRating": "Contains depictions of armed conflict, displacement, and conflict-related sexual and gender-based violence. The T4 prompt set deliberately contains requests framed to undermine WPS objectives, because resisting them is what that set measures; these are test inputs, not endorsed positions.",
+  "usageInfo": "Reuse is deliberately unrestricted, INCLUDING as training data: no canary or no-train notice is attached, because putting this practitioner-derived WPS standard in front of model developers is a goal of publishing it. Attribution under CC BY 4.0 is all that is asked. The trade-off is accepted openly - for any model released after publication, a good score may reflect having absorbed this rubric rather than reasoning well about WPS, so longitudinal 'models are improving' claims require held-out scenarios and cannot rest on this set. Scores are not a safety certification and must not be read as clearance for operational or targeting use. Differences under 0.10 are directional only - see RELIABILITY.md for agreement levels, test-retest evidence, and threats to validity.",
+  "contactPoint": [
+    {
+      "@type": "sc:ContactPoint",
+      "name": "Sahana Dharmapuri, WPS AI Benchmark team, PAX sapiens / Our Secure Future",
+      "email": "sdharmapuri@paxsapiens.org",
+      "url": "https://github.com/frantj/wps-ai-benchmark-leaderboard/issues",
+      "contactType": "Benchmark maintenance, corrections, and disputed scores"
+    },
+    {
+      "@type": "sc:ContactPoint",
+      "name": "Jesper Frant, WPS AI Benchmark maintainer",
+      "email": "jesper.frant@gmail.com",
+      "contactType": "Maintainer, direct"
+    }
+  ],
+  "keywords": [
+    "women-peace-security",
+    "wps",
+    "gender",
+    "conflict",
+    "peace-and-security",
+    "policy-alignment",
+    "llm-evaluation",
+    "benchmark"
+  ],
+  "creativeWorkStatus": "Published",
+  "isLiveDataset": false,
+  "dct:isPartOf": {
+    "@type": "sc:Dataset",
+    "name": "WPS AI Benchmark",
+    "url": "https://github.com/frantj/wps-ai-benchmark-leaderboard"
+  },
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "wps-ai-benchmark-v6-blueprint.yml",
+      "name": "wps-ai-benchmark-v6-blueprint.yml",
+      "description": "The full v6 blueprint: one YAML header/config document followed by 30 scenario documents, separated by '---' line separators, in the Weval multi-document blueprint format (see https://github.com/weval-org/configs and https://weval.org). The header pins the reproduction settings used for the published leaderboard scores: temperature 0 and the three-judge holistic consensus panel (gemini-2.5-flash, gpt-4.1-mini, claude-haiku-4.5). Systems under test are intentionally left unset so the blueprint is bring-your-own-model.",
+      "contentUrl": "./wps-ai-benchmark-v6-blueprint.yml",
+      "encodingFormat": "application/yaml",
+      "sha256": "2ff8f8739fc75a5c372c55046a5c597c671fff76c59385a2c26d2ffa1a3c5077",
+      "md5": "c5b090b5a47ba54ee9cfc79b07d7cee2",
+      "contentSize": "414492 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "README.md",
+      "name": "README.md",
+      "description": "Factsheet for the benchmark: what it measures and the four-level measurement chain from the WPS background concept to applied scores, the five prompt sets and scenario provenance, the scoring method, how to run it, how scores should and should not be interpreted, a content note, known limitations, expert-review provenance, and version history.",
+      "contentUrl": "./README.md",
+      "encodingFormat": "text/markdown",
+      "sha256": "4b642b4912d649999da3e0f55ce1a7d1298ff56249bac2f04b0bb95c24d4805b",
+      "md5": "91bf82f85e03b0e51ab52abd9cb1609b",
+      "contentSize": "15641 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "RELIABILITY.md",
+      "name": "RELIABILITY.md",
+      "description": "Reliability and validity evidence: inter-judge agreement (Krippendorff's alpha) with the restricted-range explanation for why it is low, per-tier test-retest results from a drift-control re-score, documented threats to validity including response-length confounds and possible rubric under-enforcement, and a summary table of which claim types the instrument does and does not support.",
+      "contentUrl": "./RELIABILITY.md",
+      "encodingFormat": "text/markdown",
+      "sha256": "7ddfb2da4e24750979d8a7faef8aa5619f4a21c2fe3f0033e4de9e02850f0953",
+      "md5": "cac4a70593c43f2e576821ce51478492",
+      "contentSize": "7599 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "LICENSE",
+      "name": "LICENSE",
+      "description": "CC BY 4.0 license grant with attribution requirement, an explicit statement that use as machine learning training data is permitted and welcomed (no canary, no no-train request), the required attribution string, and a no-warranty notice stating that scores are not a safety certification.",
+      "contentUrl": "./LICENSE",
+      "encodingFormat": "text/plain",
+      "sha256": "74db8fd8f09ac5af5da3aaeb6cd8fcaf2267cca674ca905a9387933833696862",
+      "md5": "d76fac806ad950988d857b159ce784f5",
+      "contentSize": "1750 B"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "scenarios",
+      "name": "scenarios",
+      "description": "One record per scenario document in the blueprint (30 total). Each record is judged against all 11 rubric criteria embedded in its 'should' field. NOTE ON EXTRACTION: this source file is a multi-document YAML, not CSV/JSON/Parquet, so generic Croissant loaders (e.g. mlcroissant) that expect those formats will not auto-parse records from it — the field descriptions below document the structure for human readers and for the canonical Weval blueprint parser (https://weval.org). A JSON/JSONL mirror of these records can be produced on request for tooling that requires automatic Croissant record extraction.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/id",
+          "name": "id",
+          "description": "Stable unique scenario identifier, e.g. 'scenario-01-drc-consultations'. The embedded number is part of the identifier, NOT an ordinal or a tier marker: slugs were retained across versions even where display numbering changed, so the sequence is intentionally non-contiguous (there is no 'scenario-15'). Do not infer position or tier from the number - the header-comment tier label above each scenario is the authoritative tier assignment. A trailing '-neutral' suffix marks a cue-stripped T1 variant and a leading 't4-' marks an adversarial scenario. IDs are the join key to previously published results and are not renumbered.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "wps-ai-benchmark-v6-blueprint.yml"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/weight",
+          "name": "weight",
+          "description": "Per-scenario weight used in aggregation. Currently constant at 1.0 for all 30 scenarios; the benchmark's headline score is a macro-average across the five prompt tiers, so tier size (not per-scenario weight) is what equalizes tier influence.",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "wps-ai-benchmark-v6-blueprint.yml"
+            },
+            "extract": {
+              "column": "weight"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/prompt",
+          "name": "prompt",
+          "description": "The full scenario text presented to the evaluated AI system, combining a 'Context:' section (operational/country background) and a 'Prompt:' section (the actual request or task).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "wps-ai-benchmark-v6-blueprint.yml"
+            },
+            "extract": {
+              "column": "prompt"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/criteria",
+          "name": "should",
+          "description": "Ordered list of 11 rubric criterion statements this scenario's responses are judged against (9 standard + 2 conditional-adversarial: WPS Guardrails, Substantive Pushback). Each list item begins with the criterion name followed by ': ' and the full judge-facing scoring guidance for that criterion in this scenario's context.",
+          "dataType": "sc:Text",
+          "repeated": true,
+          "source": {
+            "fileObject": {
+              "@id": "wps-ai-benchmark-v6-blueprint.yml"
+            },
+            "extract": {
+              "column": "should"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "scenarios/render_as",
+          "name": "render_as",
+          "description": "Rendering hint for the prompt/criteria text. Constant value 'markdown' for every scenario in this file.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "wps-ai-benchmark-v6-blueprint.yml"
+            },
+            "extract": {
+              "column": "render_as"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
