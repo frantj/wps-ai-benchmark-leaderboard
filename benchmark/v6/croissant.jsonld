@@ -74,8 +74,8 @@
   "contactPoint": [
     {
       "@type": "sc:ContactPoint",
-      "name": "Sahana Dharmapuri, WPS AI Benchmark team, PAX sapiens / Our Secure Future",
-      "email": "sdharmapuri@paxsapiens.org",
+      "name": "WPS AI Benchmark team, PAX sapiens / Our Secure Future",
+      "email": "oursecurefuture@paxsapiens.org",
       "url": "https://github.com/frantj/wps-ai-benchmark-leaderboard/issues",
       "contactType": "Benchmark maintenance, corrections, and disputed scores"
     },
@@ -122,9 +122,9 @@
       "description": "Factsheet for the benchmark: what it measures and the four-level measurement chain from the WPS background concept to applied scores, the five prompt sets and scenario provenance, the scoring method, how to run it, how scores should and should not be interpreted, a content note, known limitations, expert-review provenance, and version history.",
       "contentUrl": "./README.md",
       "encodingFormat": "text/markdown",
-      "sha256": "4b642b4912d649999da3e0f55ce1a7d1298ff56249bac2f04b0bb95c24d4805b",
-      "md5": "91bf82f85e03b0e51ab52abd9cb1609b",
-      "contentSize": "15641 B"
+      "sha256": "d423b7be7bde3186c703956073d3830bdd374043d8d2a0c2f3fde27521cd01b6",
+      "md5": "90ed9866d3e2ec8caf0015ce40bdac24",
+      "contentSize": "15642 B"
     },
     {
       "@type": "cr:FileObject",

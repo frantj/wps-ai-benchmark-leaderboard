@@ -283,5 +283,5 @@ Corrections, disputed scores, and rubric disagreements are welcome — particula
 practitioners, who are the intended authority on whether these criteria capture the right thing.
 
 - **Issues / feedback:** open an issue on the [WPS AI Benchmark repository](https://github.com/frantj/wps-ai-benchmark-leaderboard)
-- **Benchmark team:** Sahana Dharmapuri — sdharmapuri@paxsapiens.org
+- **Benchmark team:** oursecurefuture@paxsapiens.org
 - **Maintainer:** Jesper Frant — jesper.frant@gmail.com
