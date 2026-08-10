@@ -236,7 +236,7 @@ will be objectionable by design.
 ## 9. Provenance and expert involvement
 
 Scenarios and criteria were drafted against the WPS research literature, then reviewed in detail
-by a panel of **six WPS practitioners and researchers**, who submitted **109 comments** plus
+by a panel of **WPS practitioners and researchers**, who submitted **109 comments** plus
 tracked edits across every scenario and every criterion. Each comment was dispositioned
 individually — accepted, modified, or rejected with a stated reason — and those dispositions are
 recorded in the project's criteria and scenario review logs.
