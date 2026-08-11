@@ -74,8 +74,8 @@
       <form style="background:var(--white);border:1px solid var(--border-subtle);border-radius:8px;padding:28px;" onSubmit="{{ handleSubmit }}">
         <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
           <div style="text-align:center;padding:24px 0;">
-            <div style="font-size:18px;font-weight:600;color:var(--osf-navy);margin-bottom:8px;">Thank you.</div>
-            <div style="font-size:14.5px;color:var(--text-secondary);">We'll be in touch shortly at the address you provided.</div>
+            <div style="font-size:18px;font-weight:600;color:var(--osf-navy);margin-bottom:8px;">Almost there.</div>
+            <div style="font-size:14.5px;color:var(--text-secondary);">We've opened a pre-filled email in your mail app — just hit send. If nothing opened, email us directly at <a href="mailto:oursecurefuture@paxsapiens.org" style="font-weight:600;">oursecurefuture@paxsapiens.org</a>.</div>
           </div>
         </sc-if>
         <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
@@ -134,7 +134,27 @@ class Component extends DCLogic {
     return {
       submitted: this.state.submitted,
       notSubmitted: !this.state.submitted,
-      handleSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); }
+      handleSubmit: (e) => {
+        e.preventDefault();
+        const name = document.getElementById('contact-name').value.trim();
+        const org = document.getElementById('contact-org').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const interest = document.getElementById('contact-interest').value.trim();
+
+        const subject = `WPS AI Benchmark inquiry from ${name || 'website visitor'}`;
+        const bodyLines = [
+          `Name: ${name}`,
+          `Organization: ${org || '(not provided)'}`,
+          `Email: ${email}`,
+          '',
+          'What they are interested in:',
+          interest || '(not provided)'
+        ];
+        const mailto = `mailto:oursecurefuture@paxsapiens.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
+        window.location.href = mailto;
+        this.setState({ submitted: true });
+      }
     };
   }
 }
