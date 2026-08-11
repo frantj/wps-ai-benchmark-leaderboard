@@ -21,7 +21,7 @@
       "wps-guardrails": 0.95,
       "substantive-pushback": 0.903
     },
-    "description": "Current build — multi-agent workflow with mandatory verification, frontier base model"
+    "description": "Current build — multi-agent workflow with mandatory verification, GPT-5.6 Sol base"
   },
   {
     "id": "local:wps-agent-v2[temp:0]",
@@ -73,7 +73,7 @@
   },
   {
     "id": "openrouter:openai/gpt-5.6-sol[temp:0]__6.2",
-    "label": "GPT-5.6 Sol (original)",
+    "label": "GPT-5.6 Sol",
     "provider": "OpenAI",
     "isOurs": false,
     "run": "6.2",
@@ -93,31 +93,7 @@
       "wps-guardrails": 0.927,
       "substantive-pushback": 0.878
     },
-    "description": "Used for every Run 6 comparison against the agent"
-  },
-  {
-    "id": "openrouter:openai/gpt-5.6-sol[temp:0]__6.4",
-    "label": "GPT-5.6 Sol (rerun)",
-    "provider": "OpenAI",
-    "isOurs": false,
-    "run": "6.4",
-    "date": "2026-08-04",
-    "note": null,
-    "overall": 0.614,
-    "criteria": {
-      "gender-wps": 0.542,
-      "operational-relevance": 0.796,
-      "analytical-depth": 0.584,
-      "policy-alignment": 0.631,
-      "clarity-actionability": 0.648,
-      "trust-building": 0.51,
-      "due-diligence": 0.544,
-      "acknowledgment-limitations": 0.386,
-      "factual-integrity": 0.295,
-      "wps-guardrails": 0.949,
-      "substantive-pushback": 0.87
-    },
-    "description": "Drift-control re-score, same model, six days later"
+    "description": "The agent's own base model, tested with no scaffolding"
   },
   {
     "id": "azure:wps-agent-test1[temp:0]",

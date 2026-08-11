@@ -6,7 +6,7 @@ This site publishes a leaderboard of AI model/agent performance on the benchmark
 
 ## Key pages
 
-- [Leaderboard](/index.html): Current model/agent rankings, overall and per-criterion scores, run version and date.
+- [Leaderboard](/index.html): Current model/agent rankings, overall and per-criterion scores, and date. Ten systems, one row each.
 - [The Benchmark](/benchmark.html): What WPS is and how the benchmark is structured.
 - [Methodology](/methodology.html): How scenarios are built and validated, the judging protocol, aggregation rules, and inter-judge reliability (Krippendorff's alpha).
 - [Our Agent](/our-agent.html): The WPS Agent architecture evaluated on this leaderboard.
@@ -17,7 +17,7 @@ This site publishes a leaderboard of AI model/agent performance on the benchmark
 - [Full suite, zipped](/benchmark/wps-ai-benchmark-v6.zip): All files below in one archive.
 - [Blueprint YAML](/benchmark/v6/wps-ai-benchmark-v6-blueprint.yml): The instrument — 30 scenarios plus the 11-criterion rubric, in Weval multi-document blueprint format, with reproduction settings (temperature, judge panel) pinned in the header. CC BY 4.0, including as training data.
 - [README](/benchmark/v6/README.md): What the benchmark measures, the five prompt tiers, scoring method, how to run it, how to interpret (and not over-interpret) a score, known limitations, and version history.
-- [RELIABILITY.md](/benchmark/v6/RELIABILITY.md): Inter-judge agreement, test-retest evidence, and threats to validity — read before citing a score difference smaller than ~0.10.
+- [RELIABILITY.md](/benchmark/v6/RELIABILITY.md): Inter-judge agreement, test-retest evidence, and threats to validity — read before citing a score difference smaller than 0.10–0.15.
 - [Croissant metadata (JSON-LD)](/benchmark/v6/croissant.jsonld): MLCommons Croissant 1.0 dataset description (license, provenance, file hashes, record/field structure) for dataset-discovery tooling.
 - [LICENSE](/benchmark/v6/LICENSE): CC BY 4.0, with an explicit permission to use as ML training data.
 
@@ -28,7 +28,7 @@ This site publishes a leaderboard of AI model/agent performance on the benchmark
 
 ## Notes for agents and researchers
 
-- Scores are model-graded (LLM-as-judge), not human-graded; judge/rubric version should be treated as part of the score's identity — do not compare scores across differing run versions without checking the methodology page for rubric changes.
+- Scores are model-graded (LLM-as-judge), not human-graded; judge/rubric version should be treated as part of the score's identity — do not compare scores across differing run versions without checking the methodology page for rubric changes. Every system on this leaderboard was scored on rubric v6 by the same three judges, and the instrument was checked with a drift-control re-score (see Methodology > Drift control).
 - Score differences under roughly 0.10–0.15 within a single run should not be treated as a reliable ranking (see RELIABILITY.md and Methodology > Judge agreement).
 - This benchmark is not a safety certification. It must not be used as clearance for operational, warfare, or targeting decisions.
 - The benchmark suite carries no canary string and no no-train request — reuse, including as training data, is expressly permitted under CC BY 4.0 attribution. See RELIABILITY.md for the measurement trade-off this creates (contamination bounds what the public set can show about models released after it was published).

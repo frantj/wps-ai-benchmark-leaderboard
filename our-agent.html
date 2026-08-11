@@ -78,15 +78,50 @@
       </div>
 
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">Where it stands today</h2>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">On the current leaderboard, the WPS AI Agent on its frontier base model leads every general-purpose model tested on <strong>all eleven criteria</strong>, and clears the pass mark on all eleven — up from nine on the previous build. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest commercial model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.88 against 0.58</strong>. Those are the two largest gaps of the eleven criteria — every other margin is under 0.19. Gender-sensitivity and trust building were the two measures the earlier build fell below the pass mark on, and both are among the largest gains — gender-sensitivity by the widest margin of any criterion.<br><br>Leading on a measure is not the same as being strong on it. Trust building remains the agent's lowest score at 0.61, only just above the 0.60 pass mark, and policy alignment at 0.70 has room to improve. See the full breakdown on the <a href="index.html" style="font-weight:600;">Leaderboard</a>.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">On the current leaderboard, the WPS AI Agent on GPT-5.6 Sol leads every general-purpose model tested on <strong>all eleven criteria</strong>, and clears the pass mark on all eleven — up from nine on the previous build. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest commercial model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.88 against 0.58</strong>. Those are the two largest gaps of the eleven criteria — every other margin is under 0.19. Gender-sensitivity and trust building were the two measures the earlier build fell below the pass mark on, and both are among the largest gains — gender-sensitivity by the widest margin of any criterion.<br><br>Leading on a measure is not the same as being strong on it. Trust building remains the agent's lowest score at 0.61, only just above the 0.60 pass mark, and policy alignment at 0.70 has room to improve. See the full breakdown on the <a href="index.html" style="font-weight:600;">Leaderboard</a>.</p>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">This is a demonstration of what purpose-built scaffolding can add to WPS analysis. Results should always be read alongside a human WPS advisor, not in place of one.</p>
+
+      <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">What the structure is worth, and on which engine</h2>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Running the same agent on two different base models, and testing each of those models bare, gives four measurements — enough to separate what the engine contributes from what the structure contributes. The final batch of testing added the missing one, bare GPT-4o.</p>
+
+      <div style="overflow-x:auto;margin:18px 0;">
+        <table style="border-collapse:collapse;width:100%;font-size:15px;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--osf-navy);">
+              <th style="text-align:left;padding:8px 12px 8px 0;color:var(--osf-navy);">Base model</th>
+              <th style="text-align:right;padding:8px 12px;color:var(--osf-navy);">Bare</th>
+              <th style="text-align:right;padding:8px 12px;color:var(--osf-navy);">With the agent</th>
+              <th style="text-align:right;padding:8px 0 8px 12px;color:var(--osf-navy);">What the structure adds</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 12px 8px 0;">GPT-4o</td>
+              <td style="text-align:right;padding:8px 12px;">0.334</td>
+              <td style="text-align:right;padding:8px 12px;">0.712</td>
+              <td style="text-align:right;padding:8px 0 8px 12px;font-weight:600;">+0.378</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:8px 12px 8px 0;">GPT-5.6 Sol</td>
+              <td style="text-align:right;padding:8px 12px;">0.601</td>
+              <td style="text-align:right;padding:8px 12px;">0.839</td>
+              <td style="text-align:right;padding:8px 0 8px 12px;font-weight:600;">+0.238</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">The structure is worth <strong>more on the weaker engine</strong>, not less. An earlier version of this page implied the opposite — that a better engine and the scaffolding simply added up. They do not: they interact, and the interaction is negative.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Diminishing return is not absence of return. The ranking is 0.839 (structure on the strong engine) &gt; 0.712 (structure on the weak one) &gt; 0.601 (strong engine alone) &gt; 0.334 (weak engine alone). Structure on the older engine still beats the newer engine with nothing around it, so buying a better model does not substitute for building the structure at any point here — it just yields less on top of it.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">And on the specific thing this benchmark exists to measure, the interaction runs the other way. On gender-sensitivity in the sparse tier — terse, realistic requests, where general-purpose models fail worst — the structure is worth <strong>+0.537</strong> on GPT-4o (0.000 → 0.537) and <strong>+0.663</strong> on GPT-5.6 Sol (0.210 → 0.873). A better engine makes the scaffolding <em>more</em> effective at closing the WPS gap, and less necessary for general competence. Both are true and they are not in tension.</p>
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.7;">Two limits on this. The interaction rests on two engines, which establishes a direction but not a shape — it cannot say where a third engine would land. And both agent builds were served through Azure while every bare model was scored via OpenRouter, so each figure carries a provider difference alongside the structural one; because it is present in both arms it largely cancels in the comparison between them, but the two absolute figures should each be read as slightly generous.</p>
 
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 18px;">Version history</h2>
       <div style="display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;gap:20px;padding:16px 0;border-top:1px solid var(--border-subtle);align-items:baseline;">
           <div style="font-size:13px;color:var(--text-muted);width:96px;flex-shrink:0;">July 2026</div>
           <div style="flex:1;">
-            <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v2, frontier base model</div>
+            <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v2, GPT-5.6 Sol base</div>
             <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">The same workflow moved onto a current base model, with nothing else changed. Every criterion improved, and the gap between cued and uncued prompts — the pattern this benchmark exists to detect — disappeared.</div>
           </div>
           <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-teal);width:52px;text-align:right;flex-shrink:0;">0.84</div>
@@ -95,7 +130,7 @@
           <div style="font-size:13px;color:var(--text-muted);width:96px;flex-shrink:0;">July 2026</div>
           <div style="flex:1;">
             <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v2</div>
-            <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">Rebuilt as the four-stage workflow described above, adding mandatory verification. Same base model as v1, so the improvement is attributable to the workflow rather than the model.</div>
+            <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">Rebuilt as the four-stage workflow described above, adding mandatory verification. Same base model as v1, so this improvement is the workflow's — one scaffold replacing another on a fixed engine.</div>
           </div>
           <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-golden-deep);width:52px;text-align:right;flex-shrink:0;">0.71</div>
         </div>
@@ -108,7 +143,7 @@
           <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-red);width:52px;text-align:right;flex-shrink:0;">0.59</div>
         </div>
       </div>
-      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">Scores are overall benchmark averages. All three builds appear on the <a href="index.html" style="font-weight:600;">Leaderboard</a>.</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">Dates are when each build was made. All three were scored in the same July–August 2026 window, on identical scenarios and criteria and by the same three judges — so the differences between them are the builds, not the instrument. Scores are overall benchmark averages; all three builds appear on the <a href="index.html" style="font-weight:600;">Leaderboard</a>.</p>
     </div>
   </section>
 
