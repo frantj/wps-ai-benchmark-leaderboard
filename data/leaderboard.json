@@ -96,7 +96,7 @@
     "description": "The agent's own base model, tested with no scaffolding"
   },
   {
-    "id": "azure:wps-agent-test1[temp:0]",
+    "id": "azure:WPS-AI-Agent-v1[temp:0]",
     "label": "WPS Agent v1 (GPT-4o)",
     "provider": "Our Secure Future",
     "isOurs": true,
