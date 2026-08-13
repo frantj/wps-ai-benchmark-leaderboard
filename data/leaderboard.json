@@ -93,7 +93,7 @@
       "wps-guardrails": 0.927,
       "substantive-pushback": 0.878
     },
-    "description": "The agent's own base model, tested with no scaffolding"
+    "description": null
   },
   {
     "id": "azure:WPS-AI-Agent-v1[temp:0]",
