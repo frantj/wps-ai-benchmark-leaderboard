@@ -23,7 +23,7 @@ This site publishes a leaderboard of AI model/agent performance on the benchmark
 
 ## Structured data (leaderboard results)
 
-- [Leaderboard data (JSON)](/data/leaderboard.json): Per-model/agent overall and per-criterion scores, provider, run version, date.
+- [Leaderboard data (JSON)](/data/leaderboard.json): Per-model/agent overall and per-criterion scores, provider, run version, date, and `genderByTier` — the gender-sensitivity / WPS integration score broken out by prompt tier (T1 cued, T1-neutral cue-stripped, T2 gender-neutral, T3 sparse), each with the number of scenarios in that tier the system actually returned a response for. Read the per-tier figures before the per-criterion average, which is a mean across tiers and therefore conceals the WPS Competence Gap — the fall from cued to sparse prompts — that is the benchmark's central finding.
 - [Criteria and tiers (JSON)](/data/criteria.json): The 11 scoring criteria (with judge questions) and the 5 prompt tiers, used to interpret leaderboard.json.
 
 ## Notes for agents and researchers

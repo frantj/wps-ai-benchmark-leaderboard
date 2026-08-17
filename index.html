@@ -136,7 +136,8 @@ a:hover{color:var(--osf-teal-dark);}
                     <sc-if value="{{ row.hasNote }}" hint-placeholder-val="{{ false }}">
                       <div style="font-size:12.5px;line-height:1.6;color:var(--text-secondary);padding:10px 4px 4px;font-style:italic;">{{ row.note }}</div>
                     </sc-if>
-                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;padding:12px 4px;">
+                    <div style="font-size:11.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);padding:12px 4px 0;">{{ row.criteriaHeading }}</div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;padding:10px 4px 12px;">
                       <sc-for list="{{ row.detailCriteria }}" as="dc" hint-placeholder-count="11">
                         <div style="background:var(--white);border:1px solid var(--border-subtle);border-radius:5px;padding:10px 12px;">
                           <div style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px;">{{ dc.name }}</div>
@@ -149,6 +150,24 @@ a:hover{color:var(--osf-teal-dark);}
                         </div>
                       </sc-for>
                     </div>
+                    <sc-if value="{{ row.hasGenderTiers }}" hint-placeholder-val="{{ false }}">
+                      <div style="padding:6px 4px 2px;">
+                        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);margin-bottom:9px;">Gender / WPS integration by prompt tier</div>
+                        <div style="display:flex;flex-direction:column;gap:7px;">
+                          <sc-for list="{{ row.genderTiers }}" as="gt" hint-placeholder-count="4">
+                            <div style="display:flex;align-items:center;gap:10px;">
+                              <span style="font-size:12px;color:var(--text-secondary);width:210px;flex-shrink:0;">{{ gt.label }}</span>
+                              <div style="flex:1;height:6px;background:var(--gray-100);border-radius:3px;overflow:hidden;">
+                                <div style="height:100%;border-radius:3px;width:{{ gt.pct }}%;background:{{ gt.color }};"></div>
+                              </div>
+                              <span style="font-size:12px;font-weight:600;color:var(--osf-navy);width:30px;text-align:right;flex-shrink:0;">{{ gt.display }}</span>
+                              <span style="font-size:11px;color:var(--text-muted);width:52px;flex-shrink:0;">{{ gt.partial }}</span>
+                            </div>
+                          </sc-for>
+                        </div>
+                        <div style="font-size:11.5px;color:var(--text-muted);margin-top:9px;">The fall from cued to sparse prompts is the WPS Competence Gap — how much of a system's WPS performance depends on being told to look for it. See <a href="benchmark.html" style="color:var(--text-muted);text-decoration:underline;">The Benchmark</a>.</div>
+                      </div>
+                    </sc-if>
                   </td>
                 </tr>
               </sc-if>
@@ -200,11 +219,11 @@ a:hover{color:var(--osf-teal-dark);}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { rows: [], criteria: [], sortKey: 'overall', sortDir: 'desc', expanded: {} };
+  state = { rows: [], criteria: [], tiers: [], sortKey: 'overall', sortDir: 'desc', expanded: {} };
 
   componentDidMount() {
     fetch('data/leaderboard.json').then(r => r.json()).then(rows => this.setState({ rows }));
-    fetch('data/criteria.json').then(r => r.json()).then(d => this.setState({ criteria: d.criteria }));
+    fetch('data/criteria.json').then(r => r.json()).then(d => this.setState({ criteria: d.criteria, tiers: d.tiers }));
   }
 
   scoreColor(v) {
@@ -232,8 +251,34 @@ class Component extends DCLogic {
     return d + ' ' + months[m - 1] + ' ' + y;
   }
 
+  // Per-tier gender/WPS bars for one row. `n` is how many scenarios in that
+  // tier the system actually returned a response for; when it is short of the
+  // tier's scenario count the bar is marked, since a model that was refused or
+  // filtered on the hardest prompts would otherwise look better than it is.
+  // Tier order is difficulty order, not the order in criteria.json. T4 is
+  // excluded on purpose: it measures adversarial robustness, not competence as
+  // cues are removed, so it does not belong on the same axis.
+  genderTiersFor(row, tierMeta) {
+    const order = ['T1', 'T1-neutral', 'T2', 'T3'];
+    const byTier = row.genderByTier || {};
+    return order.filter(id => byTier[id]).map(id => {
+      const cell = byTier[id];
+      const meta = tierMeta[id];
+      const total = meta ? meta.count : cell.n;
+      return {
+        label: meta ? id + ' — ' + meta.name : id,
+        display: this.fmt(cell.score),
+        pct: Math.round(cell.score * 100),
+        color: this.scoreColor(cell.score),
+        partial: cell.n < total ? 'n=' + cell.n + '/' + total : ''
+      };
+    });
+  }
+
   renderVals() {
-    const { rows, criteria, sortKey, sortDir, expanded } = this.state;
+    const { rows, criteria, tiers, sortKey, sortDir, expanded } = this.state;
+    const tierMeta = {};
+    tiers.forEach(t => { tierMeta[t.id] = t; });
     const sorted = [...rows].sort((a, b) => {
       if (sortKey === 'date') {
         return sortDir === 'desc' ? b.dateIso.localeCompare(a.dateIso) : a.dateIso.localeCompare(b.dateIso);
@@ -245,6 +290,7 @@ class Component extends DCLogic {
 
     const rowsView = sorted.map((r, i) => {
       const isExpanded = !!expanded[r.id];
+      const genderTiers = this.genderTiersFor(r, tierMeta);
       return {
         ...r,
         rank: i + 1,
@@ -259,8 +305,13 @@ class Component extends DCLogic {
         factualScore: this.fmt(r.criteria['factual-integrity']),
         hasNote: !!r.note,
         hasDescription: !!r.description,
+        genderTiers: genderTiers,
+        hasGenderTiers: genderTiers.length > 0,
         date: this.formatDate(r.date),
         dateIso: r.date,
+        // Empty until criteria.json resolves, at which point there are no
+        // criterion cards to caption either.
+        criteriaHeading: criteria.length ? 'Performance on all criteria' : '',
         detailCriteria: criteria.map(c => {
           const val = r.criteria[c.id];
           return { name: c.name, display: this.fmt(val), pct: Math.round((val || 0) * 100), color: this.scoreColor(val || 0) };
