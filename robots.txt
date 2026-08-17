@@ -4,6 +4,6 @@ Allow: /
 # Machine-readable summary for AI agents/crawlers
 # See: /llms.txt
 
-# TODO: replace with the production domain once this leaves dev,
-# then uncomment the line below.
-# Sitemap: https://YOUR-DOMAIN/sitemap.xml
+# Production domain: wpsaileaderboard.com
+# TODO: uncomment once sitemap.xml exists.
+# Sitemap: https://wpsaileaderboard.com/sitemap.xml

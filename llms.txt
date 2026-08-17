@@ -1,4 +1,4 @@
-# WPS AI Benchmark
+# WPS AI Leaderboard
 
 > An evaluation of how AI systems handle Women, Peace & Security (WPS) reasoning — realistic peace-and-security scenarios scored against an 11-criterion rubric grounded in UNSCR 1325 and successor frameworks, NATO's 2024 WPS Policy, and National Action Plans. Published by Our Secure Future, a PAX sapiens program.
 
