@@ -49,8 +49,9 @@
   "conformsTo": "http://mlcommons.org/croissant/1.0",
   "description": "WPS AI Benchmark v6: a structured suite of 30 realistic peace-and-security scenarios and an 11-criterion scoring rubric used to evaluate how AI systems integrate Women, Peace and Security (WPS) principles. Scenarios span five prompt tiers of increasing difficulty (T1 Context-Rich, T2 Gender-Neutral, T3 Sparse/Ambiguous, T4 Adversarial/Operational-Cover, T1-neutral Cue-Stripped Pairs). Every scenario carries all 11 criteria (9 standard, 2 conditional-adversarial). Published as a single Weval blueprint YAML so any organization can independently replicate the benchmark and run it against its own models. Tier labels are documented in the file's header-comment convention and in the accompanying WPS AI Benchmark methodology page, not as a separate structured field in this file.",
   "alternateName": "Evaluating AI Performance in Women, Peace & Security Scenarios",
-  "url": "https://github.com/frantj/wps-ai-benchmark-leaderboard",
+  "url": "https://wpsleaderboard.ai/benchmark.html",
   "sameAs": [
+    "https://github.com/frantj/wps-ai-benchmark-leaderboard",
     "https://github.com/frantj/Weval-WPS-Eval"
   ],
   "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -101,7 +102,7 @@
   "dct:isPartOf": {
     "@type": "sc:Dataset",
     "name": "WPS AI Benchmark",
-    "url": "https://github.com/frantj/wps-ai-benchmark-leaderboard"
+    "url": "https://wpsleaderboard.ai/"
   },
   "distribution": [
     {
@@ -122,9 +123,20 @@
       "description": "Factsheet for the benchmark: what it measures and the four-level measurement chain from the WPS background concept to applied scores, the five prompt sets and scenario provenance, the scoring method, how to run it, how scores should and should not be interpreted, a content note, known limitations, expert-review provenance, and version history.",
       "contentUrl": "./README.md",
       "encodingFormat": "text/markdown",
-      "sha256": "d423b7be7bde3186c703956073d3830bdd374043d8d2a0c2f3fde27521cd01b6",
-      "md5": "90ed9866d3e2ec8caf0015ce40bdac24",
-      "contentSize": "15642 B"
+      "sha256": "2d3c440d2bce583c9c7cec6df63b388322b677b1b8ac337a54034f2842b98657",
+      "md5": "69d9c6d5be19b39aac9caf11fa9d3f46",
+      "contentSize": "15977 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "WPS-SCENARIO-TAXONOMY-v6.md",
+      "name": "WPS-SCENARIO-TAXONOMY-v6.md",
+      "description": "The WPS topic taxonomy the 30 scenarios were written against, derived from 'Just the Facts: A Selected Annotated Bibliography to Support Evidence-Based Policymaking on Women, Peace and Security' (Our Secure Future / One Earth Future, 2019). Sections I-V map the WPS field, Section VI maps every scenario to a named taxonomy node, Section VII records what practitioner review of the taxonomy changed, and Section VIII names the areas the v6 scenario set does not reach.",
+      "contentUrl": "./WPS-SCENARIO-TAXONOMY-v6.md",
+      "encodingFormat": "text/markdown",
+      "sha256": "c8704839421bb9fe7e66bd565f01226b4011657b227c6312a9a3dd59a64ebcad",
+      "md5": "ad9d0e33654f7b1d722eab5111d53a63",
+      "contentSize": "24564 B"
     },
     {
       "@type": "cr:FileObject",

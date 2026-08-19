@@ -6,7 +6,7 @@
 
 **Purpose:** Provide a structured taxonomy of WPS topic areas, grounded in the empirical research literature, to guide the creation of diverse and representative benchmark scenarios for evaluating AI performance on Women, Peace & Security tasks.
 
-**How to read this document.** This taxonomy is the structure the benchmark scenarios were written against, so that coverage of the WPS field would follow the research literature rather than the drafter's intuition. Every scenario maps to a named node in Section VI; the areas the scenario set does *not* reach are named in Section VIII; and Section VII records what practitioner review of this taxonomy changed, and what it did not. For how the scenarios were produced from it — including where AI was used and what human review followed — see the [benchmark methodology](../../methodology.html).
+**How to read this document.** This taxonomy is the structure the benchmark scenarios were written against, so that coverage of the WPS field would follow the research literature rather than the drafter's intuition. Every scenario maps to a named node in Section VI; the areas the scenario set does *not* reach are named in Section VIII; and Section VII records what practitioner review of this taxonomy changed, and what it did not. For how the scenarios were produced from it — including where AI was used and what human review followed — see the [benchmark methodology](https://wpsleaderboard.ai/methodology.html).
 
 ---
 

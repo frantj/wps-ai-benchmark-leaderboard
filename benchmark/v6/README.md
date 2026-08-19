@@ -10,6 +10,7 @@ independently replicated rather than merely read about.
 | | |
 |---|---|
 | **Version** | v6 |
+| **Leaderboard** | [wpsleaderboard.ai](https://wpsleaderboard.ai) |
 | **Scenarios** | 30 |
 | **Criteria** | 11 (9 positive base + 2 conditional adversarial) |
 | **License** | CC BY 4.0 |
@@ -22,6 +23,7 @@ independently replicated rather than merely read about.
 |---|---|
 | `wps-ai-benchmark-v6-blueprint.yml` | The instrument: header/config document + 30 scenario documents |
 | `croissant.jsonld` | Machine-readable dataset metadata (MLCommons Croissant 1.0) |
+| `WPS-SCENARIO-TAXONOMY-v6.md` | The WPS topic taxonomy the 30 scenarios were written against, plus the coverage gaps it names |
 | `RELIABILITY.md` | Reliability and validity evidence, and how much weight a score can bear |
 | `LICENSE` | CC BY 4.0, plus the explicit training-use permission |
 | `README.md` | This file |
@@ -101,7 +103,7 @@ Published headline figures are **the mean of the five tier means**, not the mean
 prompts. Because the tiers are unequal in size (8 / 7 / 8 / 3 / 4), the two differ, and a
 replicator who averages the 30 prompt scores will not reproduce the published number.
 
-Worked example — one bare model from the published leaderboard:
+Worked example — one bare model from the [published leaderboard](https://wpsleaderboard.ai):
 
 | Aggregation | Value |
 |---|---|
@@ -118,7 +120,7 @@ propagates to the headline figure — relevant to the per-tier drift results in 
 
 **Weval's own run output aggregates differently.** Compute the tier macro-average yourself from
 the per-prompt scores, using the tier labels in the blueprint's scenario header comments, if you
-want a number comparable to the published leaderboard.
+want a number comparable to the [published leaderboard](https://wpsleaderboard.ai).
 
 ### The 11 criteria
 
@@ -282,6 +284,7 @@ Scenario & Rubric Blueprint. CC BY 4.0.
 Corrections, disputed scores, and rubric disagreements are welcome — particularly from WPS
 practitioners, who are the intended authority on whether these criteria capture the right thing.
 
+- **Leaderboard and methodology:** [wpsleaderboard.ai](https://wpsleaderboard.ai)
 - **Issues / feedback:** open an issue on the [WPS AI Benchmark repository](https://github.com/frantj/wps-ai-benchmark-leaderboard)
 - **Benchmark team:** oursecurefuture@paxsapiens.org
 - **Maintainer:** Jesper Frant — jesper.frant@gmail.com
