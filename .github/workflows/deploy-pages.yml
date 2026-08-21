@@ -32,3 +32,26 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Purge Cloudflare cache
+        # Cloudflare proxies this site, so a deploy alone does not refresh the
+        # edge. Without this, changed files can serve stale to some visitors.
+        # Skipped automatically if the secrets are not set.
+        if: success() && env.CF_ZONE != '' && env.CF_TOKEN != ''
+        env:
+          CF_ZONE: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+        run: |
+          response=$(curl -sS -X POST \
+            "https://api.cloudflare.com/client/v4/zones/$CF_ZONE/purge_cache" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}')
+          echo "$response" | python3 -c "
+          import json,sys
+          r = json.load(sys.stdin)
+          if r.get('success'):
+              print('Cloudflare cache purged.')
+          else:
+              print('Purge FAILED:', json.dumps(r.get('errors'), indent=2))
+              sys.exit(1)
+          "
