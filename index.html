@@ -185,7 +185,7 @@ a:hover{color:var(--osf-teal-dark);}
                     </sc-if>
                     <div style="font-size:11.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);padding:12px 4px 0;">{{ row.criteriaHeading }}</div>
                     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;padding:10px 4px 12px;">
-                      <sc-for list="{{ row.detailCriteria }}" as="dc" hint-placeholder-count="11">
+                      <sc-for list="{{ row.detailCriteria }}" as="dc" hint-placeholder-count="9">
                         <div style="background:var(--white);border:1px solid var(--border-subtle);border-radius:5px;padding:10px 12px;">
                           <div style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px;">{{ dc.name }}</div>
                           <div style="display:flex;align-items:center;gap:6px;">
@@ -213,6 +213,24 @@ a:hover{color:var(--osf-teal-dark);}
                           </sc-for>
                         </div>
                         <div style="font-size:11.5px;color:var(--text-muted);margin-top:9px;">The fall from cued to sparse prompts is the WPS Competence Gap — how much of a system's WPS performance depends on being told to look for it. See <a href="benchmark.html" style="color:var(--text-muted);text-decoration:underline;">The Benchmark</a>.</div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ row.hasAdversarial }}" hint-placeholder-val="{{ false }}">
+                      <div style="padding:14px 4px 2px;">
+                        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);margin-bottom:9px;">Performance on adversarial criteria</div>
+                        <div style="display:flex;flex-direction:column;gap:7px;">
+                          <sc-for list="{{ row.adversarialRows }}" as="ar" hint-placeholder-count="2">
+                            <div style="display:flex;align-items:center;gap:10px;">
+                              <span style="font-size:12px;color:var(--text-secondary);width:210px;flex-shrink:0;">{{ ar.label }}</span>
+                              <div style="flex:1;height:6px;background:var(--gray-100);border-radius:3px;overflow:hidden;">
+                                <div style="height:100%;border-radius:3px;width:{{ ar.pct }}%;background:{{ ar.color }};"></div>
+                              </div>
+                              <span style="font-size:12px;font-weight:600;color:var(--osf-navy);width:30px;text-align:right;flex-shrink:0;">{{ ar.display }}</span>
+                              <span style="font-size:11px;color:var(--text-muted);width:64px;flex-shrink:0;white-space:nowrap;">{{ ar.baselineText }}</span>
+                            </div>
+                          </sc-for>
+                        </div>
+                        <div style="font-size:11.5px;color:var(--text-muted);margin-top:9px;">These two criteria are conditional — they pass by default on benign requests, so they are scored on the 3 adversarial scenarios only. The grey figure is the same criterion on cue-stripped prompts, for comparison. See <a href="benchmark.html" style="color:var(--text-muted);text-decoration:underline;">The Benchmark</a>.</div>
                       </div>
                     </sc-if>
                   </td>
@@ -322,8 +340,29 @@ class Component extends DCLogic {
     });
   }
 
+  // The two conditional criteria (group "adversarial") pass vacuously on the 27
+  // non-adversarial prompts, so their all-prompt averages sit near the ceiling
+  // and discriminate nothing — benchmark/v6/README.md says to read them on T4
+  // only. Bar is the adversarial-tier score; the baseline is the cue-stripped
+  // tier, which is the comparison the row notes already quote.
+  adversarialRowsFor(row, adversarialCriteria) {
+    const adv = row.adversarial || {};
+    return adversarialCriteria.filter(c => adv[c.id]).map(c => {
+      const cell = adv[c.id];
+      return {
+        label: c.name,
+        display: this.fmt(cell.t4),
+        pct: Math.round(cell.t4 * 100),
+        color: this.scoreColor(cell.t4),
+        baselineText: 'from ' + this.fmt(cell.baseline)
+      };
+    });
+  }
+
   renderVals() {
     const { rows, criteria, tiers, sortKey, sortDir, expanded } = this.state;
+    const standardCriteria = criteria.filter(c => c.group === 'standard');
+    const adversarialCriteria = criteria.filter(c => c.group === 'adversarial');
     const tierMeta = {};
     tiers.forEach(t => { tierMeta[t.id] = t; });
     const sorted = [...rows].sort((a, b) => {
@@ -338,6 +377,7 @@ class Component extends DCLogic {
     const rowsView = sorted.map((r, i) => {
       const isExpanded = !!expanded[r.id];
       const genderTiers = this.genderTiersFor(r, tierMeta);
+      const adversarialRows = this.adversarialRowsFor(r, adversarialCriteria);
       return {
         ...r,
         rank: i + 1,
@@ -354,12 +394,14 @@ class Component extends DCLogic {
         hasDescription: !!r.description,
         genderTiers: genderTiers,
         hasGenderTiers: genderTiers.length > 0,
+        adversarialRows: adversarialRows,
+        hasAdversarial: adversarialRows.length > 0,
         date: this.formatDate(r.date),
         dateIso: r.date,
         // Empty until criteria.json resolves, at which point there are no
         // criterion cards to caption either.
-        criteriaHeading: criteria.length ? 'Performance on all criteria' : '',
-        detailCriteria: criteria.map(c => {
+        criteriaHeading: standardCriteria.length ? 'Performance on standard criteria' : '',
+        detailCriteria: standardCriteria.map(c => {
           const val = r.criteria[c.id];
           return { name: c.name, display: this.fmt(val), pct: Math.round((val || 0) * 100), color: this.scoreColor(val || 0) };
         })
