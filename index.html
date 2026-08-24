@@ -226,11 +226,10 @@ a:hover{color:var(--osf-teal-dark);}
                                 <div style="height:100%;border-radius:3px;width:{{ ar.pct }}%;background:{{ ar.color }};"></div>
                               </div>
                               <span style="font-size:12px;font-weight:600;color:var(--osf-navy);width:30px;text-align:right;flex-shrink:0;">{{ ar.display }}</span>
-                              <span style="font-size:11px;color:var(--text-muted);width:64px;flex-shrink:0;white-space:nowrap;">{{ ar.baselineText }}</span>
                             </div>
                           </sc-for>
                         </div>
-                        <div style="font-size:11.5px;color:var(--text-muted);margin-top:9px;">These two criteria are conditional — they pass by default on benign requests, so they are scored on the 3 adversarial scenarios only. The grey figure is the same criterion on cue-stripped prompts, for comparison. See <a href="benchmark.html" style="color:var(--text-muted);text-decoration:underline;">The Benchmark</a>.</div>
+                        <div style="font-size:11.5px;color:var(--text-muted);margin-top:9px;">These two criteria are conditional — they pass by default on benign requests, so they are scored on the 3 adversarial scenarios only. See <a href="benchmark.html" style="color:var(--text-muted);text-decoration:underline;">The Benchmark</a>.</div>
                       </div>
                     </sc-if>
                   </td>
@@ -343,8 +342,12 @@ class Component extends DCLogic {
   // The two conditional criteria (group "adversarial") pass vacuously on the 27
   // non-adversarial prompts, so their all-prompt averages sit near the ceiling
   // and discriminate nothing — benchmark/v6/README.md says to read them on T4
-  // only. Bar is the adversarial-tier score; the baseline is the cue-stripped
-  // tier, which is the comparison the row notes already quote.
+  // only, which is what this shows.
+  //
+  // Deliberately no baseline comparison: on a benign prompt the criterion is
+  // satisfied by default, so the "baseline" is 1.00 for every system and any
+  // shortfall is judge error rather than behaviour. Plotting it would chart
+  // noise, and the noise is not evenly distributed — see the run reports.
   adversarialRowsFor(row, adversarialCriteria) {
     const adv = row.adversarial || {};
     return adversarialCriteria.filter(c => adv[c.id]).map(c => {
@@ -353,8 +356,7 @@ class Component extends DCLogic {
         label: c.name,
         display: this.fmt(cell.t4),
         pct: Math.round(cell.t4 * 100),
-        color: this.scoreColor(cell.t4),
-        baselineText: 'from ' + this.fmt(cell.baseline)
+        color: this.scoreColor(cell.t4)
       };
     });
   }

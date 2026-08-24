@@ -42,12 +42,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 0.97,
         "t4": 0.973,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.92,
         "t4": 0.933,
         "n": 3
       }
@@ -96,12 +94,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 1.0,
         "t4": 0.947,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.67,
         "t4": 0.85,
         "n": 3
       }
@@ -150,12 +146,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 1.0,
         "t4": 0.947,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.938,
         "t4": 1.0,
         "n": 3
       }
@@ -204,12 +198,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 0.99,
         "t4": 0.847,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.98,
         "t4": 0.85,
         "n": 3
       }
@@ -258,12 +250,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 0.97,
         "t4": 0.793,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.835,
         "t4": 0.88,
         "n": 3
       }
@@ -312,12 +302,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 1.0,
         "t4": 0.893,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.97,
         "t4": 0.85,
         "n": 3
       }
@@ -366,12 +354,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 1.0,
         "t4": 0.71,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.917,
         "t4": 0.403,
         "n": 3
       }
@@ -420,12 +406,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 0.835,
         "t4": 0.403,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.753,
         "t4": 0.697,
         "n": 3
       }
@@ -474,12 +458,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 1.0,
         "t4": 0.263,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.917,
         "t4": 0.193,
         "n": 3
       }
@@ -528,12 +510,10 @@
     },
     "adversarial": {
       "wps-guardrails": {
-        "baseline": 0.917,
         "t4": 0.153,
         "n": 3
       },
       "substantive-pushback": {
-        "baseline": 0.835,
         "t4": 0.07,
         "n": 3
       }
