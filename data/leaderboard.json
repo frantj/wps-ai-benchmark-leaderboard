@@ -156,6 +156,110 @@
     }
   },
   {
+    "id": "openrouter:z-ai/glm-5.3-flash[temp:0]",
+    "label": "GLM-5.3-Flash",
+    "provider": "Z.ai",
+    "isOurs": false,
+    "run": "6.5",
+    "date": "2026-08-26",
+    "note": "Gender-sensitivity falls from 0.81 on cued prompts to 0.18 on sparse ones, and factual integrity (0.46) and trust building (0.49) are its weakest criteria, though adversarial guardrails and pushback both hold under pressure (1.00 and 0.91).",
+    "overall": 0.636,
+    "criteria": {
+      "gender-wps": 0.517,
+      "operational-relevance": 0.751,
+      "analytical-depth": 0.6,
+      "policy-alignment": 0.607,
+      "clarity-actionability": 0.744,
+      "trust-building": 0.486,
+      "due-diligence": 0.534,
+      "acknowledgment-limitations": 0.533,
+      "factual-integrity": 0.456,
+      "wps-guardrails": 0.917,
+      "substantive-pushback": 0.846
+    },
+    "description": null,
+    "genderByTier": {
+      "T1": {
+        "score": 0.809,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.513,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.466,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.184,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 1.0,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 0.907,
+        "n": 3
+      }
+    }
+  },
+  {
+    "id": "openrouter:qwen/qwen3.8-2.4t-a95b[temp:0]",
+    "label": "Qwen3.8 2.4T A95B",
+    "provider": "Alibaba",
+    "isOurs": false,
+    "run": "6.5",
+    "date": "2026-08-26",
+    "note": "Gender-sensitivity falls from 0.85 on cued prompts to 0.24 on sparse ones, and factual integrity, at 0.24, is its weakest criterion by a wide margin, though its adversarial guardrails and pushback hold (0.89 each).",
+    "overall": 0.632,
+    "criteria": {
+      "gender-wps": 0.561,
+      "operational-relevance": 0.779,
+      "analytical-depth": 0.6,
+      "policy-alignment": 0.647,
+      "clarity-actionability": 0.795,
+      "trust-building": 0.521,
+      "due-diligence": 0.507,
+      "acknowledgment-limitations": 0.466,
+      "factual-integrity": 0.241,
+      "wps-guardrails": 0.936,
+      "substantive-pushback": 0.895
+    },
+    "description": null,
+    "genderByTier": {
+      "T1": {
+        "score": 0.85,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.647,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.596,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.236,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 0.89,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 0.89,
+        "n": 3
+      }
+    }
+  },
+  {
     "id": "openrouter:openai/gpt-5.6-sol[temp:0]__6.2",
     "label": "GPT-5.6 Sol",
     "provider": "OpenAI",
@@ -208,6 +312,58 @@
     }
   },
   {
+    "id": "openrouter:moonshotai/kimi-k3[temp:0]",
+    "label": "Kimi K3",
+    "provider": "Moonshot AI",
+    "isOurs": false,
+    "run": "6.5",
+    "date": "2026-08-26",
+    "note": "Gender-sensitivity falls from 0.84 on cued prompts to 0.18 on sparse ones, and acknowledgment of limitations (0.39) is its weakest criterion, though its adversarial guardrails and pushback both strengthen under pressure (0.97 each) rather than eroding.",
+    "overall": 0.597,
+    "criteria": {
+      "gender-wps": 0.496,
+      "operational-relevance": 0.743,
+      "analytical-depth": 0.578,
+      "policy-alignment": 0.592,
+      "clarity-actionability": 0.659,
+      "trust-building": 0.446,
+      "due-diligence": 0.444,
+      "acknowledgment-limitations": 0.387,
+      "factual-integrity": 0.422,
+      "wps-guardrails": 0.933,
+      "substantive-pushback": 0.863
+    },
+    "description": null,
+    "genderByTier": {
+      "T1": {
+        "score": 0.836,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.5,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.406,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.184,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 0.973,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 0.973,
+        "n": 3
+      }
+    }
+  },
+  {
     "id": "azure:WPS-AI-Agent-v1[temp:0]",
     "label": "WPS Agent v1 (GPT-4o)",
     "provider": "Our Secure Future",
@@ -255,6 +411,58 @@
       },
       "substantive-pushback": {
         "t4": 0.88,
+        "n": 3
+      }
+    }
+  },
+  {
+    "id": "openrouter:deepseek/deepseek-v4-pro-0813[temp:0]",
+    "label": "DeepSeek V4 Pro",
+    "provider": "DeepSeek",
+    "isOurs": false,
+    "run": "6.5",
+    "date": "2026-08-26",
+    "note": "Gender-sensitivity collapses from 0.82 on cued prompts to 0.09 on sparse ones, and acknowledgment of limitations (0.25) is its weakest criterion; its adversarial guardrails (0.92 → 0.68) and pushback (0.78 → 0.63) both erode noticeably under pressure.",
+    "overall": 0.529,
+    "criteria": {
+      "gender-wps": 0.467,
+      "operational-relevance": 0.705,
+      "analytical-depth": 0.488,
+      "policy-alignment": 0.55,
+      "clarity-actionability": 0.633,
+      "trust-building": 0.442,
+      "due-diligence": 0.331,
+      "acknowledgment-limitations": 0.252,
+      "factual-integrity": 0.329,
+      "wps-guardrails": 0.873,
+      "substantive-pushback": 0.75
+    },
+    "description": null,
+    "genderByTier": {
+      "T1": {
+        "score": 0.824,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.575,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.44,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.089,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 0.683,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 0.627,
         "n": 3
       }
     }

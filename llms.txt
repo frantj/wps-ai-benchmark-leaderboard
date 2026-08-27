@@ -6,7 +6,7 @@ This site publishes a leaderboard of AI model/agent performance on the benchmark
 
 ## Key pages
 
-- [Leaderboard](/index.html): Current model/agent rankings, overall and per-criterion scores, and date. Ten systems, one row each.
+- [Leaderboard](/index.html): Current model/agent rankings, overall and per-criterion scores, and date. One row per system.
 - [The Benchmark](/benchmark.html): What WPS is and how the benchmark is structured.
 - [Methodology](/methodology.html): How scenarios are built and validated, the judging protocol, aggregation rules, and inter-judge reliability (Krippendorff's alpha).
 - [Our Agent](/our-agent.html): The WPS Agent architecture evaluated on this leaderboard.
