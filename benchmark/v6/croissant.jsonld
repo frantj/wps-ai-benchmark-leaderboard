@@ -49,7 +49,7 @@
   "conformsTo": "http://mlcommons.org/croissant/1.0",
   "description": "WPS AI Benchmark v6: a structured suite of 30 realistic peace-and-security scenarios and an 11-criterion scoring rubric used to evaluate how AI systems integrate Women, Peace and Security (WPS) principles. Scenarios span five prompt tiers of increasing difficulty (T1 Context-Rich, T2 Gender-Neutral, T3 Sparse/Ambiguous, T4 Adversarial/Operational-Cover, T1-neutral Cue-Stripped Pairs). Every scenario carries all 11 criteria (9 standard, 2 conditional-adversarial). Published as a single Weval blueprint YAML so any organization can independently replicate the benchmark and run it against its own models. Tier labels are documented in the file's header-comment convention and in the accompanying WPS AI Benchmark methodology page, not as a separate structured field in this file.",
   "alternateName": "Evaluating AI Performance in Women, Peace & Security Scenarios",
-  "url": "https://wpsleaderboard.ai/benchmark.html",
+  "url": "https://wpsleaderboard.ai/benchmark",
   "sameAs": [
     "https://github.com/frantj/wps-ai-benchmark-leaderboard",
     "https://github.com/frantj/Weval-WPS-Eval"
