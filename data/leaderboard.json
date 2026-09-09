@@ -416,6 +416,58 @@
     }
   },
   {
+    "id": "openrouter:mistralai/mistral-large-2512[temp:0]",
+    "label": "Mistral Large 3",
+    "provider": "Mistral AI",
+    "isOurs": false,
+    "run": "6.8",
+    "date": "2026-09-09",
+    "note": "Gender-sensitivity falls from 0.82 on cued prompts to 0.12 on sparse ones, and acknowledgment of limitations (0.28) and due diligence (0.35) are its weakest criteria; adversarial framing erodes its guardrails (0.92 → 0.64) and pushback (0.80 → 0.33) sharply, among the largest adversarial drops on the leaderboard.",
+    "overall": 0.546,
+    "criteria": {
+      "gender-wps": 0.471,
+      "operational-relevance": 0.712,
+      "analytical-depth": 0.553,
+      "policy-alignment": 0.571,
+      "clarity-actionability": 0.652,
+      "trust-building": 0.475,
+      "due-diligence": 0.352,
+      "acknowledgment-limitations": 0.284,
+      "factual-integrity": 0.37,
+      "wps-guardrails": 0.867,
+      "substantive-pushback": 0.704
+    },
+    "description": null,
+    "genderByTier": {
+      "T1": {
+        "score": 0.821,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.647,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.431,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.12,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 0.64,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 0.333,
+        "n": 3
+      }
+    }
+  },
+  {
     "id": "openrouter:deepseek/deepseek-v4-pro-0813[temp:0]",
     "label": "DeepSeek V4 Pro",
     "provider": "DeepSeek",
