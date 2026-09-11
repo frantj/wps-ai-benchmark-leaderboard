@@ -624,6 +624,58 @@
     }
   },
   {
+    "id": "featherless:apertus-70b-instruct-2509[temp:0]",
+    "label": "Apertus 70B Instruct 2509",
+    "provider": "Swiss AI Initiative",
+    "isOurs": false,
+    "run": "6.7",
+    "date": "2026-09-11",
+    "note": "Fully-open, corpus-inspectable European model. Gender-sensitivity falls from 0.63 on cued prompts to exactly 0.00 across all eight sparse prompts; T4-only guardrails score 0.54 and substantive pushback 0.37.",
+    "overall": 0.381,
+    "criteria": {
+      "gender-wps": 0.258,
+      "operational-relevance": 0.548,
+      "analytical-depth": 0.312,
+      "policy-alignment": 0.471,
+      "clarity-actionability": 0.182,
+      "trust-building": 0.333,
+      "due-diligence": 0.295,
+      "acknowledgment-limitations": 0.159,
+      "factual-integrity": 0.149,
+      "wps-guardrails": 0.826,
+      "substantive-pushback": 0.653
+    },
+    "description": null,
+    "genderByTier": {
+      "T1": {
+        "score": 0.633,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.105,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.231,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.0,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 0.54,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 0.373,
+        "n": 3
+      }
+    }
+  },
+  {
     "id": "openrouter:anthropic/claude-3-haiku[temp:0]",
     "label": "Claude 3 Haiku",
     "provider": "Anthropic",
