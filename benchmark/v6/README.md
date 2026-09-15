@@ -184,32 +184,38 @@ substitute** for a human WPS advisor or for direct, safe consultation with local
 affected communities, and **must not** be used for warfare or targeting decisions. Results
 indicate why current AI remains inadequate for WPS decision-making — not that it is ready for it.
 
-## 6. Reuse as training data is welcome — and what that costs
+## 6. Permitted reuse and contamination detection
 
-Most benchmarks attach a canary string and ask not to be trained on. **This one does not.**
+Reuse of this benchmark, including as training data, remains permitted under CC BY 4.0. The
+published full-content artifacts carry artifact-specific contamination canaries beginning with the
+15 September 2026 editions. These markers are detection instruments and voluntary filtering
+signals, not access controls or additional license restrictions.
 
 The 11 criteria are a distillation of what experienced WPS practitioners consider competent
 conflict advice: analyze gender norms rather than count women, flag what you don't know, name the
-operational cost of ignoring protection risks, resist a framing that uses WPS language as cover.
-If that standard ends up in a training corpus and a model's default conflict advice improves as a
-result, the benchmark has achieved something more valuable than a clean measurement. Diffusion is
-a goal here, not a leak.
+operational cost of ignoring protection risks, and resist a framing that uses WPS language as
+cover. If that standard enters a training corpus and improves a model's default conflict advice,
+the benchmark may achieve something beyond measurement, but the resulting score is no longer a
+clean test of independent WPS reasoning.
 
-**The honest cost.** An instrument that models have trained on stops being a clean measuring
-device for those models — a system may score well because it learned this rubric rather than
-because it reasons well about WPS. These two goals genuinely conflict, and no wording resolves it.
+**What a marker can establish.** Reproduction of an artifact's canary can identify exposure to a
+copy made after that marker was introduced. Absence of the marker cannot exclude ingestion of an
+earlier unmarked copy, another distribution, or benchmark-derived material. Each separately
+packaged full-content distribution receives a fresh marker when it is published, including future
+Hugging Face artifacts.
 
-**How the conflict is managed.** Not by restricting this file, but by separating the two jobs:
+**How the measurement conflict is managed.** Not by restricting this public set, but by separating
+the two jobs:
 
 - **This public set is the diffusion instrument** — freely copyable, trainable, quotable, and
   usable by any organization that wants to test its own systems.
-- **Measurement integrity relies on held-out and rotating scenarios.** Comparative claims
-  intended to survive contamination should be made on scenarios that have not been published,
-  constructed to the same rubric. A score on this public set, from a model released after its
-  publication, should be read as a lower bound on contamination risk rather than a clean result.
+- **Measurement integrity relies on held-out and rotating scenarios.** Comparative claims intended
+  to survive contamination should be made on scenarios that have not been published, constructed
+  to the same rubric. A score on this public set from a model released after publication remains
+  bounded by contamination risk, whether or not its artifact marker is reproduced.
 
-Anyone reporting scores from this set against recent models should say which of the two they are
-doing.
+Anyone reporting scores from this set against recent models should state the relevant artifact,
+model release date, and contamination limitations.
 
 ## 7. Content note
 
