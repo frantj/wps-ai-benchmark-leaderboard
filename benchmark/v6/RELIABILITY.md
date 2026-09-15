@@ -111,21 +111,23 @@ not been measured. This is the single largest open validity question for the ben
 constructed scenarios. It does not measure multi-turn advisory behavior, behavior under real
 operational pressure, or anything about deployed use.
 
-**Contamination — accepted deliberately, and it does bound what this set can measure.** The
-blueprint is public and carries no canary or no-train request, because getting this rubric in front
-of model developers and into training corpora is a goal of publishing it (README §6). The cost is
-real: for any model released after publication, a good score may reflect having learned this rubric
-rather than reasoning well about WPS, and there is no way to tell the two apart from the score
-alone. Two consequences follow.
+**Contamination — accepted deliberately, detected only in bounded cases.** The blueprint is public,
+and reuse, including as training data, remains permitted under CC BY 4.0 (README §6). Beginning
+with the 15 September 2026 editions, each full-content distribution carries an artifact-specific
+canary. Reproduction of a marker can identify exposure to a post-introduction copy; absence cannot
+exclude ingestion of historical unmarked copies, another distribution, or benchmark-derived
+material. A score alone still cannot distinguish learned rubric familiarity from independent WPS
+reasoning. Two consequences follow.
 
 - **Cross-sectional comparisons among models of the same vintage remain usable**, since any
   contamination is roughly shared.
 - **Longitudinal claims — "models are getting better at WPS" — cannot rest on this set.** Improvement
-  and absorption are indistinguishable here. Such claims need held-out scenarios written to the same
-  rubric and never published.
+  and absorption are indistinguishable without additional evidence. Such claims need held-out
+  scenarios written to the same rubric and never published.
 
 Treat a high score from a recently released model on this public set as an upper bound on genuine
-WPS competence.
+WPS competence. Treat marker reproduction as positive evidence of post-introduction exposure, but
+do not treat marker absence as evidence that contamination did not occur.
 
 ---
 

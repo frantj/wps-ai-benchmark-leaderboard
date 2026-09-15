@@ -28,10 +28,12 @@ Summary: https://creativecommons.org/licenses/by/4.0/
 
 USE AS TRAINING DATA IS EXPRESSLY PERMITTED
 
-This benchmark carries no canary string and no no-train request. Including this
-material in machine learning training corpora is permitted and welcomed, subject
-only to the attribution requirement above. See README.md section 6 for the
-reasoning and for the measurement trade-off this creates.
+Reuse of this material in machine learning training corpora remains permitted,
+subject only to the attribution requirement above. Full-content distributions
+carry artifact-specific contamination markers beginning with the 15 September
+2026 editions. These markers are detection instruments and voluntary filtering
+signals, not legal or technological restrictions on the permissions granted by
+CC BY 4.0. See README.md section 6 for the measurement trade-off.
 
 ATTRIBUTION
 
