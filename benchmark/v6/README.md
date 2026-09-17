@@ -285,7 +285,7 @@ If you use the WPS AI Benchmark or Leaderboard in your research or evaluations, 
 ```bibtex
 @misc{wps_ai_benchmark_v6_2026,
   author       = "{Our Secure Future}",
-  title        = "{WPS} {AI} Benchmark v6 --- Scenario \& Rubric Blueprint",
+  title        = "{WPS AI Benchmark v6 --- Scenario \& Rubric Blueprint}",
   year         = "2026",
   howpublished = "Our Secure Future, a PAX sapiens Program. \url{https://wpsleaderboard.ai}",
   note         = "Version 6. CC BY 4.0",
