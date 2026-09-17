@@ -123,9 +123,9 @@
       "description": "Factsheet for the benchmark: what it measures and the four-level measurement chain from the WPS background concept to applied scores, the five prompt sets and scenario provenance, the scoring method, how to run it, how scores should and should not be interpreted, a content note, known limitations, expert-review provenance, and version history.",
       "contentUrl": "./README.md",
       "encodingFormat": "text/markdown",
-      "sha256": "840bbe48d41d735869853ceae12cd2648adec143bcc70734527acdbfc07619fb",
-      "md5": "56bc1176a1bcb3313300531c34d5d5d5",
-      "contentSize": "16411 B"
+      "sha256": "22954e03a1affd5524caa787cd00fbce0bec9f5303a9180e86d4abf42b072626",
+      "md5": "a0b98a861fb9ec926256b84033fd4509",
+      "contentSize": "16937 B"
     },
     {
       "@type": "cr:FileObject",

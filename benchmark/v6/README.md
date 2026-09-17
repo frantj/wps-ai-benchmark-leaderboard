@@ -280,6 +280,19 @@ version.
 
 ## 11. Citation
 
+If you use the WPS AI Benchmark or Leaderboard in your research or evaluations, please cite:
+
+```bibtex
+@misc{wps_ai_benchmark_2026,
+  title        = {WPS AI Benchmark: A Public Evaluation Standard for Women, Peace and Security Competence in AI Systems},
+  author       = {Frant, Jesper and Whelan, Moira and Dharmapuri, Sahana},
+  year         = {2026},
+  publisher    = {Our Secure Future},
+  howpublished = {\url{https://wpsleaderboard.ai}},
+  url          = {https://github.com/frantj/wps-ai-benchmark-leaderboard}
+}
+```
+
 ```
 Our Secure Future, a PAX sapiens Program (2026). WPS AI Benchmark v6 —
 Scenario & Rubric Blueprint. CC BY 4.0.
