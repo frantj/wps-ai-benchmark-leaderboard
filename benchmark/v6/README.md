@@ -283,13 +283,13 @@ version.
 If you use the WPS AI Benchmark or Leaderboard in your research or evaluations, please cite:
 
 ```bibtex
-@misc{wps_ai_benchmark_2026,
-  title        = {WPS AI Benchmark: A Public Evaluation Standard for Women, Peace and Security Competence in AI Systems},
-  author       = {Frant, Jesper and Whelan, Moira and Dharmapuri, Sahana},
-  year         = {2026},
-  publisher    = {Our Secure Future},
-  howpublished = {\url{https://wpsleaderboard.ai}},
-  url          = {https://github.com/frantj/wps-ai-benchmark-leaderboard}
+@misc{wps_ai_benchmark_v6_2026,
+  author       = "{Our Secure Future}",
+  title        = "{WPS} {AI} Benchmark v6 --- Scenario \& Rubric Blueprint",
+  year         = "2026",
+  howpublished = "Our Secure Future, a PAX sapiens Program. \url{https://wpsleaderboard.ai}",
+  note         = "Version 6. CC BY 4.0",
+  url          = "https://wpsleaderboard.ai"
 }
 ```
 
