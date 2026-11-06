@@ -101,12 +101,12 @@
       </div>
 
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">Where it stands today</h2>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Version 4 of the agent scores above every model on the leaderboard. On GPT-5.6 Sol it scores <strong>0.87</strong>, leads every general-purpose model tested on <strong>all eleven criteria</strong>, and clears the pass mark on all eleven. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest general-purpose model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.89 against 0.58</strong>. The live demo runs v4 on GPT-6 Luna, which scores <strong>0.86</strong> and answers in under a minute; it leads every general-purpose model on ten of the eleven criteria, and trails Qwen3.8 by 0.005 on WPS guardrails, where most systems score near the ceiling.<br><br>Against v2 on GPT-5.6 Sol, v4's largest gains are trust building (+0.14), due diligence (+0.09) and policy alignment (+0.08). Trust building is still v4's lowest score, at 0.75, and analytical depth, at 0.78, has the most room to improve. The full breakdown is under <a href="#results" style="font-weight:600;">Benchmark results</a> below.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Version 4 of the agent scores above every model on the leaderboard. On GPT-5.6 Sol it scores <strong>0.87</strong>, leads every general-purpose model tested on <strong>all eleven criteria</strong>, and clears the pass mark on all eleven. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest general-purpose model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.89 against 0.58</strong>. The live demo runs v4 on GPT-6 Luna, which scores <strong>0.86</strong> and answers in under a minute; it leads every general-purpose model on ten of the eleven criteria, and trails Qwen3.8 by 0.005 on WPS guardrails, where most systems score near the ceiling.<br><br>Against v2 on GPT-5.6 Sol, v4's largest gains are trust building (+0.14), due diligence (+0.09) and policy alignment (+0.08). Trust building is still v4's lowest score, at 0.75, and analytical depth, at 0.78, has the most room to improve. The full breakdown for both builds is under <a href="#results" style="font-weight:600;">Benchmark results</a> below.</p>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">This is a demonstration of what purpose-built scaffolding can add to WPS analysis. Results should always be read alongside a human WPS advisor, not in place of one.</p>
 
 
       <h2 id="results" style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;scroll-margin-top:80px;">Benchmark results</h2>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Every build of the agent, scored on the same 30 scenarios, eleven criteria and three judges as the models on the <a href="/" style="font-weight:600;">leaderboard</a>. Every version since v2 has outperformed Claude Opus 5, the highest-scoring general-purpose model.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">The versions of the agent available now, scored on the same 30 scenarios, eleven criteria and three judges as the models on the <a href="/" style="font-weight:600;">leaderboard</a>. v4 on GPT-6 Luna runs the live demo, and v4 on GPT-5.6 Sol is available on request. Every version since v2 has outperformed Claude Opus 5, the highest-scoring general-purpose model; earlier versions are in the <a href="#version-history" style="font-weight:600;">version history</a> below.</p>
       <sc-if value="{{ loaded }}" hint-placeholder-val="{{ false }}">
         <div style="overflow-x:auto;border:1px solid var(--border-subtle);border-radius:6px;margin-top:16px;">
         <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:700px;table-layout:fixed;">
@@ -301,7 +301,7 @@
           <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-red);width:52px;text-align:right;flex-shrink:0;">0.59</div>
         </div>
       </div>
-      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">Dates are when each build was made. v1 and v2 were scored in July–August 2026, and v4 in November 2026, on identical scenarios and criteria and by the same three judges. Re-judging v2's published answers alongside v4 moved its score from 0.839 to 0.841 and 0.846, so the builds compare fairly, give or take about 0.01. Scores are overall benchmark averages; each build's full results are under <a href="#results" style="font-weight:600;">Benchmark results</a>.</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">Dates are when each build was made. v1 and v2 were scored in July–August 2026, and v4 in November 2026, on identical scenarios and criteria and by the same three judges. Re-judging v2's published answers alongside v4 moved its score from 0.839 to 0.841 and 0.846, so the builds compare fairly, give or take about 0.01. Scores are overall benchmark averages.</p>
     </div>
   </section>
 
@@ -337,12 +337,15 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  // Our agent builds, from the same data file as the leaderboard.
+  // The agent builds currently offered, from the same data file as the
+  // leaderboard: v4 on GPT-6 Luna (the live demo) and v4 on GPT-5.6 Sol (on
+  // request). Earlier builds are summarised in the version history.
+  static SUPPORTED_IDS = ['local:wps-agent-v4-luna[temp:0]', 'local:wps-agent-v4-sol[temp:0]'];
   state = { rows: [], criteria: [], tiers: [], expanded: {} };
 
   componentDidMount() {
     fetch('data/leaderboard.json').then(r => r.json()).then(all => {
-      const rows = all.filter(r => r.isOurs);
+      const rows = all.filter(r => Component.SUPPORTED_IDS.includes(r.id));
       this.setState({ rows }, () => this.scrollToHash());
     });
     fetch('data/criteria.json').then(r => r.json()).then(d => this.setState({ criteria: d.criteria, tiers: d.tiers }));
