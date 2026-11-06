@@ -229,7 +229,7 @@
       "wps-guardrails": 0.94,
       "substantive-pushback": 0.767
     },
-    "description": "Same workflow, run on an older base model",
+    "description": "Previous version — v2's multi-agent workflow on GPT-4o, which ran the live demo until November 2026",
     "genderByTier": {
       "T1": {
         "score": 0.649,
@@ -593,7 +593,7 @@
       "wps-guardrails": 0.912,
       "substantive-pushback": 0.88
     },
-    "description": "Predecessor build, earlier agent architecture",
+    "description": "First version — research and policy specialists with no verification stage, GPT-4o base",
     "genderByTier": {
       "T1": {
         "score": 0.672,
