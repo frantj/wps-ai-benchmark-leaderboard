@@ -2,7 +2,7 @@
 
 > An evaluation of how AI systems handle Women, Peace & Security (WPS) reasoning — realistic peace-and-security scenarios scored against an 11-criterion rubric grounded in UNSCR 1325 and successor frameworks, NATO's 2024 WPS Policy, and National Action Plans. Published by Our Secure Future, a PAX sapiens program.
 
-This site publishes a leaderboard of AI model/agent performance on the benchmark, the full methodology, and the benchmark suite itself — scenarios, scoring rubric, and reproduction settings — as a structured, documented, downloadable instrument so any organization can independently replicate it and run it against its own models, not just read the published scores.
+This site publishes a leaderboard of general-purpose AI models on the benchmark, the results of Our Secure Future's own WPS Agent (on the Our Agent page), the full methodology, and the benchmark suite itself — scenarios, scoring rubric, and reproduction settings — as a structured, documented, downloadable instrument so any organization can independently replicate it and run it against its own models, not just read the published scores.
 
 ## Key pages
 
@@ -23,7 +23,7 @@ This site publishes a leaderboard of AI model/agent performance on the benchmark
 
 ## Structured data (leaderboard results)
 
-- [Leaderboard data (JSON)](/data/leaderboard.json): Per-model/agent overall and per-criterion scores, provider, run version, date, and `genderByTier` — the gender-sensitivity / WPS integration score broken out by prompt tier (T1 cued, T1-neutral cue-stripped, T2 gender-neutral, T3 sparse), each with the number of scenarios in that tier the system actually returned a response for. Read the per-tier figures before the per-criterion average, which is a mean across tiers and therefore conceals the WPS Competence Gap — the fall from cued to sparse prompts — that is the benchmark's central finding.
+- [Leaderboard data (JSON)](/data/leaderboard.json): Per-model/agent overall and per-criterion scores, provider, run version, date, and `genderByTier` — the gender-sensitivity / WPS integration score broken out by prompt tier (T1 cued, T1-neutral cue-stripped, T2 gender-neutral, T3 sparse), each with the number of scenarios in that tier the system actually returned a response for. Rows with `isOurs: true` are Our Secure Future's own agent builds; the site shows them on the Our Agent page rather than in the leaderboard table. Read the per-tier figures before the per-criterion average, which is a mean across tiers and therefore conceals the WPS Competence Gap — the fall from cued to sparse prompts — that is the benchmark's central finding.
 - [Criteria and tiers (JSON)](/data/criteria.json): The 11 scoring criteria (with judge questions) and the 5 prompt tiers, used to interpret leaderboard.json.
 
 ## Notes for agents and researchers
