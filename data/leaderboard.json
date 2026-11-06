@@ -21,7 +21,7 @@
       "wps-guardrails": 0.949,
       "substantive-pushback": 0.906
     },
-    "description": "Current version — retrieval and checking run in code around one writing call, GPT-5.6 Sol base",
+    "description": "Current version — a single model call writes the answer, with search and checking done in code, GPT-5.6 Sol base",
     "genderByTier": {
       "T1": {
         "score": 0.86,
@@ -110,7 +110,7 @@
     "isOurs": true,
     "run": "6.16",
     "date": "2026-11-06",
-    "note": "Clears all eleven criteria and answers in under a minute; sparse-tier gender-sensitivity (0.82) and analytical depth (0.72) trail the GPT-5.6 Sol build, while due diligence (0.94) is its strongest criterion after clarity.",
+    "note": "Clears all eleven criteria and answers in under a minute; sparse-tier gender-sensitivity (0.82) and analytical depth (0.72) trail the GPT-5.6 Sol build.",
     "overall": 0.86,
     "criteria": {
       "gender-wps": 0.849,
