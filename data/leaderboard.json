@@ -1,5 +1,161 @@
 [
   {
+    "id": "local:wps-agent-v4-sol[temp:0]",
+    "label": "WPS Agent v4 (GPT-5.6 Sol)",
+    "provider": "Our Secure Future",
+    "isOurs": true,
+    "run": "6.16",
+    "date": "2026-11-06",
+    "note": "Clears the pass mark on all eleven criteria and holds gender-sensitivity at 0.86–0.92 across tiers, highest on sparse prompts; trust building (0.75) and analytical depth (0.78) are its lowest criteria.",
+    "overall": 0.873,
+    "criteria": {
+      "gender-wps": 0.885,
+      "operational-relevance": 0.879,
+      "analytical-depth": 0.777,
+      "policy-alignment": 0.78,
+      "clarity-actionability": 0.985,
+      "trust-building": 0.75,
+      "due-diligence": 0.933,
+      "acknowledgment-limitations": 0.851,
+      "factual-integrity": 0.908,
+      "wps-guardrails": 0.949,
+      "substantive-pushback": 0.906
+    },
+    "description": "Current version — retrieval and checking run in code around one writing call, GPT-5.6 Sol base",
+    "genderByTier": {
+      "T1": {
+        "score": 0.86,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.887,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.896,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.919,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 1.0,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 1.0,
+        "n": 3
+      }
+    }
+  },
+  {
+    "id": "local:wps-agent-v4-61sol[temp:0]",
+    "label": "WPS Agent v4 (GPT-6.1 Sol)",
+    "provider": "Our Secure Future",
+    "isOurs": true,
+    "run": "6.16",
+    "date": "2026-11-06",
+    "note": "Clears all eleven criteria with gender-sensitivity at 0.89–0.92 across tiers; scored in a second sitting whose judges read the same v2 answers about 0.005 higher, so it sits level with the GPT-6 Luna build rather than above it.",
+    "overall": 0.868,
+    "criteria": {
+      "gender-wps": 0.903,
+      "operational-relevance": 0.88,
+      "analytical-depth": 0.766,
+      "policy-alignment": 0.746,
+      "clarity-actionability": 0.985,
+      "trust-building": 0.743,
+      "due-diligence": 0.929,
+      "acknowledgment-limitations": 0.85,
+      "factual-integrity": 0.911,
+      "wps-guardrails": 0.946,
+      "substantive-pushback": 0.886
+    },
+    "description": "Current version, GPT-6.1 Sol base",
+    "genderByTier": {
+      "T1": {
+        "score": 0.888,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.91,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.92,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.909,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 1.0,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 0.96,
+        "n": 3
+      }
+    }
+  },
+  {
+    "id": "local:wps-agent-v4-luna[temp:0]",
+    "label": "WPS Agent v4 (GPT-6 Luna)",
+    "provider": "Our Secure Future",
+    "isOurs": true,
+    "run": "6.16",
+    "date": "2026-11-06",
+    "note": "Clears all eleven criteria and answers in under a minute; sparse-tier gender-sensitivity (0.82) and analytical depth (0.72) trail the GPT-5.6 Sol build, while due diligence (0.94) is its strongest criterion after clarity.",
+    "overall": 0.86,
+    "criteria": {
+      "gender-wps": 0.849,
+      "operational-relevance": 0.871,
+      "analytical-depth": 0.721,
+      "policy-alignment": 0.758,
+      "clarity-actionability": 0.978,
+      "trust-building": 0.732,
+      "due-diligence": 0.94,
+      "acknowledgment-limitations": 0.86,
+      "factual-integrity": 0.91,
+      "wps-guardrails": 0.931,
+      "substantive-pushback": 0.909
+    },
+    "description": "Current version, GPT-6 Luna base — the build running the live demo",
+    "genderByTier": {
+      "T1": {
+        "score": 0.866,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.855,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.879,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.825,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 1.0,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 0.96,
+        "n": 3
+      }
+    }
+  },
+  {
     "id": "local:wps-agent-gpt56[temp:0]",
     "label": "WPS Agent v2 (GPT-5.6 Sol)",
     "provider": "Our Secure Future",
@@ -21,7 +177,7 @@
       "wps-guardrails": 0.95,
       "substantive-pushback": 0.903
     },
-    "description": "Current build — multi-agent workflow with mandatory verification, GPT-5.6 Sol base",
+    "description": "Previous version — multi-agent workflow with mandatory verification, GPT-5.6 Sol base",
     "genderByTier": {
       "T1": {
         "score": 0.866,
@@ -255,6 +411,58 @@
       },
       "substantive-pushback": {
         "t4": 0.89,
+        "n": 3
+      }
+    }
+  },
+  {
+    "id": "azure:gpt-6.1-sol",
+    "label": "GPT-6.1 Sol",
+    "provider": "OpenAI",
+    "isOurs": false,
+    "run": "6.16",
+    "date": "2026-11-06",
+    "note": "Gender-sensitivity falls from 0.81 on cued prompts to 0.10 on sparse ones, and factual integrity (0.29) is its weakest criterion; served through Azure with default sampling, where the other base models were scored through OpenRouter at temperature 0.",
+    "overall": 0.603,
+    "criteria": {
+      "gender-wps": 0.435,
+      "operational-relevance": 0.772,
+      "analytical-depth": 0.493,
+      "policy-alignment": 0.586,
+      "clarity-actionability": 0.698,
+      "trust-building": 0.473,
+      "due-diligence": 0.623,
+      "acknowledgment-limitations": 0.511,
+      "factual-integrity": 0.291,
+      "wps-guardrails": 0.878,
+      "substantive-pushback": 0.875
+    },
+    "description": null,
+    "genderByTier": {
+      "T1": {
+        "score": 0.81,
+        "n": 8
+      },
+      "T1-neutral": {
+        "score": 0.535,
+        "n": 4
+      },
+      "T2": {
+        "score": 0.357,
+        "n": 7
+      },
+      "T3": {
+        "score": 0.099,
+        "n": 8
+      }
+    },
+    "adversarial": {
+      "wps-guardrails": {
+        "t4": 1.0,
+        "n": 3
+      },
+      "substantive-pushback": {
+        "t4": 0.96,
         "n": 3
       }
     }
@@ -648,7 +856,7 @@
     "description": null,
     "genderByTier": {
       "T1": {
-        "score": 0.633,
+        "score": 0.632,
         "n": 8
       },
       "T1-neutral": {
