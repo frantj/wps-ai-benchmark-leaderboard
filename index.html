@@ -130,7 +130,7 @@ a:hover{color:var(--osf-teal-dark);}
         <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-red);display:inline-block;"></span>Below 0.60 — fails threshold</span>
       </div>
       <div style="font-size:13px;color:var(--text-muted);margin:10px 0 0;">Scores 0.00–1.00 · 0.60 pass threshold</div>
-      <p style="font-size:14px;line-height:1.6;color:var(--text-secondary);margin:12px 0 0;max-width:760px;">Our own systems are included and labelled. They are scored on the identical scenarios, criteria, and judge panel as every bare general-purpose model here, and successive builds are shown together so the effect of purpose-built scaffolding is visible on the same test.</p>
+      <p style="font-size:14px;line-height:1.6;color:var(--text-secondary);margin:12px 0 0;max-width:760px;">This table lists general-purpose models. Our own WPS Agent is scored on the identical scenarios, criteria and judge panel, and its results are on the <a href="/our-agent" style="font-weight:600;">Our Agent</a> page.</p>
 
       <sc-if value="{{ loaded }}" hint-placeholder-val="{{ false }}">
         <div style="overflow-x:auto;border:1px solid var(--border-subtle);border-radius:6px;margin-top:16px;">
@@ -289,7 +289,9 @@ class Component extends DCLogic {
   state = { rows: [], criteria: [], tiers: [], sortKey: 'overall', sortDir: 'desc', expanded: {} };
 
   componentDidMount() {
-    fetch('data/leaderboard.json').then(r => r.json()).then(rows => this.setState({ rows }));
+    // General-purpose models only. Our own agent builds share the data file
+    // and are shown on the Our Agent page instead.
+    fetch('data/leaderboard.json').then(r => r.json()).then(rows => this.setState({ rows: rows.filter(r => !r.isOurs) }));
     fetch('data/criteria.json').then(r => r.json()).then(d => this.setState({ criteria: d.criteria, tiers: d.tiers }));
   }
 

@@ -72,7 +72,7 @@
     <div style="max-width:760px;margin:0 auto 0 max(0px, calc(50% - 550px));">
       <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--osf-golden-deep);margin-bottom:14px;">Our Agent</div>
       <h1 style="font-family:var(--font-serif);font-size:clamp(26px,6vw,38px);line-height:1.2;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">The WPS AI Agent</h1>
-      <p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0 0 20px;">A purpose-built system, evaluated on this benchmark as one of the systems on the <a href="/" style="font-weight:600;">leaderboard</a> — a reference point for what a system built specifically for WPS analysis can achieve, next to general-purpose models.</p>
+      <p style="font-size:17px;line-height:1.6;color:var(--text-secondary);margin:0 0 20px;">A purpose-built system, scored on the same benchmark as the general-purpose models on the <a href="/" style="font-weight:600;">leaderboard</a>, as a reference point for what a system built specifically for WPS analysis can achieve.</p>
       <a href="https://wps-agent.streamlit.app/" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:var(--white);background:var(--osf-teal-dark);border-radius:5px;padding:11px 20px;text-decoration:none;white-space:nowrap;display:inline-block;">Try the live demo ↗</a>
     </div>
   </section>
@@ -101,8 +101,111 @@
       </div>
 
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">Where it stands today</h2>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Version 4 of the agent leads the leaderboard. On GPT-5.6 Sol it scores <strong>0.87</strong>, leads every general-purpose model tested on <strong>all eleven criteria</strong>, and clears the pass mark on all eleven. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest general-purpose model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.89 against 0.58</strong>. The live demo runs v4 on GPT-6 Luna, which scores <strong>0.86</strong> and answers in under a minute; it leads every general-purpose model on ten of the eleven criteria, and trails Qwen3.8 by 0.005 on WPS guardrails, where most systems score near the ceiling.<br><br>Against v2 on GPT-5.6 Sol, v4's largest gains are trust building (+0.14), due diligence (+0.09) and policy alignment (+0.08). Trust building is still v4's lowest score, at 0.75, and analytical depth, at 0.78, has the most room to improve. See the full breakdown on the <a href="/" style="font-weight:600;">Leaderboard</a>.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Version 4 of the agent scores above every model on the leaderboard. On GPT-5.6 Sol it scores <strong>0.87</strong>, leads every general-purpose model tested on <strong>all eleven criteria</strong>, and clears the pass mark on all eleven. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest general-purpose model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.89 against 0.58</strong>. The live demo runs v4 on GPT-6 Luna, which scores <strong>0.86</strong> and answers in under a minute; it leads every general-purpose model on ten of the eleven criteria, and trails Qwen3.8 by 0.005 on WPS guardrails, where most systems score near the ceiling.<br><br>Against v2 on GPT-5.6 Sol, v4's largest gains are trust building (+0.14), due diligence (+0.09) and policy alignment (+0.08). Trust building is still v4's lowest score, at 0.75, and analytical depth, at 0.78, has the most room to improve. The full breakdown is under <a href="#results" style="font-weight:600;">Benchmark results</a> below.</p>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">This is a demonstration of what purpose-built scaffolding can add to WPS analysis. Results should always be read alongside a human WPS advisor, not in place of one.</p>
+
+
+      <h2 id="results" style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;scroll-margin-top:80px;">Benchmark results</h2>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Every build of the agent, scored on the same 30 scenarios, eleven criteria and three judges as the models on the <a href="/" style="font-weight:600;">leaderboard</a>. Every version since v2 has outperformed Claude Opus 5, the highest-scoring general-purpose model.</p>
+      <sc-if value="{{ loaded }}" hint-placeholder-val="{{ false }}">
+        <div style="overflow-x:auto;border:1px solid var(--border-subtle);border-radius:6px;margin-top:16px;">
+        <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:700px;table-layout:fixed;">
+          <thead>
+            <tr style="background:var(--osf-sand);text-align:left;">
+              <th scope="col" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:auto;">System</th>
+              <th scope="col" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:150px;white-space:nowrap;">Evaluated</th>
+              <th scope="col" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:280px;white-space:nowrap;">Overall</th>
+              <th scope="col" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:90px;">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ rows }}" as="row" hint-placeholder-count="10">
+              <tr style="border-top:1px solid var(--border-subtle);">
+                <td style="padding:14px 10px;">
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <button onClick="{{ row.toggle }}" style="all:unset;cursor:pointer;font-weight:600;color:var(--osf-navy);font-family:inherit;">{{ row.label }}</button>
+                  </div>
+                  <div style="font-size:12.5px;color:var(--text-muted);margin-top:2px;">{{ row.provider }}</div>
+                  <sc-if value="{{ row.hasDescription }}" hint-placeholder-val="{{ false }}">
+                    <div style="font-size:12.5px;color:var(--text-muted);margin-top:3px;font-style:italic;">{{ row.description }}</div>
+                  </sc-if>
+                </td>
+                <td style="padding:14px 10px;color:var(--text-secondary);font-size:13px;">{{ row.date }}</td>
+                <td style="padding:14px 10px;">
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="flex:1;height:8px;background:var(--gray-100);border-radius:4px;overflow:hidden;">
+                      <div style="height:100%;border-radius:4px;width:{{ row.barWidth }};background:{{ row.barColor }};"></div>
+                    </div>
+                    <span style="font-weight:700;color:var(--osf-navy);font-size:13.5px;width:34px;">{{ row.overall }}</span>
+                  </div>
+                </td>
+                <td style="padding:14px 10px;">
+                  <button onClick="{{ row.toggle }}" style="background:none;border:1px solid var(--border-subtle);border-radius:4px;font-size:12px;color:var(--osf-navy);padding:5px 9px;cursor:pointer;font-family:var(--font-sans);">{{ row.toggleLabel }}</button>
+                </td>
+              </tr>
+              <sc-if value="{{ row.expanded }}" hint-placeholder-val="{{ false }}">
+                <tr>
+                  <td colSpan="4" style="padding:0 10px 18px;background:var(--surface-sunken);">
+                    <sc-if value="{{ row.hasNote }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size:12.5px;line-height:1.6;color:var(--text-secondary);padding:10px 4px 4px;font-style:italic;">{{ row.note }}</div>
+                    </sc-if>
+                    <div style="font-size:11.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);padding:12px 4px 0;">{{ row.criteriaHeading }}</div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;padding:10px 4px 12px;">
+                      <sc-for list="{{ row.detailCriteria }}" as="dc" hint-placeholder-count="9">
+                        <div style="background:var(--white);border:1px solid var(--border-subtle);border-radius:5px;padding:10px 12px;">
+                          <div style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px;">{{ dc.name }}</div>
+                          <div style="display:flex;align-items:center;gap:6px;">
+                            <div style="flex:1;height:5px;background:var(--gray-100);border-radius:3px;overflow:hidden;">
+                              <div style="height:100%;border-radius:3px;width:{{ dc.pct }}%;background:{{ dc.color }};"></div>
+                            </div>
+                            <span style="font-size:12px;font-weight:600;color:var(--osf-navy);">{{ dc.display }}</span>
+                          </div>
+                        </div>
+                      </sc-for>
+                    </div>
+                    <sc-if value="{{ row.hasGenderTiers }}" hint-placeholder-val="{{ false }}">
+                      <div style="padding:6px 4px 2px;">
+                        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);margin-bottom:9px;">Gender / WPS integration by prompt tier</div>
+                        <div style="display:flex;flex-direction:column;gap:7px;">
+                          <sc-for list="{{ row.genderTiers }}" as="gt" hint-placeholder-count="4">
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;">
+                              <span style="font-size:12px;color:var(--text-secondary);flex:1 1 140px;min-width:0;">{{ gt.label }}</span>
+                              <div style="flex:3 1 80px;min-width:0;height:6px;background:var(--gray-100);border-radius:3px;overflow:hidden;">
+                                <div style="height:100%;border-radius:3px;width:{{ gt.pct }}%;background:{{ gt.color }};"></div>
+                              </div>
+                              <span style="font-size:12px;font-weight:600;color:var(--osf-navy);width:30px;text-align:right;flex-shrink:0;">{{ gt.display }}</span>
+                              <span style="font-size:11px;color:var(--text-muted);width:52px;flex-shrink:0;">{{ gt.partial }}</span>
+                            </div>
+                          </sc-for>
+                        </div>
+                        <div style="font-size:11.5px;color:var(--text-muted);margin-top:9px;">The fall from cued to sparse prompts is the WPS Competence Gap — how much of a system's WPS performance depends on being told to look for it. See <a href="/benchmark" style="color:var(--text-muted);text-decoration:underline;">The Benchmark</a>.</div>
+                      </div>
+                    </sc-if>
+                    <sc-if value="{{ row.hasAdversarial }}" hint-placeholder-val="{{ false }}">
+                      <div style="padding:14px 4px 2px;">
+                        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);margin-bottom:9px;">Performance on adversarial criteria</div>
+                        <div style="display:flex;flex-direction:column;gap:7px;">
+                          <sc-for list="{{ row.adversarialRows }}" as="ar" hint-placeholder-count="2">
+                            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;">
+                              <span style="font-size:12px;color:var(--text-secondary);flex:1 1 140px;min-width:0;">{{ ar.label }}</span>
+                              <div style="flex:3 1 80px;min-width:0;height:6px;background:var(--gray-100);border-radius:3px;overflow:hidden;">
+                                <div style="height:100%;border-radius:3px;width:{{ ar.pct }}%;background:{{ ar.color }};"></div>
+                              </div>
+                              <span style="font-size:12px;font-weight:600;color:var(--osf-navy);width:30px;text-align:right;flex-shrink:0;">{{ ar.display }}</span>
+                            </div>
+                          </sc-for>
+                        </div>
+                        <div style="font-size:11.5px;color:var(--text-muted);margin-top:9px;">These two criteria are conditional — they pass by default on benign requests, so they are scored on the 3 adversarial scenarios only. See <a href="/benchmark" style="color:var(--text-muted);text-decoration:underline;">The Benchmark</a>.</div>
+                      </div>
+                    </sc-if>
+                  </td>
+                </tr>
+              </sc-if>
+            </sc-for>
+          </tbody>
+        </table>
+        </div>
+      </sc-if>
 
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">What the structure is worth, and on which base model</h2>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">GPT-5.6 Sol is the one base model tested all three ways: on its own, inside v2 and inside v4. That makes it the clearest view of what the agent's structure adds.</p>
@@ -198,7 +301,7 @@
           <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-red);width:52px;text-align:right;flex-shrink:0;">0.59</div>
         </div>
       </div>
-      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">Dates are when each build was made. v1 and v2 were scored in July–August 2026, and v4 in November 2026, on identical scenarios and criteria and by the same three judges. Re-judging v2's published answers alongside v4 moved its score from 0.839 to 0.841 and 0.846, so the builds compare fairly, give or take about 0.01. Scores are overall benchmark averages; every build appears on the <a href="/" style="font-weight:600;">Leaderboard</a>.</p>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">Dates are when each build was made. v1 and v2 were scored in July–August 2026, and v4 in November 2026, on identical scenarios and criteria and by the same three judges. Re-judging v2's published answers alongside v4 moved its score from 0.839 to 0.841 and 0.846, so the builds compare fairly, give or take about 0.01. Scores are overall benchmark averages; each build's full results are under <a href="#results" style="font-weight:600;">Benchmark results</a>.</p>
     </div>
   </section>
 
@@ -234,9 +337,23 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  // The page is drawn after load, so a link to #version-history (the chat
-  // demo uses one) arrives before the heading exists. Scroll once it does.
+  // Our agent builds, from the same data file as the leaderboard.
+  state = { rows: [], criteria: [], tiers: [], expanded: {} };
+
   componentDidMount() {
+    fetch('data/leaderboard.json').then(r => r.json()).then(all => {
+      const rows = all.filter(r => r.isOurs);
+      this.setState({ rows }, () => this.scrollToHash());
+    });
+    fetch('data/criteria.json').then(r => r.json()).then(d => this.setState({ criteria: d.criteria, tiers: d.tiers }));
+    this.scrollToHash();
+  }
+
+  // The page is drawn after load, so a link to #version-history (the chat
+  // demo uses one) arrives before the heading exists, and the results table
+  // above it arrives later still. Scroll once the heading exists, and again
+  // once the table has loaded.
+  scrollToHash() {
     const id = decodeURIComponent(location.hash.slice(1));
     if (!id) return;
     let tries = 0;
@@ -248,8 +365,108 @@ class Component extends DCLogic {
     setTimeout(go, 0);
   }
 
+  scoreColor(v) {
+    if (v >= 0.75) return 'var(--osf-teal)';
+    if (v >= 0.60) return 'var(--osf-golden-deep)';
+    return 'var(--osf-red)';
+  }
+
+  fmt(v) {
+    return v === undefined || v === null ? '—' : v.toFixed(2);
+  }
+
+  toggleExpand(id) {
+    this.setState(s => ({ expanded: { ...s.expanded, [id]: !s.expanded[id] } }));
+  }
+
+  formatDate(iso) {
+    if (!iso) return '';
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const [y, m, d] = iso.split('-').map(Number);
+    return d + ' ' + months[m - 1] + ' ' + y;
+  }
+
+  // Per-tier gender/WPS bars for one row. `n` is how many scenarios in that
+  // tier the system actually returned a response for; when it is short of the
+  // tier's scenario count the bar is marked, since a model that was refused or
+  // filtered on the hardest prompts would otherwise look better than it is.
+  // Tier order is difficulty order, not the order in criteria.json. T4 is
+  // excluded on purpose: it measures adversarial robustness, not competence as
+  // cues are removed, so it does not belong on the same axis.
+  genderTiersFor(row, tierMeta) {
+    const order = ['T1', 'T1-neutral', 'T2', 'T3'];
+    const byTier = row.genderByTier || {};
+    return order.filter(id => byTier[id]).map(id => {
+      const cell = byTier[id];
+      const meta = tierMeta[id];
+      const total = meta ? meta.count : cell.n;
+      return {
+        label: meta ? id + ' — ' + meta.name : id,
+        display: this.fmt(cell.score),
+        pct: Math.round(cell.score * 100),
+        color: this.scoreColor(cell.score),
+        partial: cell.n < total ? 'n=' + cell.n + '/' + total : ''
+      };
+    });
+  }
+
+  // The two conditional criteria (group "adversarial") pass vacuously on the 27
+  // non-adversarial prompts, so their all-prompt averages sit near the ceiling
+  // and discriminate nothing — benchmark/v6/README.md says to read them on T4
+  // only, which is what this shows.
+  //
+  // Deliberately no baseline comparison: on a benign prompt the criterion is
+  // satisfied by default, so the "baseline" is 1.00 for every system and any
+  // shortfall is judge error rather than behaviour. Plotting it would chart
+  // noise, and the noise is not evenly distributed — see the run reports.
+  adversarialRowsFor(row, adversarialCriteria) {
+    const adv = row.adversarial || {};
+    return adversarialCriteria.filter(c => adv[c.id]).map(c => {
+      const cell = adv[c.id];
+      return {
+        label: c.name,
+        display: this.fmt(cell.t4),
+        pct: Math.round(cell.t4 * 100),
+        color: this.scoreColor(cell.t4)
+      };
+    });
+  }
+
   renderVals() {
+    const { rows, criteria, tiers, expanded } = this.state;
+    const standardCriteria = criteria.filter(c => c.group === 'standard');
+    const adversarialCriteria = criteria.filter(c => c.group === 'adversarial');
+    const tierMeta = {};
+    tiers.forEach(t => { tierMeta[t.id] = t; });
+    const rowsView = [...rows].sort((a, b) => b.overall - a.overall).map(r => {
+      const isExpanded = !!expanded[r.id];
+      const genderTiers = this.genderTiersFor(r, tierMeta);
+      const adversarialRows = this.adversarialRowsFor(r, adversarialCriteria);
+      return {
+        ...r,
+        expanded: isExpanded,
+        toggleLabel: isExpanded ? 'Hide' : 'View all',
+        toggle: () => this.toggleExpand(r.id),
+        overall: this.fmt(r.overall),
+        barWidth: Math.round(r.overall * 100) + '%',
+        barColor: this.scoreColor(r.overall),
+        hasNote: !!r.note,
+        hasDescription: !!r.description,
+        genderTiers: genderTiers,
+        hasGenderTiers: genderTiers.length > 0,
+        adversarialRows: adversarialRows,
+        hasAdversarial: adversarialRows.length > 0,
+        date: this.formatDate(r.date),
+        criteriaHeading: standardCriteria.length ? 'Performance on standard criteria' : '',
+        detailCriteria: standardCriteria.map(c => {
+          const val = r.criteria[c.id];
+          return { name: c.name, display: this.fmt(val), pct: Math.round((val || 0) * 100), color: this.scoreColor(val || 0) };
+        })
+      };
+    });
     return {
+      loaded: rows.length > 0,
+      rows: rowsView,
       stages: [
         { num: '01', title: 'Understanding the request', desc: 'Works out who is asking, for what decision and where, and whether carrying out the request as framed would undermine WPS objectives.' },
         { num: '02', title: 'Searching the documents', desc: 'Searches national action plans and policy instruments on one side and WPS research on the other, always including both gender-focused and operational searches, and setting aside other countries’ plans.' },
