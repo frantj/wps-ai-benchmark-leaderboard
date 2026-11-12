@@ -94,19 +94,20 @@
           </div>
         </sc-for>
       </div>
+      <p style="font-size:15px;line-height:1.7;color:var(--text-secondary);margin:18px 0 0;">v4 splits this work across models. GPT-6 Luna, a fast, low-cost model, plans the search, and GPT-5.6 Terra checks the draft; both are the same in every v4 build. The writing model, which drafts the answer and makes the one fix, is the model each build below is named for. In the live demo that is GPT-6 Luna as well. Earlier versions ran a single model for every stage.</p>
 
       <div style="background:var(--osf-sand);border-radius:8px;padding:24px 28px;margin:32px 0;">
         <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:0 0 10px;">How the answer is checked</h3>
-        <p style="font-size:15px;line-height:1.7;color:var(--text-secondary);margin:0;">Checking is the piece that most directly answers the "unverified claims" failure mode. Code checks that every figure and citation in the answer traces to the passage it came from, and a second model reads the answer against those passages. The Sources list is built by code from the citations the answer uses. Since v2 introduced verification, factual integrity and acknowledgment of uncertainty have gone from the agent's weakest scores to among its strongest, ahead of every general-purpose model tested. The agent does not use internet search.</p>
+        <p style="font-size:15px;line-height:1.7;color:var(--text-secondary);margin:0;">Checking is the piece that most directly answers the "unverified claims" failure mode. Code checks that every figure and citation in the answer traces to the passage it came from, and a separate checking model, GPT-5.6 Terra, reads the answer against those passages. The Sources list is built by code from the citations the answer uses. Since v2 introduced verification, factual integrity and acknowledgment of uncertainty have gone from the agent's weakest scores to among its strongest, ahead of every general-purpose model tested. The agent does not use internet search.</p>
       </div>
 
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">Where it stands today</h2>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Version 4 of the agent scores above every model on the leaderboard. On GPT-5.6 Sol it scores <strong>0.87</strong>, leads every general-purpose model tested on <strong>all eleven criteria</strong>, and clears the pass mark on all eleven. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest general-purpose model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.89 against 0.57</strong>. The live demo runs v4 on GPT-6 Luna, which scores <strong>0.86</strong> and answers in under a minute; it leads every general-purpose model on ten of the eleven criteria, and trails Qwen3.8 by 0.005 on WPS guardrails, where most systems score near the ceiling.<br><br>Against v2 on GPT-5.6 Sol, v4's largest gains are trust building (+0.14), due diligence (+0.09) and policy alignment (+0.08). Trust building is still v4's lowest score, at 0.75, and analytical depth, at 0.78, has the most room to improve. The full breakdown for both builds is under <a href="#results" style="font-weight:600;">Benchmark results</a> below.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Version 4 of the agent scores above every model on the leaderboard. With GPT-5.6 Sol as the writer, it scores <strong>0.87</strong>, leads every general-purpose model tested on <strong>all eleven criteria</strong>, and clears the pass mark on all eleven. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest general-purpose model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.89 against 0.57</strong>. The live demo build, with GPT-6 Luna as the writer, scores <strong>0.86</strong> and answers in under a minute; it leads every general-purpose model on ten of the eleven criteria, and trails Qwen3.8 by 0.005 on WPS guardrails, where most systems score near the ceiling.<br><br>Against v2 on GPT-5.6 Sol, v4's largest gains are trust building (+0.14), due diligence (+0.09) and policy alignment (+0.08). Trust building is still v4's lowest score, at 0.75, and analytical depth, at 0.78, has the most room to improve. The full breakdown for both builds is under <a href="#results" style="font-weight:600;">Benchmark results</a> below.</p>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">This is a demonstration of what purpose-built scaffolding can add to WPS analysis. Results should always be read alongside a human WPS advisor, not in place of one.</p>
 
 
       <h2 id="results" style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;scroll-margin-top:80px;">Benchmark results</h2>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">The versions of the agent available now, scored on the same 30 scenarios, eleven criteria and three judges as the models on the <a href="/" style="font-weight:600;">leaderboard</a>. v4 on GPT-6 Luna runs the live demo, and v4 on GPT-5.6 Sol is available on request. Every version since v2 has outperformed Claude Opus 5, the highest-scoring general-purpose model; earlier versions are in the <a href="#version-history" style="font-weight:600;">version history</a> below.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">The versions of the agent available now, scored on the same 30 scenarios, eleven criteria and three judges as the models on the <a href="/" style="font-weight:600;">leaderboard</a>. The GPT-6 Luna build runs the live demo, and the GPT-5.6 Sol build is available on request. Every version since v2 has outperformed Claude Opus 5, the highest-scoring general-purpose model; earlier versions are in the <a href="#version-history" style="font-weight:600;">version history</a> below.</p>
       <sc-if value="{{ loaded }}" hint-placeholder-val="{{ false }}">
         <div style="overflow-x:auto;border:1px solid var(--border-subtle);border-radius:6px;margin-top:16px;">
         <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:700px;table-layout:fixed;">
@@ -207,18 +208,18 @@
         </div>
       </sc-if>
 
-      <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">What the structure is worth, and on which base model</h2>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">GPT-5.6 Sol is the one base model tested all three ways: on its own, inside v2 and inside v4. That makes it the clearest view of what the agent's structure adds.</p>
+      <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">What the agent adds, model by model</h2>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">GPT-5.6 Sol is the one model tested all three ways: on its own, running every stage of v2, and as v4's writer. That makes it the clearest view of what the agent adds.</p>
 
       <div style="overflow-x:auto;margin:18px 0;">
         <table style="border-collapse:collapse;width:100%;font-size:15px;">
           <thead>
             <tr style="border-bottom:2px solid var(--osf-navy);">
-              <th style="text-align:left;padding:8px 12px 8px 0;color:var(--osf-navy);">Base model</th>
+              <th style="text-align:left;padding:8px 12px 8px 0;color:var(--osf-navy);">Model</th>
               <th style="text-align:right;padding:8px 12px;color:var(--osf-navy);">Bare</th>
               <th style="text-align:right;padding:8px 12px;color:var(--osf-navy);">v2</th>
               <th style="text-align:right;padding:8px 12px;color:var(--osf-navy);">v4</th>
-              <th style="text-align:right;padding:8px 0 8px 12px;color:var(--osf-navy);">What the structure adds</th>
+              <th style="text-align:right;padding:8px 0 8px 12px;color:var(--osf-navy);">Gain over the model alone</th>
             </tr>
           </thead>
           <tbody>
@@ -254,25 +255,26 @@
         </table>
       </div>
 
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">The two gains measure slightly different things. In v2 one model runs every stage, so its gain comes from the workflow alone. In v4 the gain also includes the two models every v4 build shares, GPT-6 Luna planning and GPT-5.6 Terra checking, so it measures the whole system rather than the workflow by itself.</p>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">On its own, GPT-5.6 Sol clears the pass mark on fewer than half the criteria, failing in the ways the <a href="/benchmark" style="font-weight:600;">Benchmark</a> describes. Inside v2, it clears the pass mark on every criterion. Verification lifted factual integrity and acknowledgment of limitations from its weakest scores to well above the pass mark, and the gap between cued and sparse prompts closed: it brings a gender lens to terse requests as reliably as to detailed ones.</p>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">v4 keeps those gains and adds to them, mostly in trust building, due diligence and policy alignment. Those are the parts of an answer that say who should act, what could go wrong and which commitments apply. Overall, the model goes from <strong>0.60</strong> on its own to <strong>0.84</strong> inside v2 and <strong>0.87</strong> inside v4.</p>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">The other base models fit the same pattern. GPT-6.1 Sol, a newer model, scores no better than GPT-5.6 Sol on its own, and v4 lifts it by about as much. v2 lifted the older GPT-4o even further, far enough to outscore the best Sol model tested on its own, GPT-6.1 Sol. GPT-6 Luna, which runs the demo, hasn't been tested on its own.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">v4 keeps those gains and adds to them, mostly in trust building, due diligence and policy alignment. Those are the parts of an answer that say who should act, what could go wrong and which commitments apply. Overall, GPT-5.6 Sol scores <strong>0.60</strong> on its own, <strong>0.84</strong> running v2 and <strong>0.87</strong> as v4's writer.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">The other models fit the same pattern. GPT-6.1 Sol, a newer model, scores no better than GPT-5.6 Sol on its own, and gains about as much as v4's writer. v2 lifted the older GPT-4o even further, far enough to outscore the best Sol model tested on its own, GPT-6.1 Sol. GPT-6 Luna, which runs the demo, hasn't been tested on its own.</p>
 
       <h2 id="version-history" style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 18px;scroll-margin-top:80px;">Version history</h2>
       <div style="display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;gap:20px;padding:16px 0;border-top:1px solid var(--border-subtle);align-items:baseline;">
           <div style="font-size:13px;color:var(--text-muted);width:96px;flex-shrink:0;">November 2026</div>
           <div style="flex:1;">
-            <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v4, GPT-5.6 Sol base</div>
-            <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">Replaces v2's specialist agents with a single model call that writes the answer. Code searches the documents and checks the answer, a second model reviews it, and any problems get one round of exact edits. The largest gains over v2 are in trust building and due diligence.</div>
+            <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v4, GPT-5.6 Sol writer</div>
+            <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">Replaces v2's specialist agents with a single model call that writes the answer. GPT-6 Luna plans the search, code searches the documents and checks the answer, GPT-5.6 Terra reviews it, and any problems get one round of exact edits. The largest gains over v2 are in trust building and due diligence.</div>
           </div>
           <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-teal);width:52px;text-align:right;flex-shrink:0;">0.87</div>
         </div>
         <div style="display:flex;gap:20px;padding:16px 0;border-top:1px solid var(--border-subtle);align-items:baseline;">
           <div style="font-size:13px;color:var(--text-muted);width:96px;flex-shrink:0;">November 2026</div>
           <div style="flex:1;">
-            <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v4, GPT-6 Luna base</div>
-            <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">v4 on a faster, lower-cost base model. It has run the live demo since November 2026, answering in under a minute at about a quarter of the cost of v4 on GPT-5.6 Sol.</div>
+            <div style="font-weight:600;color:var(--osf-navy);font-size:15.5px;margin-bottom:3px;">WPS Agent v4, GPT-6 Luna writer</div>
+            <div style="font-size:14.5px;line-height:1.6;color:var(--text-secondary);">The same v4, with GPT-6 Luna, a faster, lower-cost model, as the writer. It has run the live demo since November 2026, answering in under a minute at about a quarter of the cost of the GPT-5.6 Sol build.</div>
           </div>
           <div style="font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--osf-teal);width:52px;text-align:right;flex-shrink:0;">0.86</div>
         </div>
@@ -338,8 +340,10 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   // The agent builds currently offered, from the same data file as the
-  // leaderboard: v4 on GPT-6 Luna (the live demo) and v4 on GPT-5.6 Sol (on
-  // request). Earlier builds are summarised in the version history.
+  // leaderboard: v4 with GPT-6 Luna writing (the live demo) and v4 with
+  // GPT-5.6 Sol writing (on request). Every v4 build plans with GPT-6 Luna and
+  // verifies with GPT-5.6 Terra (registry/v4/models.yaml in the agent repo).
+  // Earlier builds are summarised in the version history.
   static SUPPORTED_IDS = ['local:wps-agent-v4-luna[temp:0]', 'local:wps-agent-v4-sol[temp:0]'];
   state = { rows: [], criteria: [], tiers: [], expanded: {} };
 
@@ -474,7 +478,7 @@ class Component extends DCLogic {
         { num: '01', title: 'Understanding the request', desc: 'Works out who is asking, for what decision and where, and whether carrying out the request as framed would undermine WPS objectives.' },
         { num: '02', title: 'Searching the documents', desc: 'Searches national action plans and policy instruments on one side and WPS research on the other, always including both gender-focused and operational searches, and setting aside other countries’ plans.' },
         { num: '03', title: 'Writing', desc: 'One decision-ready answer, with each claim drawn from a document tied to the passage it comes from.' },
-        { num: '04', title: 'Checking', desc: 'Every figure and citation is checked against its source, and a second model reads the answer for ranked recommendations with owners and risks, and for the analysis of gender norms and trust.' },
+        { num: '04', title: 'Checking', desc: 'Every figure and citation is checked against its source, and a separate checking model reads the answer for ranked recommendations with owners and risks, and for the analysis of gender norms and trust.' },
         { num: '05', title: 'One fix', desc: 'If the check finds problems, exact edits fix them once. Anything still unresolved is listed at the end of the answer.' }
       ]
     };
