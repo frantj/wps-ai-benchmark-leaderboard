@@ -94,6 +94,51 @@ With DevTools open you can also tick *Network → Disable cache*.
 **The whole table is a single grey skeleton row** — same root cause as the
 `never resolved` warnings above: no data, so the placeholder renders.
 
+## Static copies for crawlers — run after every change
+
+Because pages render client-side, a crawler that does not run JavaScript (most
+AI crawlers) would see `{{ row.label }}` instead of model names and scores. So
+the data is also written into the HTML as plain markup:
+
+```bash
+python3 scripts/build_static.py           # regenerate
+python3 scripts/build_static.py --check   # what the deploy runs; exits 1 if stale
+```
+
+Run it after changing `data/leaderboard.json`, `data/criteria.json`,
+`data/faq.json`, **or any page**, and commit what it writes. The deploy runs
+`--check` first and fails if anything is stale, so a forgotten run blocks the
+deploy rather than shipping wrong numbers.
+
+What it writes:
+
+- Blocks between `<!-- STATIC:name:START -->` and `<!-- STATIC:name:END -->` in
+  `index.html`, `our-agent.html` and `benchmark.html`. Never edit inside them.
+  Most are wrapped in `<sc-if value="{{ false }}">`, so the runtime never renders
+  them: they exist only in the raw HTML, and the live interactive version is what
+  a browser shows. The results sentence on the homepage and the "Common
+  questions" section on the Benchmark page are visible to everyone.
+- The `STATIC:jsonld` block in every page head (page, breadcrumb, results,
+  FAQ and media structured data).
+- `sitemap.xml`, `leaderboard.md`, and the "Current standings" section of
+  `llms.txt`.
+- `scripts/page-state.json`, which records a hash and last-modified date per
+  page. A page's date moves to today whenever its content changes — this is why
+  editing any page requires a run.
+
+The generator reads three things out of the page scripts, so keep their shape:
+`SUPPORTED_IDS` and the `stages` list in `our-agent.html`, and
+`TIER_CHART_MODELS` in `benchmark.html`. On `media.html` each item must stay an
+`<article>` with a `<time datetime>` and an `<h2>`. The "Common questions" copy
+lives in `data/faq.json`.
+
+Head tags (`<title>`, description, Open Graph) belong in the real `<head>` only.
+Do not put `<meta>` tags in a page's `<helmet>` block: the runtime appends them
+to the head, which gave every page two conflicting descriptions.
+
+React is served from `vendor/` (same files and hashes the runtime pins for
+unpkg) and loaded before `support.js`, which then skips the CDN.
+
 ## Regenerating `data/leaderboard.json`
 
 Do not hand-edit the score fields. They are derived from the run outputs by a

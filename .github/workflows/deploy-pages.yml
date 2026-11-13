@@ -23,6 +23,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Check static copies are current
+        # The pages render client-side; scripts/build_static.py writes the
+        # crawlable copies of the data into them. Fail rather than ship pages
+        # whose static rows no longer match data/*.json.
+        run: python3 scripts/build_static.py --check
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
