@@ -1,0 +1,22 @@
+[
+  {
+    "q": "What is the WPS AI Benchmark?",
+    "a": "A structured suite of 30 realistic peace-and-security scenarios and an 11-criterion scoring rubric for evaluating how well AI systems apply Women, Peace and Security (WPS) principles when asked for operational advice. It is published by Our Secure Future, a PAX sapiens program, and is grounded in UN Security Council Resolution 1325 and successor frameworks, NATO's 2024 WPS Policy, and National Action Plans."
+  },
+  {
+    "q": "What is the WPS Competence Gap?",
+    "a": "The fall in a model's gender-sensitivity score between prompts that spell out the gender dimensions and the sparse, practitioner-realistic requests that mention nothing about gender. The three frontier models in the original comparison average 0.82 when cued and 0.16 when not. It shows how much of a system's WPS performance depends on being told to look for it."
+  },
+  {
+    "q": "How are AI systems scored?",
+    "a": "Each response is scored from 0.00 to 1.00 on eleven criteria by three independent AI judges, and scores are macro-averaged with equal weight per prompt tier. 0.60 is the pass threshold. Scores are model-graded, not human-graded, and differences under roughly 0.10–0.15 should be read as directional, not definitive."
+  },
+  {
+    "q": "Can I run the benchmark on my own model?",
+    "a": "Yes. The full suite — scenarios, scoring rubric and reproduction settings — is a free download under CC BY 4.0, including for use as training data, and is also published as a dataset on Hugging Face. It runs on the open-source Weval platform."
+  },
+  {
+    "q": "Is a high score a certification that an AI system is safe to deploy?",
+    "a": "No. The benchmark measures relative performance among AI systems. It is not a safety or fitness-for-deployment certification and must not be used as clearance for operational, warfare or targeting decisions. AI is no substitute for a human WPS advisor."
+  }
+]

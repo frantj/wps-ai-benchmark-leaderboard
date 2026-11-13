@@ -6,25 +6,47 @@ This site publishes a leaderboard of general-purpose AI models on the benchmark,
 
 ## Key pages
 
-- [Leaderboard](/): Current rankings of general-purpose models, overall and per-criterion scores, and date. One row per system.
-- [The Benchmark](/benchmark): What WPS is and how the benchmark is structured.
-- [Methodology](/methodology): How scenarios are built and validated, the judging protocol, aggregation rules, and inter-judge reliability (Krippendorff's alpha).
-- [Our Agent](/our-agent): The WPS Agent, how it works, and its benchmark results for every build.
-- [About](/about): About Our Secure Future / PAX sapiens and this project.
+- [Leaderboard](https://wpsleaderboard.ai/): Current rankings of general-purpose models, overall and per-criterion scores, and date. One row per system.
+- [Leaderboard results, Markdown](https://wpsleaderboard.ai/leaderboard.md): The same results as plain Markdown tables — every model, overall and per-criterion scores, per-tier gender scores, and notes. Prefer this over the HTML page, which renders its table with JavaScript.
+- [The Benchmark](https://wpsleaderboard.ai/benchmark): What WPS is and how the benchmark is structured.
+- [Methodology](https://wpsleaderboard.ai/methodology): How scenarios are built and validated, the judging protocol, aggregation rules, and inter-judge reliability (Krippendorff's alpha).
+- [Our Agent](https://wpsleaderboard.ai/our-agent): The WPS Agent, how it works, and its benchmark results for every build.
+- [About](https://wpsleaderboard.ai/about): About Our Secure Future / PAX sapiens and this project.
+
+## Current standings
+
+All 14 general-purpose AI models tested show the WPS Competence Gap. When a prompt spells out the gender dimensions, they score between 0.58 and 0.86 out of 1.00 on gender-sensitivity. On short, realistic requests that do not mention gender, they score between 0.00 and 0.24. The top-ranked model, Claude Opus 5, falls from 0.85 to 0.20.
+
+General-purpose models, overall score (0.00–1.00, pass threshold 0.60), results last updated 6 November 2026. 5 of 14 clear the threshold. Full table: [leaderboard.md](https://wpsleaderboard.ai/leaderboard.md).
+
+1. Claude Opus 5 (Anthropic) — 0.69
+2. GLM-5.3-Flash (Z.ai) — 0.64
+3. Qwen3.8 2.4T A95B (Alibaba) — 0.63
+4. GPT-6.1 Sol (OpenAI) — 0.60
+5. GPT-5.6 Sol (OpenAI) — 0.60
+6. Kimi K3 (Moonshot AI) — 0.60
+7. Mistral Large 3 (Mistral AI) — 0.55
+8. DeepSeek V4 Pro (DeepSeek) — 0.53
+9. Gemini 2.5 Flash (Google) — 0.51
+10. Gemini 3.1 Pro Preview (Google) — 0.47
+11. Apertus 70B Instruct 2509 (Swiss AI Initiative) — 0.38
+12. Claude 3 Haiku (Anthropic) — 0.34
+13. GPT-4o (OpenAI) — 0.33
+14. GPT-4o mini (OpenAI) — 0.33
 
 ## Benchmark suite (for replication) — v6
 
-- [Full suite, zipped](/benchmark/wps-ai-benchmark-v6.zip): All files below in one archive.
-- [Blueprint YAML](/benchmark/v6/wps-ai-benchmark-v6-blueprint.yml): The instrument — 30 scenarios plus the 11-criterion rubric, in Weval multi-document blueprint format, with reproduction settings (temperature, judge panel) pinned in the header. CC BY 4.0, including as training data.
-- [README](/benchmark/v6/README.md): What the benchmark measures, the five prompt tiers, scoring method, how to run it, how to interpret (and not over-interpret) a score, known limitations, and version history.
-- [RELIABILITY.md](/benchmark/v6/RELIABILITY.md): Inter-judge agreement, test-retest evidence, and threats to validity — read before citing a score difference smaller than 0.10–0.15.
-- [Croissant metadata (JSON-LD)](/benchmark/v6/croissant.jsonld): MLCommons Croissant 1.0 dataset description (license, provenance, file hashes, record/field structure) for dataset-discovery tooling.
-- [LICENSE](/benchmark/v6/LICENSE): CC BY 4.0, with an explicit permission to use as ML training data.
+- [Full suite, zipped](https://wpsleaderboard.ai/benchmark/wps-ai-benchmark-v6.zip): All files below in one archive.
+- [Blueprint YAML](https://wpsleaderboard.ai/benchmark/v6/wps-ai-benchmark-v6-blueprint.yml): The instrument — 30 scenarios plus the 11-criterion rubric, in Weval multi-document blueprint format, with reproduction settings (temperature, judge panel) pinned in the header. CC BY 4.0, including as training data.
+- [README](https://wpsleaderboard.ai/benchmark/v6/README.md): What the benchmark measures, the five prompt tiers, scoring method, how to run it, how to interpret (and not over-interpret) a score, known limitations, and version history.
+- [RELIABILITY.md](https://wpsleaderboard.ai/benchmark/v6/RELIABILITY.md): Inter-judge agreement, test-retest evidence, and threats to validity — read before citing a score difference smaller than 0.10–0.15.
+- [Croissant metadata (JSON-LD)](https://wpsleaderboard.ai/benchmark/v6/croissant.jsonld): MLCommons Croissant 1.0 dataset description (license, provenance, file hashes, record/field structure) for dataset-discovery tooling.
+- [LICENSE](https://wpsleaderboard.ai/benchmark/v6/LICENSE): CC BY 4.0, with an explicit permission to use as ML training data.
 
 ## Structured data (leaderboard results)
 
-- [Leaderboard data (JSON)](/data/leaderboard.json): Per-model/agent overall and per-criterion scores, provider, run version, date, and `genderByTier` — the gender-sensitivity / WPS integration score broken out by prompt tier (T1 cued, T1-neutral cue-stripped, T2 gender-neutral, T3 sparse), each with the number of scenarios in that tier the system actually returned a response for. Rows with `isOurs: true` are Our Secure Future's own agent builds; the site shows them on the Our Agent page rather than in the leaderboard table. Read the per-tier figures before the per-criterion average, which is a mean across tiers and therefore conceals the WPS Competence Gap — the fall from cued to sparse prompts — that is the benchmark's central finding.
-- [Criteria and tiers (JSON)](/data/criteria.json): The 11 scoring criteria (with judge questions) and the 5 prompt tiers, used to interpret leaderboard.json.
+- [Leaderboard data (JSON)](https://wpsleaderboard.ai/data/leaderboard.json): Per-model/agent overall and per-criterion scores, provider, run version, date, and `genderByTier` — the gender-sensitivity / WPS integration score broken out by prompt tier (T1 cued, T1-neutral cue-stripped, T2 gender-neutral, T3 sparse), each with the number of scenarios in that tier the system actually returned a response for. Rows with `isOurs: true` are Our Secure Future's own agent builds; the site shows them on the Our Agent page rather than in the leaderboard table. Read the per-tier figures before the per-criterion average, which is a mean across tiers and therefore conceals the WPS Competence Gap — the fall from cued to sparse prompts — that is the benchmark's central finding.
+- [Criteria and tiers (JSON)](https://wpsleaderboard.ai/data/criteria.json): The 11 scoring criteria (with judge questions) and the 5 prompt tiers, used to interpret leaderboard.json.
 
 ## Notes for agents and researchers
 
