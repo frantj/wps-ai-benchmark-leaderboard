@@ -136,6 +136,18 @@ Head tags (`<title>`, description, Open Graph) belong in the real `<head>` only.
 Do not put `<meta>` tags in a page's `<helmet>` block: the runtime appends them
 to the head, which gave every page two conflicting descriptions.
 
+### No pass/fail wording
+
+The benchmark has no validated pass mark (`benchmark/v6/README.md` §5), and most
+overall scores sit within the instrument's 0.10 directional band of 0.60, so the
+site does not label results as passing, failing or meeting a threshold. The
+generator refuses to run if a page, `llms.txt`, `leaderboard.md` or a data note
+contains such wording (`BANNED` in `scripts/build_static.py`); state the score
+instead ("scores below 0.60 on six of the eleven criteria"). The bar colours keep
+their 0.60 and 0.75 bands as a reading aid only. Wherever a model's overall score
+is given to a machine reader, its gender-sensitivity score with and without the
+cue goes beside it: the overall score averages the two and hides the fall.
+
 React is served from `vendor/` (same files and hashes the runtime pins for
 unpkg) and loaded before `support.js`, which then skips the CDN.
 

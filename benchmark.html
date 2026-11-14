@@ -121,7 +121,7 @@
           "name": "What is the WPS Competence Gap?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The fall in a model's gender-sensitivity score between prompts that spell out the gender dimensions and the sparse, practitioner-realistic requests that mention nothing about gender. The three frontier models in the original comparison average 0.82 when cued and 0.16 when not. It shows how much of a system's WPS performance depends on being told to look for it."
+            "text": "The fall in a model's gender-sensitivity score between prompts that spell out the gender dimensions and the sparse, practitioner-realistic requests that mention nothing about gender. Every general-purpose model tested shows it. It shows how much of a system's WPS performance depends on being told to look for it."
           }
         },
         {
@@ -129,7 +129,15 @@
           "name": "How are AI systems scored?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Each response is scored from 0.00 to 1.00 on eleven criteria by three independent AI judges, and scores are macro-averaged with equal weight per prompt tier. 0.60 is the pass threshold. Scores are model-graded, not human-graded, and differences under roughly 0.10–0.15 should be read as directional, not definitive."
+            "text": "Each response is scored from 0.00 to 1.00 on eleven criteria by three independent AI judges, and scores are macro-averaged with equal weight per prompt tier. Scores are model-graded, not human-graded, and differences under roughly 0.10–0.15 should be read as directional, not definitive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a pass mark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no pass mark. Scores are continuous, and no human expert baseline exists yet to anchor a cut-off. Earlier reports used 0.60 as a reference line for readability. What the benchmark supports is comparison: between systems scored the same way, and between one system's scores with and without a gender cue."
           }
         },
         {
@@ -260,7 +268,7 @@
       <p style="font-size:13.5px;line-height:1.6;color:var(--text-muted);margin:0 0 32px;">These are summaries. The full rubric text given to the judges for each criterion — applied per scenario — is in the <a href="benchmark/v6/wps-ai-benchmark-v6-blueprint.yml" style="font-weight:600;">raw blueprint YAML</a>.</p>
 
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:0 0 14px;">Why prompt tiers, and why sparse prompts are the real test</h2>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Every scenario is written at one of several difficulty tiers, from prompts that spell out the gender dimensions in full down to terse, practitioner-realistic requests — a flash report, a sitrep — that mention nothing about gender at all. The pattern holds for every general-purpose model tested, frontier and smaller/older alike: performance is respectable when a prompt hands the model the WPS framing, and collapses on the sparse, real-world tier where nobody does. The three frontier models in the original comparison average 0.82 on gender-sensitivity when cued and 0.16 when not, and GPT-6.1 Sol, added later, follows the same pattern; three smaller, older models (GPT-4o mini, Claude 3 Haiku, Gemini 2.5 Flash) show the same collapse — one of them taken all the way to 0.00 on sparse prompts. GPT-5.6 Sol is typical. It handles WPS well when a prompt spells out the gender dimensions, but on short, practical requests it rarely raises them, and it states claims with more confidence than its evidence supports. On its own it clears the pass mark on fewer than half the criteria. That fall from cued to sparse performance is the WPS Competence Gap, and it — not the score on an easy, cued prompt — is this benchmark's most credible finding, because sparse requests are what practitioners actually send. It is not inevitable: our purpose-built <a href="/our-agent" style="font-weight:600;">WPS Agent</a> scores flat across all five tiers.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Every scenario is written at one of several difficulty tiers, from prompts that spell out the gender dimensions in full down to terse, practitioner-realistic requests — a flash report, a sitrep — that mention nothing about gender at all. The pattern holds for every general-purpose model tested, frontier and smaller/older alike: performance is respectable when a prompt hands the model the WPS framing, and collapses on the sparse, real-world tier where nobody does. GPT-5.6 Sol is typical. It handles WPS well when a prompt spells out the gender dimensions, but on short, practical requests it rarely raises them, and it states claims with more confidence than its evidence supports. On its own it scores below 0.60 on six of the eleven criteria. That fall from cued to sparse performance is the WPS Competence Gap, and it — not the score on an easy, cued prompt — is this benchmark's most credible finding, because sparse requests are what practitioners actually send. It is not inevitable: our purpose-built <a href="/our-agent" style="font-weight:600;">WPS Agent</a> scores flat across all five tiers.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:20px 0 8px;">
         <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="5">
           <div style="background:var(--surface-sunken);border-radius:6px;padding:14px 16px;">
@@ -357,9 +365,11 @@
 <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;">What is the WPS AI Benchmark?</h3>
 <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;">A structured suite of 30 realistic peace-and-security scenarios and an 11-criterion scoring rubric for evaluating how well AI systems apply Women, Peace and Security (WPS) principles when asked for operational advice. It is published by Our Secure Future, a PAX sapiens program, and is grounded in UN Security Council Resolution 1325 and successor frameworks, NATO&#x27;s 2024 WPS Policy, and National Action Plans.</p>
 <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;">What is the WPS Competence Gap?</h3>
-<p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;">The fall in a model&#x27;s gender-sensitivity score between prompts that spell out the gender dimensions and the sparse, practitioner-realistic requests that mention nothing about gender. The three frontier models in the original comparison average 0.82 when cued and 0.16 when not. It shows how much of a system&#x27;s WPS performance depends on being told to look for it.</p>
+<p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;">The fall in a model&#x27;s gender-sensitivity score between prompts that spell out the gender dimensions and the sparse, practitioner-realistic requests that mention nothing about gender. Every general-purpose model tested shows it. It shows how much of a system&#x27;s WPS performance depends on being told to look for it.</p>
 <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;">How are AI systems scored?</h3>
-<p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;">Each response is scored from 0.00 to 1.00 on eleven criteria by three independent AI judges, and scores are macro-averaged with equal weight per prompt tier. 0.60 is the pass threshold. Scores are model-graded, not human-graded, and differences under roughly 0.10–0.15 should be read as directional, not definitive.</p>
+<p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;">Each response is scored from 0.00 to 1.00 on eleven criteria by three independent AI judges, and scores are macro-averaged with equal weight per prompt tier. Scores are model-graded, not human-graded, and differences under roughly 0.10–0.15 should be read as directional, not definitive.</p>
+<h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;">Is there a pass mark?</h3>
+<p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;">There is no pass mark. Scores are continuous, and no human expert baseline exists yet to anchor a cut-off. Earlier reports used 0.60 as a reference line for readability. What the benchmark supports is comparison: between systems scored the same way, and between one system&#x27;s scores with and without a gender cue.</p>
 <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;">Can I run the benchmark on my own model?</h3>
 <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;">Yes. The full suite — scenarios, scoring rubric and reproduction settings — is a free download under CC BY 4.0, including for use as training data, and is also published as a dataset on Hugging Face. It runs on the open-source Weval platform.</p>
 <h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;">Is a high score a certification that an AI system is safe to deploy?</h3>
@@ -442,6 +452,9 @@ class Component extends DCLogic {
   }
 
   scoreColor(v) {
+    // Band by the displayed value, so a score shown as 0.60 is never coloured
+    // as below 0.60. The bands are a reading aid, not pass marks.
+    v = Number(v.toFixed(2));
     if (v >= 0.75) return 'var(--osf-teal)';
     if (v >= 0.60) return 'var(--osf-golden-deep)';
     return 'var(--osf-red)';

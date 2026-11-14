@@ -173,7 +173,7 @@
       </div>
 
       <h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">Where it stands today</h2>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Version 4 of the agent scores above every model on the leaderboard. With GPT-5.6 Sol as the writer, it scores <strong>0.87</strong>, leads every general-purpose model tested on <strong>all eleven criteria</strong>, and clears the pass mark on all eleven. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest general-purpose model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.89 against 0.57</strong>. The live demo build, with GPT-6 Luna as the writer, scores <strong>0.86</strong> and answers in under a minute; it leads every general-purpose model on ten of the eleven criteria, and trails Qwen3.8 by 0.005 on WPS guardrails, where most systems score near the ceiling.<br><br>Against v2 on GPT-5.6 Sol, v4's largest gains are trust building (+0.14), due diligence (+0.09) and policy alignment (+0.08). Trust building is still v4's lowest score, at 0.75, and analytical depth, at 0.78, has the most room to improve. The full breakdown for both builds is under <a href="#results" style="font-weight:600;">Benchmark results</a> below.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">Version 4 of the agent scores above every model on the leaderboard. With GPT-5.6 Sol as the writer, it scores <strong>0.87</strong>, leads every general-purpose model tested on <strong>all eleven criteria</strong>, and scores 0.75 or higher on each. The margins are widest on the two failure modes this agent was built against. On factual integrity it scores <strong>0.91 against 0.56</strong> for Claude Opus 5, the strongest general-purpose model both overall and on this measure; on gender-sensitivity and WPS integration, <strong>0.89 against 0.57</strong>. The live demo build, with GPT-6 Luna as the writer, scores <strong>0.86</strong> and answers in under a minute; it leads every general-purpose model on ten of the eleven criteria, and trails Qwen3.8 by 0.005 on WPS guardrails, where most systems score near the ceiling.<br><br>Against v2 on GPT-5.6 Sol, v4's largest gains are trust building (+0.14), due diligence (+0.09) and policy alignment (+0.08). Trust building is still v4's lowest score, at 0.75, and analytical depth, at 0.78, has the most room to improve. The full breakdown for both builds is under <a href="#results" style="font-weight:600;">Benchmark results</a> below.</p>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">This is a demonstration of what purpose-built scaffolding can add to WPS analysis. Results should always be read alongside a human WPS advisor, not in place of one.</p>
 
 
@@ -290,6 +290,8 @@
 <th scope="col">Provider</th>
 <th scope="col">Evaluated</th>
 <th scope="col">Overall</th>
+<th scope="col">Gender-sensitivity on detailed prompts that name gender (T1)</th>
+<th scope="col">Gender-sensitivity on sparse prompts with no gender cue (T3)</th>
 <th scope="col">Gender-sensitivity / WPS Integration</th>
 <th scope="col">Operational Relevance</th>
 <th scope="col">Analytical Depth</th>
@@ -303,8 +305,8 @@
 <th scope="col">Substantive Pushback</th>
 </tr></thead>
 <tbody>
-<tr><td>WPS Agent v4 (GPT-5.6 Sol writer)</td><td>Our Secure Future</td><td>6 November 2026</td><td>0.87</td><td>0.89</td><td>0.88</td><td>0.78</td><td>0.78</td><td>0.98</td><td>0.75</td><td>0.93</td><td>0.85</td><td>0.91</td><td>0.95</td><td>0.91</td></tr>
-<tr><td>WPS Agent v4 (GPT-6 Luna writer)</td><td>Our Secure Future</td><td>6 November 2026</td><td>0.86</td><td>0.85</td><td>0.87</td><td>0.72</td><td>0.76</td><td>0.98</td><td>0.73</td><td>0.94</td><td>0.86</td><td>0.91</td><td>0.93</td><td>0.91</td></tr>
+<tr><td>WPS Agent v4 (GPT-5.6 Sol writer)</td><td>Our Secure Future</td><td>6 November 2026</td><td>0.87</td><td>0.86</td><td>0.92</td><td>0.89</td><td>0.88</td><td>0.78</td><td>0.78</td><td>0.98</td><td>0.75</td><td>0.93</td><td>0.85</td><td>0.91</td><td>0.95</td><td>0.91</td></tr>
+<tr><td>WPS Agent v4 (GPT-6 Luna writer)</td><td>Our Secure Future</td><td>6 November 2026</td><td>0.86</td><td>0.87</td><td>0.82</td><td>0.85</td><td>0.87</td><td>0.72</td><td>0.76</td><td>0.98</td><td>0.73</td><td>0.94</td><td>0.86</td><td>0.91</td><td>0.93</td><td>0.91</td></tr>
 </tbody>
 </table>
 <table>
@@ -322,8 +324,8 @@
 </tbody>
 </table>
 <ul>
-<li><strong>WPS Agent v4 (GPT-5.6 Sol writer)</strong> (Our Secure Future, overall 0.87): Current version. GPT-5.6 Sol writes and fixes the answer; GPT-6 Luna plans it and GPT-5.6 Terra checks it Clears the pass mark on all eleven criteria and holds gender-sensitivity at 0.86–0.92 across tiers, highest on sparse prompts; trust building (0.75) and analytical depth (0.78) are its lowest criteria.</li>
-<li><strong>WPS Agent v4 (GPT-6 Luna writer)</strong> (Our Secure Future, overall 0.86): Current version, running the live demo. GPT-6 Luna plans, writes and fixes the answer; GPT-5.6 Terra checks it Clears all eleven criteria and answers in under a minute; sparse-tier gender-sensitivity (0.82) and analytical depth (0.72) trail the GPT-5.6 Sol build.</li>
+<li><strong>WPS Agent v4 (GPT-5.6 Sol writer)</strong> (Our Secure Future, overall 0.87): Current version. GPT-5.6 Sol writes and fixes the answer; GPT-6 Luna plans it and GPT-5.6 Terra checks it Scores 0.75 or higher on all eleven criteria and holds gender-sensitivity at 0.86–0.92 across tiers, highest on sparse prompts; trust building (0.75) and analytical depth (0.78) are its lowest criteria.</li>
+<li><strong>WPS Agent v4 (GPT-6 Luna writer)</strong> (Our Secure Future, overall 0.86): Current version, running the live demo. GPT-6 Luna plans, writes and fixes the answer; GPT-5.6 Terra checks it Scores 0.72 or higher on all eleven criteria and answers in under a minute; sparse-tier gender-sensitivity (0.82) and analytical depth (0.72) trail the GPT-5.6 Sol build.</li>
 </ul>
 </div>
 </sc-if>
@@ -377,7 +379,7 @@
       </div>
 
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">The two gains measure slightly different things. In v2 one model runs every stage, so its gain comes from the workflow alone. In v4 the gain also includes the two models every v4 build shares, GPT-6 Luna planning and GPT-5.6 Terra checking, so it measures the whole system rather than the workflow by itself.</p>
-      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">On its own, GPT-5.6 Sol clears the pass mark on fewer than half the criteria, failing in the ways the <a href="/benchmark" style="font-weight:600;">Benchmark</a> describes. Inside v2, it clears the pass mark on every criterion. Verification lifted factual integrity and acknowledgment of limitations from its weakest scores to well above the pass mark, and the gap between cued and sparse prompts closed: it brings a gender lens to terse requests as reliably as to detailed ones.</p>
+      <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">On its own, GPT-5.6 Sol scores below 0.60 on six of the eleven criteria, failing in the ways the <a href="/benchmark" style="font-weight:600;">Benchmark</a> describes. Inside v2, it scores above 0.60 on every criterion. Verification lifted factual integrity and acknowledgment of limitations from its weakest scores, 0.24 and 0.40, to 0.91 and 0.84, and the gap between cued and sparse prompts closed: it brings a gender lens to terse requests as reliably as to detailed ones.</p>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">v4 keeps those gains and adds to them, mostly in trust building, due diligence and policy alignment. Those are the parts of an answer that say who should act, what could go wrong and which commitments apply. Overall, GPT-5.6 Sol scores <strong>0.60</strong> on its own, <strong>0.84</strong> running v2 and <strong>0.87</strong> as v4's writer.</p>
       <p style="font-size:16px;line-height:1.75;color:var(--text-secondary);">The other models fit the same pattern. GPT-6.1 Sol, a newer model, scores no better than GPT-5.6 Sol on its own, and gains about as much as v4's writer. v2 lifted the older GPT-4o even further, far enough to outscore the best Sol model tested on its own, GPT-6.1 Sol. GPT-6 Luna, which runs the demo, hasn't been tested on its own.</p>
 
@@ -494,6 +496,9 @@ class Component extends DCLogic {
   }
 
   scoreColor(v) {
+    // Band by the displayed value, so a score shown as 0.60 is never coloured
+    // as below 0.60. The bands are a reading aid, not pass marks.
+    v = Number(v.toFixed(2));
     if (v >= 0.75) return 'var(--osf-teal)';
     if (v >= 0.60) return 'var(--osf-golden-deep)';
     return 'var(--osf-red)';

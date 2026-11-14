@@ -29,7 +29,16 @@ SITE = "https://wpsleaderboard.ai"
 ORG_ID = SITE + "/#organization"
 WEBSITE_ID = SITE + "/#website"
 STATE_FILE = ROOT / "scripts" / "page-state.json"
-PASS_MARK = 0.60
+DIRECTIONAL_BAND = 0.10  # RELIABILITY.md: smaller differences are directional only
+
+# The benchmark has no validated pass mark (benchmark/v6/README.md, section 5).
+# Results must not be labelled pass/fail. `lint` enforces this on everything
+# the site serves; ALLOWED are the places that say so.
+BANNED = re.compile(r"pass mark|pass threshold|passing threshold|meets threshold|fails threshold|"
+                    r"below threshold|clears? the|clears all", re.I)
+ALLOWED = re.compile(r"no pass mark|a pass mark\?|not pass marks|no validated pass mark", re.I)
+LINTED = ["index.html", "benchmark.html", "methodology.html", "our-agent.html", "media.html", "about.html",
+          "contact.html", "404.html", "llms.txt", "leaderboard.md", "data/faq.json", "data/leaderboard.json"]
 
 # file, URL path, breadcrumb name, schema.org page type
 PAGES = [
@@ -123,6 +132,7 @@ def load():
     rows = json.loads((ROOT / "data" / "leaderboard.json").read_text(encoding="utf-8"))
     crit = json.loads((ROOT / "data" / "criteria.json").read_text(encoding="utf-8"))
     faq = json.loads((ROOT / "data" / "faq.json").read_text(encoding="utf-8"))
+    TIER_COUNTS.update({t["id"]: t["count"] for t in crit["tiers"]})
     return rows, crit["criteria"], crit["tiers"], faq
 
 
@@ -137,31 +147,76 @@ def general_models(rows):
 
 def gap_finding(models):
     """The headline finding in plain words: how many models score lower on
-    gender-sensitivity when the prompt does not mention gender (T3) than when
-    it spells the gender dimensions out (T1). Counted, never assumed."""
+    gender-sensitivity on sparse prompts with no gender cue (T3) than on
+    detailed prompts that spell the gender dimensions out (T1). T3 differs
+    from T1 in more than the cue (terse, incomplete, fictional settings), so
+    the text never says the cue alone causes the fall. Counted, never
+    assumed, and stated as a comparison because the benchmark has no pass
+    mark."""
     rows = [r for r in models if "T1" in (r.get("genderByTier") or {}) and "T3" in r["genderByTier"]]
     if not rows:
         raise BuildError("no model has both T1 and T3 gender scores")
     cued = [r["genderByTier"]["T1"]["score"] for r in rows]
     sparse = [r["genderByTier"]["T3"]["score"] for r in rows]
     with_gap = sum(1 for c, s in zip(cued, sparse) if s < c)
-    who = ("All %d" % len(rows)) if with_gap == len(rows) else ("%d of the %d" % (with_gap, len(rows)))
-    top = rows[0]  # models arrive ranked by overall score
-    return (
-        "%s general-purpose AI models tested show the WPS Competence Gap. When a prompt spells out the gender "
-        "dimensions, they score between %s and %s out of 1.00 on gender-sensitivity. On short, realistic requests "
-        "that do not mention gender, they score between %s and %s. The top-ranked model, %s, falls from %s to %s."
-        % (who, fmt(min(cued)), fmt(max(cued)), fmt(min(sparse)), fmt(max(sparse)), top["label"],
-           fmt(top["genderByTier"]["T1"]["score"]), fmt(top["genderByTier"]["T3"]["score"]))
+    everyone = with_gap == len(rows)
+    who = ("All %d" % len(rows)) if everyone else ("%d of the %d" % (with_gap, len(rows)))
+    text = (
+        "%s general-purpose AI models tested show the WPS Competence Gap. On gender-sensitivity they score between "
+        "%s and %s out of 1.00 on detailed prompts that spell out the gender dimensions, and between %s and %s on "
+        "short, realistic requests that carry no gender cue."
+        % (who, fmt(min(cued)), fmt(max(cued)), fmt(min(sparse)), fmt(max(sparse)))
     )
+    if everyone:
+        text += " " + GAP_MEANING
+    return text
+
+
+def gap_short(models):
+    """One-sentence form of the finding, for answers that sit on a page
+    which already carries the full version."""
+    rows = [r for r in models if "T1" in (r.get("genderByTier") or {}) and "T3" in r["genderByTier"]]
+    cued = [r["genderByTier"]["T1"]["score"] for r in rows]
+    sparse = [r["genderByTier"]["T3"]["score"] for r in rows]
+    with_gap = sum(1 for c, s in zip(cued, sparse) if s < c)
+    who = ("All %d models score" % len(rows)) if with_gap == len(rows) else ("%d of the %d models score" % (with_gap, len(rows)))
+    return ("%s lower on gender-sensitivity on short, realistic requests that carry no gender cue: between %s and "
+            "%s, against %s to %s on detailed prompts that spell out the gender dimensions."
+            % (who, fmt(min(sparse)), fmt(max(sparse)), fmt(min(cued)), fmt(max(cued))))
+
+
+def ranking_caveat(models):
+    """Who is first, and how far the ranking can be trusted."""
+    top = models[0]
+    close = sum(1 for r in models if top["overall"] - r["overall"] < DIRECTIONAL_BAND)
+    text = "%s (%s) has the highest overall score, %s. Differences under about %s are not a reliable ranking" % (
+        top["label"], top["provider"], fmt(top["overall"]), fmt(DIRECTIONAL_BAND))
+    if close > 1:
+        text += ", and the top %d models are within %s of each other" % (close, fmt(DIRECTIONAL_BAND))
+    return text + "."
+
+
+def gap_pair(r):
+    """(gender-cued, sparse) gender-sensitivity scores as text: tier T1 and tier T3."""
+    g = r.get("genderByTier") or {}
+    return tuple(fmt(g[t]["score"]) if t in g else "—" for t in ("T1", "T3"))
+
+
+TIER_COUNTS = {}  # tier id -> scenarios in the tier; filled by load()
+GAP_HEADERS = ["Gender-sensitivity on detailed prompts that name gender (T1)",
+               "Gender-sensitivity on sparse prompts with no gender cue (T3)"]
+GAP_MEANING = "In practice, every model tested is largely blind to gender on requests like these."
+OVERALL_CAVEAT = ("An overall score averages every kind of prompt, so a high overall score does not show that a "
+                  "model applies WPS when nobody asks it to.")
 
 
 def score_table(systems, criteria, caption, with_rank):
-    headers = (["Rank"] if with_rank else []) + ["System", "Provider", "Evaluated", "Overall"]
+    headers = (["Rank"] if with_rank else []) + ["System", "Provider", "Evaluated", "Overall"] + GAP_HEADERS
     headers += [c["name"] for c in criteria]
     body = []
     for i, r in enumerate(systems, 1):
         row = ([i] if with_rank else []) + [r["label"], r["provider"], long_date(r["date"]), fmt(r["overall"])]
+        row += list(gap_pair(r))
         row += [fmt(r["criteria"].get(c["id"])) for c in criteria]
         body.append(row)
     return table(headers, body, caption)
@@ -198,31 +253,52 @@ def notes_list(systems):
 
 # ---------------------------------------------------------------- page blocks
 
-def index_blocks(rows, criteria, tiers):
+H2 = 'font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;'
+H3 = 'font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;'
+ANSWER = 'font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;max-width:760px;'
+
+
+def home_questions(rows, faq):
+    """The two questions people (and answer engines) bring to the homepage.
+    The first answer is built from the data; the second is the pass-mark
+    answer from data/faq.json, so it is worded once."""
     models = general_models(rows)
-    top = models[0]
+    pass_mark = [i for i in faq if i.get("id") == "pass-mark"]
+    if len(pass_mark) != 1:
+        raise BuildError('data/faq.json: expected exactly one item with "id": "pass-mark"')
+    return [
+        {"q": "Which AI model handles Women, Peace and Security best?",
+         "a": "%s %s %s" % (ranking_caveat(models), OVERALL_CAVEAT, gap_short(models))},
+        {"q": "Do AI models pass the WPS AI Benchmark?", "a": pass_mark[0]["a"]},
+    ]
+
+
+def index_blocks(rows, criteria, tiers, faq):
+    models = general_models(rows)
     newest = max(r["date"] for r in models)
-    passing = sum(1 for r in models if r["overall"] >= PASS_MARK)  # raw value, not the rounded display
     summary = (
         '<p style="font-size:14.5px;line-height:1.6;color:var(--osf-navy);margin:12px 0 0;max-width:760px;">'
-        '<strong>Latest results (<time datetime="%s">%s</time>):</strong> '
-        "%s Overall, %s (%s) ranks first at %s, and %d of the %d models clear the %s pass threshold.</p>"
-        % (newest, long_date(newest), esc(gap_finding(models)), esc(top["label"]), esc(top["provider"]),
-           fmt(top["overall"]), passing, len(models), fmt(PASS_MARK))
+        '<strong>Latest results (<time datetime="%s">%s</time>):</strong> %s</p>'
+        % (newest, long_date(newest), esc(gap_finding(models)))
     )
     static = "\n".join([
         "<div>",
-        "<p>Static copy of the leaderboard for readers without JavaScript. Scores run from 0.00 to 1.00; "
-        "%s is the pass threshold. Results last updated %s.</p>" % (fmt(PASS_MARK), long_date(newest)),
+        "<p>Static copy of the leaderboard for readers without JavaScript. Scores run from 0.00 to 1.00. "
+        "%s %s Results last updated %s.</p>" % (esc(OVERALL_CAVEAT), esc(ranking_caveat(models)), long_date(newest)),
         score_table(models, criteria,
-                    "WPS AI Leaderboard: overall and per-criterion scores, general-purpose models, benchmark v6", True),
+                    "WPS AI Leaderboard: overall, gender-sensitivity on gender-cued and on sparse prompts, and per-criterion "
+                    "scores, general-purpose models, benchmark v6", True),
         tier_table(models, tiers,
                    "Gender-sensitivity / WPS integration score by prompt tier (the fall from T1 to T3 is the WPS Competence Gap)"),
         "<p>Notes on each system:</p>",
         notes_list(models),
         "</div>",
     ])
-    return {"summary": summary, "leaderboard": hidden(static)}
+    reading = ['<h2 style="%s">Reading the results</h2>' % H2]
+    for item in home_questions(rows, faq):
+        reading.append('<h3 style="%s">%s</h3>' % (H3, esc(item["q"])))
+        reading.append('<p style="%s">%s</p>' % (ANSWER, esc(item["a"])))
+    return {"summary": summary, "leaderboard": hidden(static), "reading-results": "\n".join(reading)}
 
 
 def agent_blocks(text, rows, criteria, tiers):
@@ -264,9 +340,9 @@ def benchmark_blocks(text, rows, criteria, tiers, faq):
     chart_rows = [by_id[i] for i, _ in chart if i in by_id]
     chart_html = tier_table(chart_rows, tiers, "Gender-sensitivity / WPS integration score by prompt tier, selected models")
 
-    qa = ['<h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">Common questions</h2>']
+    qa = ['<h2 style="%s">Common questions</h2>' % H2]
     for item in faq:
-        qa.append('<h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;">%s</h3>' % esc(item["q"]))
+        qa.append('<h3 style="%s">%s</h3>' % (H3, esc(item["q"])))
         qa.append('<p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;">%s</p>' % esc(item["a"]))
     return {
         "criteria-standard": hidden(crit_list("standard")),
@@ -313,12 +389,12 @@ def page_graph(fname, path, crumb, ptype, text, modified, rows, criteria, faq):
             "name": "WPS AI Leaderboard results (benchmark v6)",
             "description": "Overall and per-criterion scores for %d general-purpose AI models on the Women, Peace and "
                            "Security (WPS) AI Benchmark v6: 30 scenarios scored against an 11-criterion rubric by three "
-                           "independent AI judges. Scores run from 0.00 to 1.00 with a %s pass threshold."
-                           % (len(models), fmt(PASS_MARK)),
+                           "independent AI judges. Scores run from 0.00 to 1.00. %s %s"
+                           % (len(models), gap_finding(models), OVERALL_CAVEAT),
             "url": SITE + "/", "dateModified": newest, "inLanguage": "en",
             "creator": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID},
             "isBasedOn": SITE + "/benchmark",
-            "variableMeasured": ["Overall score"] + [c["name"] for c in criteria],
+            "variableMeasured": ["Overall score"] + GAP_HEADERS + [c["name"] for c in criteria],
             "distribution": [
                 {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": SITE + "/data/leaderboard.json"},
                 {"@type": "DataDownload", "encodingFormat": "text/markdown", "contentUrl": SITE + "/leaderboard.md"},
@@ -331,8 +407,15 @@ def page_graph(fname, path, crumb, ptype, text, modified, rows, criteria, faq):
             "numberOfItems": len(models),
             "itemListElement": [{
                 "@type": "ListItem", "position": i, "name": "%s (%s)" % (r["label"], r["provider"]),
-                "description": "Overall score %s of 1.00, evaluated %s." % (fmt(r["overall"]), long_date(r["date"])),
+                "description": "Overall score %s of 1.00. Gender-sensitivity score is %s on detailed prompts that "
+                               "name gender and %s on sparse prompts with no gender cue. Evaluated %s."
+                               % ((fmt(r["overall"]),) + gap_pair(r) + (long_date(r["date"]),)),
             } for i, r in enumerate(models, 1)],
+        })
+        graph.append({
+            "@type": "FAQPage", "@id": SITE + "/#faq",
+            "mainEntity": [{"@type": "Question", "name": i["q"],
+                            "acceptedAnswer": {"@type": "Answer", "text": i["a"]}} for i in home_questions(rows, faq)],
         })
     elif fname == "our-agent.html":
         graph.append({
@@ -376,8 +459,9 @@ def leaderboard_md(rows, criteria, tiers):
         "> Markdown copy of %s/ for AI agents and researchers. Generated from data/leaderboard.json; do not edit by hand." % SITE,
         "",
         "How general-purpose AI models score on the Women, Peace and Security (WPS) AI Benchmark v6: 30 realistic "
-        "peace-and-security scenarios, an 11-criterion rubric, three independent AI judges. Scores run from 0.00 to 1.00; "
-        "%s is the pass threshold. Published by Our Secure Future, a PAX sapiens program." % fmt(PASS_MARK),
+        "peace-and-security scenarios, an 11-criterion rubric, three independent AI judges. Scores run from 0.00 to "
+        "1.00 and there is no pass mark: what the benchmark supports is comparison. Published by Our Secure Future, "
+        "a PAX sapiens program.",
         "",
         "Results last updated: %s." % long_date(newest),
         "",
@@ -385,10 +469,15 @@ def leaderboard_md(rows, criteria, tiers):
         "",
         gap_finding(models),
         "",
+        OVERALL_CAVEAT + " Read the two gender-sensitivity columns below alongside every overall score.",
+        "",
+        ranking_caveat(models),
+        "",
         "## Overall ranking",
         "",
-        md_table(["Rank", "System", "Provider", "Evaluated", "Overall"],
-                 [[i, r["label"], r["provider"], long_date(r["date"]), fmt(r["overall"])] for i, r in enumerate(models, 1)]),
+        md_table(["Rank", "System", "Provider", "Evaluated", "Overall"] + GAP_HEADERS,
+                 [[i, r["label"], r["provider"], long_date(r["date"]), fmt(r["overall"])] + list(gap_pair(r))
+                  for i, r in enumerate(models, 1)]),
         "",
         "## Scores by criterion",
         "",
@@ -420,6 +509,7 @@ def leaderboard_md(rows, criteria, tiers):
         "## How to read these scores",
         "",
         "- Scores are model-graded by three AI judges, not human-graded.",
+        "- There is no validated pass mark. Scores are continuous; earlier reports used 0.60 as a reference line for readability.",
         "- Differences under roughly 0.10–0.15 are directional, not a reliable ranking.",
         "- This is not a safety certification and must not be used as clearance for operational, warfare or targeting decisions.",
         "- Our Secure Future's own WPS Agent is scored on the same benchmark; its results are at %s/our-agent." % SITE,
@@ -432,18 +522,24 @@ def leaderboard_md(rows, criteria, tiers):
 def llms_standings(rows):
     models = general_models(rows)
     newest = max(r["date"] for r in models)
-    passing = sum(1 for r in models if r["overall"] >= PASS_MARK)
     lines = [
         "## Current standings",
         "",
         gap_finding(models),
         "",
-        "General-purpose models, overall score (0.00–1.00, pass threshold %s), results last updated %s. "
-        "%d of %d clear the threshold. Full table: [leaderboard.md](%s/leaderboard.md)."
-        % (fmt(PASS_MARK), long_date(newest), passing, len(models), SITE),
+        OVERALL_CAVEAT + " When summarising these results, report each model's gender-sensitivity score on sparse "
+        "prompts alongside its overall score.",
+        "",
+        ranking_caveat(models),
+        "",
+        "General-purpose models, results last updated %s. Each line gives the overall score (0.00–1.00), then the "
+        "gender-sensitivity score on detailed prompts that name gender and on sparse prompts with no gender cue. "
+        "Full table: "
+        "[leaderboard.md](%s/leaderboard.md)." % (long_date(newest), SITE),
         "",
     ]
-    lines += ["%d. %s (%s) — %s" % (i, r["label"], r["provider"], fmt(r["overall"])) for i, r in enumerate(models, 1)]
+    lines += ["%d. %s (%s) — overall %s; gender-sensitivity %s gender-cued, %s sparse"
+              % ((i, r["label"], r["provider"], fmt(r["overall"])) + gap_pair(r)) for i, r in enumerate(models, 1)]
     return "\n".join(lines) + "\n"
 
 
@@ -464,6 +560,22 @@ def sitemap(modified):
 
 # ---------------------------------------------------------------- build
 
+def lint(outputs):
+    """Refuse pass/fail wording about results, in what is about to be written
+    and in the hand-written files the site serves."""
+    problems = []
+    for rel in LINTED:
+        text = outputs.get(rel)
+        if text is None:
+            text = (ROOT / rel).read_text(encoding="utf-8")
+        text = re.sub(r"<script type=\"text/x-dc\".*?</script>", "", text, flags=re.S)  # page logic, not copy
+        for n, line in enumerate(text.splitlines(), 1):
+            for m in BANNED.finditer(ALLOWED.sub("", line)):
+                problems.append("%s:%d: '%s'" % (rel, n, m.group(0)))
+    if problems:
+        raise BuildError("the benchmark has no pass mark; reword these (see DEVELOPING.md):\n  " + "\n  ".join(problems))
+
+
 def content_hash(text):
     """Hash of a page ignoring its JSON-LD block, which carries the date."""
     stripped = block_re("jsonld").sub("", text)
@@ -479,7 +591,7 @@ def build(check):
     for fname, path, crumb, ptype in PAGES:
         text = (ROOT / fname).read_text(encoding="utf-8")
         if fname == "index.html":
-            blocks = index_blocks(rows, criteria, tiers)
+            blocks = index_blocks(rows, criteria, tiers, faq)
         elif fname == "our-agent.html":
             blocks = agent_blocks(text, rows, criteria, tiers)
         elif fname == "benchmark.html":
@@ -505,6 +617,8 @@ def build(check):
     outputs["leaderboard.md"] = leaderboard_md(rows, criteria, tiers)
     outputs["llms.txt"] = set_llms_section((ROOT / "llms.txt").read_text(encoding="utf-8"), llms_standings(rows))
     outputs["scripts/page-state.json"] = json.dumps(new_state, indent=2, sort_keys=True) + "\n"
+
+    lint(outputs)
 
     changed = []
     for rel, body in outputs.items():

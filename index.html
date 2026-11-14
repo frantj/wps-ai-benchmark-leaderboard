@@ -14,14 +14,14 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <title>Women, Peace and Security AI Leaderboard</title>
 <!-- SEO:START -->
-<meta name="description" content="See how leading AI models compare on an expert-validated Women, Peace and Security benchmark, scored against an 11-criterion rubric grounded in UNSCR 1325.">
+<meta name="description" content="Leading AI models apply Women, Peace and Security principles when a prompt asks for them, and drop them when it does not. Scores for every model tested.">
 <link rel="canonical" href="https://wpsleaderboard.ai/">
 <link rel="alternate" type="text/markdown" href="https://wpsleaderboard.ai/leaderboard.md" title="Leaderboard results (Markdown)">
 <meta name="theme-color" content="#274F66">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Women, Peace and Security AI Leaderboard">
 <meta property="og:title" content="Women, Peace and Security AI Leaderboard — An Our Secure Future Program">
-<meta property="og:description" content="See how leading AI models compare on an expert-validated Women, Peace and Security benchmark, scored against an 11-criterion rubric grounded in UNSCR 1325.">
+<meta property="og:description" content="Leading AI models apply Women, Peace and Security principles when a prompt asks for them, and drop them when it does not. Scores for every model tested.">
 <meta property="og:url" content="https://wpsleaderboard.ai/">
 <meta property="og:image" content="https://wpsleaderboard.ai/assets/og-card-v2.png">
 <meta property="og:image:type" content="image/png">
@@ -32,7 +32,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@OurSecureFuture">
 <meta name="twitter:title" content="Women, Peace and Security AI Leaderboard — An Our Secure Future Program">
-<meta name="twitter:description" content="See how leading AI models compare on an expert-validated Women, Peace and Security benchmark, scored against an 11-criterion rubric grounded in UNSCR 1325.">
+<meta name="twitter:description" content="Leading AI models apply Women, Peace and Security principles when a prompt asks for them, and drop them when it does not. Scores for every model tested.">
 <meta name="twitter:image" content="https://wpsleaderboard.ai/assets/og-card-v2.png">
 <meta name="twitter:image:alt" content="Women, Peace and Security AI Leaderboard — An Our Secure Future Program">
 <script type="application/ld+json">
@@ -58,7 +58,7 @@
       "@id": "https://wpsleaderboard.ai/#website",
       "name": "Women, Peace and Security AI Leaderboard",
       "url": "https://wpsleaderboard.ai/",
-      "description": "An expert-validated benchmark of how leading AI systems handle Women, Peace and Security reasoning.",
+      "description": "An expert-validated benchmark of how leading AI systems handle Women, Peace and Security reasoning. Its main finding is the WPS Competence Gap: models apply WPS principles when a prompt asks for them, and drop them when it does not.",
       "publisher": { "@id": "https://wpsleaderboard.ai/#organization" },
       "inLanguage": "en"
     }
@@ -75,7 +75,7 @@
       "@id": "https://wpsleaderboard.ai/#webpage",
       "url": "https://wpsleaderboard.ai/",
       "name": "Women, Peace and Security AI Leaderboard",
-      "description": "See how leading AI models compare on an expert-validated Women, Peace and Security benchmark, scored against an 11-criterion rubric grounded in UNSCR 1325.",
+      "description": "Leading AI models apply Women, Peace and Security principles when a prompt asks for them, and drop them when it does not. Scores for every model tested.",
       "isPartOf": {
         "@id": "https://wpsleaderboard.ai/#website"
       },
@@ -89,7 +89,7 @@
       "@type": "Dataset",
       "@id": "https://wpsleaderboard.ai/#results",
       "name": "WPS AI Leaderboard results (benchmark v6)",
-      "description": "Overall and per-criterion scores for 14 general-purpose AI models on the Women, Peace and Security (WPS) AI Benchmark v6: 30 scenarios scored against an 11-criterion rubric by three independent AI judges. Scores run from 0.00 to 1.00 with a 0.60 pass threshold.",
+      "description": "Overall and per-criterion scores for 14 general-purpose AI models on the Women, Peace and Security (WPS) AI Benchmark v6: 30 scenarios scored against an 11-criterion rubric by three independent AI judges. Scores run from 0.00 to 1.00. All 14 general-purpose AI models tested show the WPS Competence Gap. On gender-sensitivity they score between 0.58 and 0.86 out of 1.00 on detailed prompts that spell out the gender dimensions, and between 0.00 and 0.24 on short, realistic requests that carry no gender cue. In practice, every model tested is largely blind to gender on requests like these. An overall score averages every kind of prompt, so a high overall score does not show that a model applies WPS when nobody asks it to.",
       "url": "https://wpsleaderboard.ai/",
       "dateModified": "2026-11-06",
       "inLanguage": "en",
@@ -102,6 +102,8 @@
       "isBasedOn": "https://wpsleaderboard.ai/benchmark",
       "variableMeasured": [
         "Overall score",
+        "Gender-sensitivity on detailed prompts that name gender (T1)",
+        "Gender-sensitivity on sparse prompts with no gender cue (T3)",
         "Gender-sensitivity / WPS Integration",
         "Operational Relevance",
         "Analytical Depth",
@@ -138,85 +140,107 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Claude Opus 5 (Anthropic)",
-          "description": "Overall score 0.69 of 1.00, evaluated 29 July 2026."
+          "description": "Overall score 0.69 of 1.00. Gender-sensitivity score is 0.85 on detailed prompts that name gender and 0.20 on sparse prompts with no gender cue. Evaluated 29 July 2026."
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "GLM-5.3-Flash (Z.ai)",
-          "description": "Overall score 0.64 of 1.00, evaluated 26 August 2026."
+          "description": "Overall score 0.64 of 1.00. Gender-sensitivity score is 0.81 on detailed prompts that name gender and 0.18 on sparse prompts with no gender cue. Evaluated 26 August 2026."
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Qwen3.8 2.4T A95B (Alibaba)",
-          "description": "Overall score 0.63 of 1.00, evaluated 26 August 2026."
+          "description": "Overall score 0.63 of 1.00. Gender-sensitivity score is 0.85 on detailed prompts that name gender and 0.24 on sparse prompts with no gender cue. Evaluated 26 August 2026."
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": "GPT-6.1 Sol (OpenAI)",
-          "description": "Overall score 0.60 of 1.00, evaluated 6 November 2026."
+          "description": "Overall score 0.60 of 1.00. Gender-sensitivity score is 0.81 on detailed prompts that name gender and 0.10 on sparse prompts with no gender cue. Evaluated 6 November 2026."
         },
         {
           "@type": "ListItem",
           "position": 5,
           "name": "GPT-5.6 Sol (OpenAI)",
-          "description": "Overall score 0.60 of 1.00, evaluated 29 July 2026."
+          "description": "Overall score 0.60 of 1.00. Gender-sensitivity score is 0.86 on detailed prompts that name gender and 0.21 on sparse prompts with no gender cue. Evaluated 29 July 2026."
         },
         {
           "@type": "ListItem",
           "position": 6,
           "name": "Kimi K3 (Moonshot AI)",
-          "description": "Overall score 0.60 of 1.00, evaluated 26 August 2026."
+          "description": "Overall score 0.60 of 1.00. Gender-sensitivity score is 0.84 on detailed prompts that name gender and 0.18 on sparse prompts with no gender cue. Evaluated 26 August 2026."
         },
         {
           "@type": "ListItem",
           "position": 7,
           "name": "Mistral Large 3 (Mistral AI)",
-          "description": "Overall score 0.55 of 1.00, evaluated 9 September 2026."
+          "description": "Overall score 0.55 of 1.00. Gender-sensitivity score is 0.82 on detailed prompts that name gender and 0.12 on sparse prompts with no gender cue. Evaluated 9 September 2026."
         },
         {
           "@type": "ListItem",
           "position": 8,
           "name": "DeepSeek V4 Pro (DeepSeek)",
-          "description": "Overall score 0.53 of 1.00, evaluated 26 August 2026."
+          "description": "Overall score 0.53 of 1.00. Gender-sensitivity score is 0.82 on detailed prompts that name gender and 0.09 on sparse prompts with no gender cue. Evaluated 26 August 2026."
         },
         {
           "@type": "ListItem",
           "position": 9,
           "name": "Gemini 2.5 Flash (Google)",
-          "description": "Overall score 0.51 of 1.00, evaluated 23 July 2026."
+          "description": "Overall score 0.51 of 1.00. Gender-sensitivity score is 0.75 on detailed prompts that name gender and 0.04 on sparse prompts with no gender cue. Evaluated 23 July 2026."
         },
         {
           "@type": "ListItem",
           "position": 10,
           "name": "Gemini 3.1 Pro Preview (Google)",
-          "description": "Overall score 0.47 of 1.00, evaluated 29 July 2026."
+          "description": "Overall score 0.47 of 1.00. Gender-sensitivity score is 0.74 on detailed prompts that name gender and 0.08 on sparse prompts with no gender cue. Evaluated 29 July 2026."
         },
         {
           "@type": "ListItem",
           "position": 11,
           "name": "Apertus 70B Instruct 2509 (Swiss AI Initiative)",
-          "description": "Overall score 0.38 of 1.00, evaluated 11 September 2026."
+          "description": "Overall score 0.38 of 1.00. Gender-sensitivity score is 0.63 on detailed prompts that name gender and 0.00 on sparse prompts with no gender cue. Evaluated 11 September 2026."
         },
         {
           "@type": "ListItem",
           "position": 12,
           "name": "Claude 3 Haiku (Anthropic)",
-          "description": "Overall score 0.34 of 1.00, evaluated 23 July 2026."
+          "description": "Overall score 0.34 of 1.00. Gender-sensitivity score is 0.60 on detailed prompts that name gender and 0.00 on sparse prompts with no gender cue. Evaluated 23 July 2026."
         },
         {
           "@type": "ListItem",
           "position": 13,
           "name": "GPT-4o (OpenAI)",
-          "description": "Overall score 0.33 of 1.00, evaluated 4 August 2026."
+          "description": "Overall score 0.33 of 1.00. Gender-sensitivity score is 0.58 on detailed prompts that name gender and 0.00 on sparse prompts with no gender cue. Evaluated 4 August 2026."
         },
         {
           "@type": "ListItem",
           "position": 14,
           "name": "GPT-4o mini (OpenAI)",
-          "description": "Overall score 0.33 of 1.00, evaluated 23 July 2026."
+          "description": "Overall score 0.33 of 1.00. Gender-sensitivity score is 0.61 on detailed prompts that name gender and 0.00 on sparse prompts with no gender cue. Evaluated 23 July 2026."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wpsleaderboard.ai/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which AI model handles Women, Peace and Security best?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Opus 5 (Anthropic) has the highest overall score, 0.69. Differences under about 0.10 are not a reliable ranking, and the top 6 models are within 0.10 of each other. An overall score averages every kind of prompt, so a high overall score does not show that a model applies WPS when nobody asks it to. All 14 models score lower on gender-sensitivity on short, realistic requests that carry no gender cue: between 0.00 and 0.24, against 0.58 to 0.86 on detailed prompts that spell out the gender dimensions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do AI models pass the WPS AI Benchmark?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no pass mark. Scores are continuous, and no human expert baseline exists yet to anchor a cut-off. Earlier reports used 0.60 as a reference line for readability. What the benchmark supports is comparison: between systems scored the same way, and between one system's scores with and without a gender cue."
+          }
         }
       ]
     }
@@ -276,7 +300,7 @@ a:hover{color:var(--osf-teal-dark);}
     <div style="max-width:900px;margin:0 auto;">
       <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--osf-golden-deep);margin-bottom:14px;">Leaderboard</div>
       <h1 style="font-family:var(--font-serif);font-size:clamp(28px,6vw,44px);line-height:1.15;color:var(--osf-navy);margin:0 0 16px;font-weight:600;">How AI systems handle Women, Peace and Security</h1>
-      <p style="font-size:18px;line-height:1.6;color:var(--text-secondary);max-width:680px;margin:0 0 20px;">See how leading AI models compare on an expert-validated Women, Peace and Security benchmark. For why WPS matters to AI systems and how the benchmark is built, see <a href="/benchmark" style="font-weight:600;">The Benchmark</a>.</p>
+      <p style="font-size:18px;line-height:1.6;color:var(--text-secondary);max-width:680px;margin:0 0 20px;">Leading AI models apply Women, Peace and Security principles when a prompt asks for them, and largely drop them when it does not. For why WPS matters to AI systems and how the benchmark is built, see <a href="/benchmark" style="font-weight:600;">The Benchmark</a>.</p>
       <div style="background:var(--white);border:1px solid var(--border-subtle);border-left:4px solid var(--osf-red);border-radius:6px;padding:16px 20px;max-width:680px;">
         <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--osf-navy);"><strong>AI is no substitute for a human WPS advisor</strong>, and should not be used for unsupervised warfare decision-making. This benchmark measures relative performance among AI systems — it is not a fitness-for-deployment certification.</p>
       </div>
@@ -291,20 +315,20 @@ a:hover{color:var(--osf-teal-dark);}
       </div>
       <p style="font-size:14px;line-height:1.6;color:var(--text-secondary);margin:6px 0 0;max-width:760px;">A ranked list of general-purpose AI models, scored on the same test and sorted by performance.</p>
       <!-- STATIC:summary:START -->
-<p style="font-size:14.5px;line-height:1.6;color:var(--osf-navy);margin:12px 0 0;max-width:760px;"><strong>Latest results (<time datetime="2026-11-06">6 November 2026</time>):</strong> All 14 general-purpose AI models tested show the WPS Competence Gap. When a prompt spells out the gender dimensions, they score between 0.58 and 0.86 out of 1.00 on gender-sensitivity. On short, realistic requests that do not mention gender, they score between 0.00 and 0.24. The top-ranked model, Claude Opus 5, falls from 0.85 to 0.20. Overall, Claude Opus 5 (Anthropic) ranks first at 0.69, and 5 of the 14 models clear the 0.60 pass threshold.</p>
+<p style="font-size:14.5px;line-height:1.6;color:var(--osf-navy);margin:12px 0 0;max-width:760px;"><strong>Latest results (<time datetime="2026-11-06">6 November 2026</time>):</strong> All 14 general-purpose AI models tested show the WPS Competence Gap. On gender-sensitivity they score between 0.58 and 0.86 out of 1.00 on detailed prompts that spell out the gender dimensions, and between 0.00 and 0.24 on short, realistic requests that carry no gender cue. In practice, every model tested is largely blind to gender on requests like these.</p>
 <!-- STATIC:summary:END -->
 
       <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:14px 0 0;font-size:12.5px;color:var(--text-secondary);">
-        <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-teal);display:inline-block;"></span>0.75 and above — strong</span>
-        <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-golden-deep);display:inline-block;"></span>0.60–0.74 — meets threshold</span>
-        <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-red);display:inline-block;"></span>Below 0.60 — fails threshold</span>
+        <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-teal);display:inline-block;"></span>0.75 and above</span>
+        <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-golden-deep);display:inline-block;"></span>0.60–0.74</span>
+        <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-red);display:inline-block;"></span>Below 0.60</span>
       </div>
-      <div style="font-size:13px;color:var(--text-muted);margin:10px 0 0;">Scores 0.00–1.00 · 0.60 pass threshold</div>
+      <div style="font-size:13px;line-height:1.6;color:var(--text-muted);margin:10px 0 0;max-width:760px;">Scores 0.00–1.00. Bar colours are a reading aid, not pass marks. “Gender cued → sparse” is each model's gender-sensitivity score on detailed prompts that spell out the gender dimensions, and on short, incomplete requests with no gender cue.</div>
       <p style="font-size:14px;line-height:1.6;color:var(--text-secondary);margin:12px 0 0;max-width:760px;">Our own WPS Agent is scored on the identical scenarios, criteria and judge panel, and its results are on the <a href="/our-agent" style="font-weight:600;">Our Agent</a> page.</p>
 
       <sc-if value="{{ loaded }}" hint-placeholder-val="{{ false }}">
         <div style="overflow-x:auto;border:1px solid var(--border-subtle);border-radius:6px;margin-top:16px;">
-        <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:700px;table-layout:fixed;">
+        <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:900px;table-layout:fixed;">
           <thead>
             <tr style="background:var(--osf-sand);text-align:left;">
               <th scope="col" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:44px;">#</th>
@@ -312,8 +336,11 @@ a:hover{color:var(--osf-teal-dark);}
               <th scope="col" aria-sort="{{ sortDateAria }}" style="width:150px;white-space:nowrap;">
                 <button onClick="{{ setSortDate }}" style="all:unset;display:block;box-sizing:border-box;width:100%;padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;cursor:pointer;font-family:inherit;text-align:left;">Evaluated ⇕</button>
               </th>
-              <th scope="col" aria-sort="{{ sortOverallAria }}" style="white-space:nowrap;width:280px;">
+              <th scope="col" aria-sort="{{ sortOverallAria }}" style="white-space:nowrap;width:210px;">
                 <button onClick="{{ setSortOverall }}" style="all:unset;display:block;box-sizing:border-box;width:100%;padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;cursor:pointer;font-family:inherit;text-align:left;">Overall ⇕</button>
+              </th>
+              <th scope="col" aria-sort="{{ sortUncuedAria }}" style="white-space:nowrap;width:200px;">
+                <button onClick="{{ setSortUncued }}" style="all:unset;display:block;box-sizing:border-box;width:100%;padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;cursor:pointer;font-family:inherit;text-align:left;">Gender cued → sparse ⇕</button>
               </th>
               <th scope="col" style="padding:12px 10px;font-weight:600;color:var(--text-secondary);font-size:12px;text-transform:uppercase;letter-spacing:0.04em;width:90px;">Details</th>
             </tr>
@@ -343,13 +370,17 @@ a:hover{color:var(--osf-teal-dark);}
                     <span style="font-weight:700;color:var(--osf-navy);font-size:13.5px;width:34px;">{{ row.overall }}</span>
                   </div>
                 </td>
+                <td style="padding:14px 10px;font-size:13.5px;color:var(--text-secondary);white-space:nowrap;">
+                  <span>{{ row.gapCued }}</span> → <span style="font-weight:700;color:{{ row.gapUncuedColor }};">{{ row.gapUncued }}</span>
+                  <span style="font-size:11px;color:var(--text-muted);margin-left:4px;">{{ row.gapPartial }}</span>
+                </td>
                 <td style="padding:14px 10px;">
                   <button onClick="{{ row.toggle }}" style="background:none;border:1px solid var(--border-subtle);border-radius:4px;font-size:12px;color:var(--osf-navy);padding:5px 9px;cursor:pointer;font-family:var(--font-sans);">{{ row.toggleLabel }}</button>
                 </td>
               </tr>
               <sc-if value="{{ row.expanded }}" hint-placeholder-val="{{ false }}">
                 <tr>
-                  <td colSpan="5" style="padding:0 10px 18px;background:var(--surface-sunken);">
+                  <td colSpan="6" style="padding:0 10px 18px;background:var(--surface-sunken);">
                     <sc-if value="{{ row.hasNote }}" hint-placeholder-val="{{ false }}">
                       <div style="font-size:12.5px;line-height:1.6;color:var(--text-secondary);padding:10px 4px 4px;font-style:italic;">{{ row.note }}</div>
                     </sc-if>
@@ -414,15 +445,17 @@ a:hover{color:var(--osf-teal-dark);}
       <!-- STATIC:leaderboard:START -->
 <sc-if value="{{ false }}">
 <div>
-<p>Static copy of the leaderboard for readers without JavaScript. Scores run from 0.00 to 1.00; 0.60 is the pass threshold. Results last updated 6 November 2026.</p>
+<p>Static copy of the leaderboard for readers without JavaScript. Scores run from 0.00 to 1.00. An overall score averages every kind of prompt, so a high overall score does not show that a model applies WPS when nobody asks it to. Claude Opus 5 (Anthropic) has the highest overall score, 0.69. Differences under about 0.10 are not a reliable ranking, and the top 6 models are within 0.10 of each other. Results last updated 6 November 2026.</p>
 <table>
-<caption>WPS AI Leaderboard: overall and per-criterion scores, general-purpose models, benchmark v6</caption>
+<caption>WPS AI Leaderboard: overall, gender-sensitivity on gender-cued and on sparse prompts, and per-criterion scores, general-purpose models, benchmark v6</caption>
 <thead><tr>
 <th scope="col">Rank</th>
 <th scope="col">System</th>
 <th scope="col">Provider</th>
 <th scope="col">Evaluated</th>
 <th scope="col">Overall</th>
+<th scope="col">Gender-sensitivity on detailed prompts that name gender (T1)</th>
+<th scope="col">Gender-sensitivity on sparse prompts with no gender cue (T3)</th>
 <th scope="col">Gender-sensitivity / WPS Integration</th>
 <th scope="col">Operational Relevance</th>
 <th scope="col">Analytical Depth</th>
@@ -436,20 +469,20 @@ a:hover{color:var(--osf-teal-dark);}
 <th scope="col">Substantive Pushback</th>
 </tr></thead>
 <tbody>
-<tr><td>1</td><td>Claude Opus 5</td><td>Anthropic</td><td>29 July 2026</td><td>0.69</td><td>0.57</td><td>0.78</td><td>0.63</td><td>0.61</td><td>0.84</td><td>0.49</td><td>0.66</td><td>0.68</td><td>0.56</td><td>0.93</td><td>0.89</td></tr>
-<tr><td>2</td><td>GLM-5.3-Flash</td><td>Z.ai</td><td>26 August 2026</td><td>0.64</td><td>0.52</td><td>0.75</td><td>0.60</td><td>0.61</td><td>0.74</td><td>0.49</td><td>0.53</td><td>0.53</td><td>0.46</td><td>0.92</td><td>0.85</td></tr>
-<tr><td>3</td><td>Qwen3.8 2.4T A95B</td><td>Alibaba</td><td>26 August 2026</td><td>0.63</td><td>0.56</td><td>0.78</td><td>0.60</td><td>0.65</td><td>0.80</td><td>0.52</td><td>0.51</td><td>0.47</td><td>0.24</td><td>0.94</td><td>0.90</td></tr>
-<tr><td>4</td><td>GPT-6.1 Sol</td><td>OpenAI</td><td>6 November 2026</td><td>0.60</td><td>0.43</td><td>0.77</td><td>0.49</td><td>0.59</td><td>0.70</td><td>0.47</td><td>0.62</td><td>0.51</td><td>0.29</td><td>0.88</td><td>0.88</td></tr>
-<tr><td>5</td><td>GPT-5.6 Sol</td><td>OpenAI</td><td>29 July 2026</td><td>0.60</td><td>0.55</td><td>0.76</td><td>0.57</td><td>0.63</td><td>0.61</td><td>0.51</td><td>0.53</td><td>0.40</td><td>0.24</td><td>0.93</td><td>0.88</td></tr>
-<tr><td>6</td><td>Kimi K3</td><td>Moonshot AI</td><td>26 August 2026</td><td>0.60</td><td>0.50</td><td>0.74</td><td>0.58</td><td>0.59</td><td>0.66</td><td>0.45</td><td>0.44</td><td>0.39</td><td>0.42</td><td>0.93</td><td>0.86</td></tr>
-<tr><td>7</td><td>Mistral Large 3</td><td>Mistral AI</td><td>9 September 2026</td><td>0.55</td><td>0.47</td><td>0.71</td><td>0.55</td><td>0.57</td><td>0.65</td><td>0.47</td><td>0.35</td><td>0.28</td><td>0.37</td><td>0.87</td><td>0.70</td></tr>
-<tr><td>8</td><td>DeepSeek V4 Pro</td><td>DeepSeek</td><td>26 August 2026</td><td>0.53</td><td>0.47</td><td>0.70</td><td>0.49</td><td>0.55</td><td>0.63</td><td>0.44</td><td>0.33</td><td>0.25</td><td>0.33</td><td>0.87</td><td>0.75</td></tr>
-<tr><td>9</td><td>Gemini 2.5 Flash</td><td>Google</td><td>23 July 2026</td><td>0.51</td><td>0.43</td><td>0.68</td><td>0.49</td><td>0.55</td><td>0.53</td><td>0.46</td><td>0.37</td><td>0.23</td><td>0.23</td><td>0.88</td><td>0.80</td></tr>
-<tr><td>10</td><td>Gemini 3.1 Pro Preview</td><td>Google</td><td>29 July 2026</td><td>0.47</td><td>0.39</td><td>0.66</td><td>0.46</td><td>0.49</td><td>0.52</td><td>0.41</td><td>0.26</td><td>0.20</td><td>0.29</td><td>0.82</td><td>0.69</td></tr>
-<tr><td>11</td><td>Apertus 70B Instruct 2509</td><td>Swiss AI Initiative</td><td>11 September 2026</td><td>0.38</td><td>0.26</td><td>0.55</td><td>0.31</td><td>0.47</td><td>0.18</td><td>0.33</td><td>0.29</td><td>0.16</td><td>0.15</td><td>0.83</td><td>0.65</td></tr>
-<tr><td>12</td><td>Claude 3 Haiku</td><td>Anthropic</td><td>23 July 2026</td><td>0.34</td><td>0.23</td><td>0.46</td><td>0.24</td><td>0.40</td><td>0.17</td><td>0.33</td><td>0.19</td><td>0.13</td><td>0.12</td><td>0.75</td><td>0.70</td></tr>
-<tr><td>13</td><td>GPT-4o</td><td>OpenAI</td><td>4 August 2026</td><td>0.33</td><td>0.20</td><td>0.53</td><td>0.29</td><td>0.41</td><td>0.14</td><td>0.30</td><td>0.16</td><td>0.07</td><td>0.14</td><td>0.78</td><td>0.64</td></tr>
-<tr><td>14</td><td>GPT-4o mini</td><td>OpenAI</td><td>23 July 2026</td><td>0.33</td><td>0.22</td><td>0.50</td><td>0.28</td><td>0.38</td><td>0.18</td><td>0.33</td><td>0.14</td><td>0.07</td><td>0.16</td><td>0.75</td><td>0.59</td></tr>
+<tr><td>1</td><td>Claude Opus 5</td><td>Anthropic</td><td>29 July 2026</td><td>0.69</td><td>0.85</td><td>0.20</td><td>0.57</td><td>0.78</td><td>0.63</td><td>0.61</td><td>0.84</td><td>0.49</td><td>0.66</td><td>0.68</td><td>0.56</td><td>0.93</td><td>0.89</td></tr>
+<tr><td>2</td><td>GLM-5.3-Flash</td><td>Z.ai</td><td>26 August 2026</td><td>0.64</td><td>0.81</td><td>0.18</td><td>0.52</td><td>0.75</td><td>0.60</td><td>0.61</td><td>0.74</td><td>0.49</td><td>0.53</td><td>0.53</td><td>0.46</td><td>0.92</td><td>0.85</td></tr>
+<tr><td>3</td><td>Qwen3.8 2.4T A95B</td><td>Alibaba</td><td>26 August 2026</td><td>0.63</td><td>0.85</td><td>0.24</td><td>0.56</td><td>0.78</td><td>0.60</td><td>0.65</td><td>0.80</td><td>0.52</td><td>0.51</td><td>0.47</td><td>0.24</td><td>0.94</td><td>0.90</td></tr>
+<tr><td>4</td><td>GPT-6.1 Sol</td><td>OpenAI</td><td>6 November 2026</td><td>0.60</td><td>0.81</td><td>0.10</td><td>0.43</td><td>0.77</td><td>0.49</td><td>0.59</td><td>0.70</td><td>0.47</td><td>0.62</td><td>0.51</td><td>0.29</td><td>0.88</td><td>0.88</td></tr>
+<tr><td>5</td><td>GPT-5.6 Sol</td><td>OpenAI</td><td>29 July 2026</td><td>0.60</td><td>0.86</td><td>0.21</td><td>0.55</td><td>0.76</td><td>0.57</td><td>0.63</td><td>0.61</td><td>0.51</td><td>0.53</td><td>0.40</td><td>0.24</td><td>0.93</td><td>0.88</td></tr>
+<tr><td>6</td><td>Kimi K3</td><td>Moonshot AI</td><td>26 August 2026</td><td>0.60</td><td>0.84</td><td>0.18</td><td>0.50</td><td>0.74</td><td>0.58</td><td>0.59</td><td>0.66</td><td>0.45</td><td>0.44</td><td>0.39</td><td>0.42</td><td>0.93</td><td>0.86</td></tr>
+<tr><td>7</td><td>Mistral Large 3</td><td>Mistral AI</td><td>9 September 2026</td><td>0.55</td><td>0.82</td><td>0.12</td><td>0.47</td><td>0.71</td><td>0.55</td><td>0.57</td><td>0.65</td><td>0.47</td><td>0.35</td><td>0.28</td><td>0.37</td><td>0.87</td><td>0.70</td></tr>
+<tr><td>8</td><td>DeepSeek V4 Pro</td><td>DeepSeek</td><td>26 August 2026</td><td>0.53</td><td>0.82</td><td>0.09</td><td>0.47</td><td>0.70</td><td>0.49</td><td>0.55</td><td>0.63</td><td>0.44</td><td>0.33</td><td>0.25</td><td>0.33</td><td>0.87</td><td>0.75</td></tr>
+<tr><td>9</td><td>Gemini 2.5 Flash</td><td>Google</td><td>23 July 2026</td><td>0.51</td><td>0.75</td><td>0.04</td><td>0.43</td><td>0.68</td><td>0.49</td><td>0.55</td><td>0.53</td><td>0.46</td><td>0.37</td><td>0.23</td><td>0.23</td><td>0.88</td><td>0.80</td></tr>
+<tr><td>10</td><td>Gemini 3.1 Pro Preview</td><td>Google</td><td>29 July 2026</td><td>0.47</td><td>0.74</td><td>0.08</td><td>0.39</td><td>0.66</td><td>0.46</td><td>0.49</td><td>0.52</td><td>0.41</td><td>0.26</td><td>0.20</td><td>0.29</td><td>0.82</td><td>0.69</td></tr>
+<tr><td>11</td><td>Apertus 70B Instruct 2509</td><td>Swiss AI Initiative</td><td>11 September 2026</td><td>0.38</td><td>0.63</td><td>0.00</td><td>0.26</td><td>0.55</td><td>0.31</td><td>0.47</td><td>0.18</td><td>0.33</td><td>0.29</td><td>0.16</td><td>0.15</td><td>0.83</td><td>0.65</td></tr>
+<tr><td>12</td><td>Claude 3 Haiku</td><td>Anthropic</td><td>23 July 2026</td><td>0.34</td><td>0.60</td><td>0.00</td><td>0.23</td><td>0.46</td><td>0.24</td><td>0.40</td><td>0.17</td><td>0.33</td><td>0.19</td><td>0.13</td><td>0.12</td><td>0.75</td><td>0.70</td></tr>
+<tr><td>13</td><td>GPT-4o</td><td>OpenAI</td><td>4 August 2026</td><td>0.33</td><td>0.58</td><td>0.00</td><td>0.20</td><td>0.53</td><td>0.29</td><td>0.41</td><td>0.14</td><td>0.30</td><td>0.16</td><td>0.07</td><td>0.14</td><td>0.78</td><td>0.64</td></tr>
+<tr><td>14</td><td>GPT-4o mini</td><td>OpenAI</td><td>23 July 2026</td><td>0.33</td><td>0.61</td><td>0.00</td><td>0.22</td><td>0.50</td><td>0.28</td><td>0.38</td><td>0.18</td><td>0.33</td><td>0.14</td><td>0.07</td><td>0.16</td><td>0.75</td><td>0.59</td></tr>
 </tbody>
 </table>
 <table>
@@ -500,6 +533,13 @@ a:hover{color:var(--osf-teal-dark);}
 <!-- STATIC:leaderboard:END -->
 
       <p style="font-size:13px;color:var(--text-muted);margin-top:14px;line-height:1.6;">Scores are macro-averages (equal weight per prompt tier) across three independent AI judges. Differences under roughly 0.10–0.15 should be read as directional, not definitive — see the <a href="/methodology" style="color:var(--osf-navy);font-weight:600;">Methodology</a> page for judge-agreement caveats by run. Criterion summaries are on the <a href="/benchmark" style="color:var(--osf-navy);font-weight:600;">WPS AI Benchmark</a> page; full definitions are in the <a href="benchmark/v6/wps-ai-benchmark-v6-blueprint.yml" style="color:var(--osf-navy);font-weight:600;">blueprint</a>.</p>
+      <!-- STATIC:reading-results:START -->
+<h2 style="font-family:var(--font-serif);font-size:24px;color:var(--osf-navy);margin:36px 0 14px;">Reading the results</h2>
+<h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;">Which AI model handles Women, Peace and Security best?</h3>
+<p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;max-width:760px;">Claude Opus 5 (Anthropic) has the highest overall score, 0.69. Differences under about 0.10 are not a reliable ranking, and the top 6 models are within 0.10 of each other. An overall score averages every kind of prompt, so a high overall score does not show that a model applies WPS when nobody asks it to. All 14 models score lower on gender-sensitivity on short, realistic requests that carry no gender cue: between 0.00 and 0.24, against 0.58 to 0.86 on detailed prompts that spell out the gender dimensions.</p>
+<h3 style="font-family:var(--font-serif);font-size:18px;color:var(--osf-navy);margin:22px 0 6px;">Do AI models pass the WPS AI Benchmark?</h3>
+<p style="font-size:16px;line-height:1.75;color:var(--text-secondary);margin:0;max-width:760px;">There is no pass mark. Scores are continuous, and no human expert baseline exists yet to anchor a cut-off. Earlier reports used 0.60 as a reference line for readability. What the benchmark supports is comparison: between systems scored the same way, and between one system&#x27;s scores with and without a gender cue.</p>
+<!-- STATIC:reading-results:END -->
     </div>
   </section>
 
@@ -554,6 +594,9 @@ class Component extends DCLogic {
   }
 
   scoreColor(v) {
+    // Band by the displayed value, so a score shown as 0.60 is never coloured
+    // as below 0.60. The bands are a reading aid, not pass marks.
+    v = Number(v.toFixed(2));
     if (v >= 0.75) return 'var(--osf-teal)';
     if (v >= 0.60) return 'var(--osf-golden-deep)';
     return 'var(--osf-red)';
@@ -632,7 +675,14 @@ class Component extends DCLogic {
     tiers.forEach(t => { tierMeta[t.id] = t; });
     const sorted = [...rows].sort((a, b) => {
       if (sortKey === 'date') {
-        return sortDir === 'desc' ? b.dateIso.localeCompare(a.dateIso) : a.dateIso.localeCompare(b.dateIso);
+        // Raw rows carry the ISO date as `date`; `dateIso` exists only on the view rows built below.
+        const d = r => r.date || '';
+        return sortDir === 'desc' ? d(b).localeCompare(d(a)) : d(a).localeCompare(d(b));
+      }
+      if (sortKey === 'uncued') {
+        // Gender-sensitivity on prompts that do not mention gender (tier T3).
+        const u = r => ((r.genderByTier || {}).T3 || {}).score ?? -1;
+        return sortDir === 'desc' ? u(b) - u(a) : u(a) - u(b);
       }
       const av = sortKey === 'overall' ? a.overall : (a.criteria[sortKey] ?? 0);
       const bv = sortKey === 'overall' ? b.overall : (b.criteria[sortKey] ?? 0);
@@ -661,6 +711,13 @@ class Component extends DCLogic {
         hasGenderTiers: genderTiers.length > 0,
         adversarialRows: adversarialRows,
         hasAdversarial: adversarialRows.length > 0,
+        // The WPS Competence Gap for this row: gender-sensitivity with the cue
+        // (T1) and without it (T3), shown beside the overall score because the
+        // overall score averages the two and so hides the fall.
+        gapCued: this.fmt(((r.genderByTier || {}).T1 || {}).score),
+        gapUncued: this.fmt(((r.genderByTier || {}).T3 || {}).score),
+        gapUncuedColor: this.scoreColor(((r.genderByTier || {}).T3 || {}).score || 0),
+        gapPartial: (genderTiers.find(t => t.label.indexOf('T3 ') === 0) || {}).partial || '',
         date: this.formatDate(r.date),
         dateIso: r.date,
         // Empty until criteria.json resolves, at which point there are no
@@ -680,11 +737,13 @@ class Component extends DCLogic {
       rows: rowsView,
       setSortOverall: () => this.setSort('overall'),
       setSortDate: () => this.setSort('date'),
+      setSortUncued: () => this.setSort('uncued'),
       setSortGender: () => this.setSort('gender-wps'),
       setSortDue: () => this.setSort('due-diligence'),
       setSortFactual: () => this.setSort('factual-integrity'),
       sortDateAria: ariaSortFor('date'),
-      sortOverallAria: ariaSortFor('overall')
+      sortOverallAria: ariaSortFor('overall'),
+      sortUncuedAria: ariaSortFor('uncued')
     };
   }
 }
