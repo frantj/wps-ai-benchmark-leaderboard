@@ -5,11 +5,16 @@
   },
   {
     "q": "What is the WPS Competence Gap?",
-    "a": "The fall in a model's gender-sensitivity score between prompts that spell out the gender dimensions and the sparse, practitioner-realistic requests that mention nothing about gender. The three frontier models in the original comparison average 0.82 when cued and 0.16 when not. It shows how much of a system's WPS performance depends on being told to look for it."
+    "a": "The fall in a model's gender-sensitivity score between prompts that spell out the gender dimensions and the sparse, practitioner-realistic requests that mention nothing about gender. Every general-purpose model tested shows it. It shows how much of a system's WPS performance depends on being told to look for it."
   },
   {
     "q": "How are AI systems scored?",
-    "a": "Each response is scored from 0.00 to 1.00 on eleven criteria by three independent AI judges, and scores are macro-averaged with equal weight per prompt tier. 0.60 is the pass threshold. Scores are model-graded, not human-graded, and differences under roughly 0.10–0.15 should be read as directional, not definitive."
+    "a": "Each response is scored from 0.00 to 1.00 on eleven criteria by three independent AI judges, and scores are macro-averaged with equal weight per prompt tier. Scores are model-graded, not human-graded, and differences under roughly 0.10–0.15 should be read as directional, not definitive."
+  },
+  {
+    "id": "pass-mark",
+    "q": "Is there a pass mark?",
+    "a": "There is no pass mark. Scores are continuous, and no human expert baseline exists yet to anchor a cut-off. Earlier reports used 0.60 as a reference line for readability. What the benchmark supports is comparison: between systems scored the same way, and between one system's scores with and without a gender cue."
   },
   {
     "q": "Can I run the benchmark on my own model?",

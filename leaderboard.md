@@ -2,32 +2,36 @@
 
 > Markdown copy of https://wpsleaderboard.ai/ for AI agents and researchers. Generated from data/leaderboard.json; do not edit by hand.
 
-How general-purpose AI models score on the Women, Peace and Security (WPS) AI Benchmark v6: 30 realistic peace-and-security scenarios, an 11-criterion rubric, three independent AI judges. Scores run from 0.00 to 1.00; 0.60 is the pass threshold. Published by Our Secure Future, a PAX sapiens program.
+How general-purpose AI models score on the Women, Peace and Security (WPS) AI Benchmark v6: 30 realistic peace-and-security scenarios, an 11-criterion rubric, three independent AI judges. Scores run from 0.00 to 1.00 and there is no pass mark: what the benchmark supports is comparison. Published by Our Secure Future, a PAX sapiens program.
 
 Results last updated: 6 November 2026.
 
 ## Main finding
 
-All 14 general-purpose AI models tested show the WPS Competence Gap. When a prompt spells out the gender dimensions, they score between 0.58 and 0.86 out of 1.00 on gender-sensitivity. On short, realistic requests that do not mention gender, they score between 0.00 and 0.24. The top-ranked model, Claude Opus 5, falls from 0.85 to 0.20.
+All 14 general-purpose AI models tested show the WPS Competence Gap. On gender-sensitivity they score between 0.58 and 0.86 out of 1.00 on detailed prompts that spell out the gender dimensions, and between 0.00 and 0.24 on short, realistic requests that carry no gender cue. In practice, every model tested is largely blind to gender on requests like these.
+
+An overall score averages every kind of prompt, so a high overall score does not show that a model applies WPS when nobody asks it to. Read the two gender-sensitivity columns below alongside every overall score.
+
+Claude Opus 5 (Anthropic) has the highest overall score, 0.69. Differences under about 0.10 are not a reliable ranking, and the top 6 models are within 0.10 of each other.
 
 ## Overall ranking
 
-| Rank | System | Provider | Evaluated | Overall |
-|---|---|---|---|---|
-| 1 | Claude Opus 5 | Anthropic | 29 July 2026 | 0.69 |
-| 2 | GLM-5.3-Flash | Z.ai | 26 August 2026 | 0.64 |
-| 3 | Qwen3.8 2.4T A95B | Alibaba | 26 August 2026 | 0.63 |
-| 4 | GPT-6.1 Sol | OpenAI | 6 November 2026 | 0.60 |
-| 5 | GPT-5.6 Sol | OpenAI | 29 July 2026 | 0.60 |
-| 6 | Kimi K3 | Moonshot AI | 26 August 2026 | 0.60 |
-| 7 | Mistral Large 3 | Mistral AI | 9 September 2026 | 0.55 |
-| 8 | DeepSeek V4 Pro | DeepSeek | 26 August 2026 | 0.53 |
-| 9 | Gemini 2.5 Flash | Google | 23 July 2026 | 0.51 |
-| 10 | Gemini 3.1 Pro Preview | Google | 29 July 2026 | 0.47 |
-| 11 | Apertus 70B Instruct 2509 | Swiss AI Initiative | 11 September 2026 | 0.38 |
-| 12 | Claude 3 Haiku | Anthropic | 23 July 2026 | 0.34 |
-| 13 | GPT-4o | OpenAI | 4 August 2026 | 0.33 |
-| 14 | GPT-4o mini | OpenAI | 23 July 2026 | 0.33 |
+| Rank | System | Provider | Evaluated | Overall | Gender-sensitivity on detailed prompts that name gender (T1) | Gender-sensitivity on sparse prompts with no gender cue (T3) |
+|---|---|---|---|---|---|---|
+| 1 | Claude Opus 5 | Anthropic | 29 July 2026 | 0.69 | 0.85 | 0.20 |
+| 2 | GLM-5.3-Flash | Z.ai | 26 August 2026 | 0.64 | 0.81 | 0.18 |
+| 3 | Qwen3.8 2.4T A95B | Alibaba | 26 August 2026 | 0.63 | 0.85 | 0.24 |
+| 4 | GPT-6.1 Sol | OpenAI | 6 November 2026 | 0.60 | 0.81 | 0.10 |
+| 5 | GPT-5.6 Sol | OpenAI | 29 July 2026 | 0.60 | 0.86 | 0.21 |
+| 6 | Kimi K3 | Moonshot AI | 26 August 2026 | 0.60 | 0.84 | 0.18 |
+| 7 | Mistral Large 3 | Mistral AI | 9 September 2026 | 0.55 | 0.82 | 0.12 |
+| 8 | DeepSeek V4 Pro | DeepSeek | 26 August 2026 | 0.53 | 0.82 | 0.09 |
+| 9 | Gemini 2.5 Flash | Google | 23 July 2026 | 0.51 | 0.75 | 0.04 |
+| 10 | Gemini 3.1 Pro Preview | Google | 29 July 2026 | 0.47 | 0.74 | 0.08 |
+| 11 | Apertus 70B Instruct 2509 | Swiss AI Initiative | 11 September 2026 | 0.38 | 0.63 | 0.00 |
+| 12 | Claude 3 Haiku | Anthropic | 23 July 2026 | 0.34 | 0.60 | 0.00 |
+| 13 | GPT-4o | OpenAI | 4 August 2026 | 0.33 | 0.58 | 0.00 |
+| 14 | GPT-4o mini | OpenAI | 23 July 2026 | 0.33 | 0.61 | 0.00 |
 
 ## Scores by criterion
 
@@ -89,6 +93,7 @@ The fall from cued (T1) to sparse (T3) prompts is the WPS Competence Gap.
 ## How to read these scores
 
 - Scores are model-graded by three AI judges, not human-graded.
+- There is no validated pass mark. Scores are continuous; earlier reports used 0.60 as a reference line for readability.
 - Differences under roughly 0.10–0.15 are directional, not a reliable ranking.
 - This is not a safety certification and must not be used as clearance for operational, warfare or targeting decisions.
 - Our Secure Future's own WPS Agent is scored on the same benchmark; its results are at https://wpsleaderboard.ai/our-agent.
