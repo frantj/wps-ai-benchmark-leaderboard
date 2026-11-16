@@ -206,6 +206,10 @@ TIER_COUNTS = {}  # tier id -> scenarios in the tier; filled by load()
 GAP_HEADERS = ["Gender-sensitivity on detailed prompts that name gender (T1)",
                "Gender-sensitivity on sparse prompts with no gender cue (T3)"]
 GAP_MEANING = "In practice, every model tested is largely blind to gender on requests like these."
+# The published scores carry the same licence as the benchmark itself.
+SCORES_LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"
+SCORES_LICENSE = ("The scores are published by Our Secure Future under the Creative Commons Attribution 4.0 "
+                  "International licence (CC BY 4.0): %s" % SCORES_LICENSE_URL)
 OVERALL_CAVEAT = ("An overall score averages every kind of prompt, so a high overall score does not show that a "
                   "model applies WPS when nobody asks it to.")
 
@@ -394,6 +398,7 @@ def page_graph(fname, path, crumb, ptype, text, modified, rows, criteria, faq):
             "url": SITE + "/", "dateModified": newest, "inLanguage": "en",
             "creator": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID},
             "isBasedOn": SITE + "/benchmark",
+            "license": SCORES_LICENSE_URL,
             "variableMeasured": ["Overall score"] + GAP_HEADERS + [c["name"] for c in criteria],
             "distribution": [
                 {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": SITE + "/data/leaderboard.json"},
@@ -457,6 +462,8 @@ def leaderboard_md(rows, criteria, tiers):
         "# WPS AI Leaderboard — results",
         "",
         "> Markdown copy of %s/ for AI agents and researchers. Generated from data/leaderboard.json; do not edit by hand." % SITE,
+        "",
+        SCORES_LICENSE,
         "",
         "How general-purpose AI models score on the Women, Peace and Security (WPS) AI Benchmark v6: 30 realistic "
         "peace-and-security scenarios, an 11-criterion rubric, three independent AI judges. Scores run from 0.00 to "
