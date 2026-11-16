@@ -2,6 +2,8 @@
 
 > Markdown copy of https://wpsleaderboard.ai/ for AI agents and researchers. Generated from data/leaderboard.json; do not edit by hand.
 
+The scores are published by Our Secure Future under the Creative Commons Attribution 4.0 International licence (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
 How general-purpose AI models score on the Women, Peace and Security (WPS) AI Benchmark v6: 30 realistic peace-and-security scenarios, an 11-criterion rubric, three independent AI judges. Scores run from 0.00 to 1.00 and there is no pass mark: what the benchmark supports is comparison. Published by Our Secure Future, a PAX sapiens program.
 
 Results last updated: 6 November 2026.

@@ -83,7 +83,7 @@
         "@id": "https://wpsleaderboard.ai/#organization"
       },
       "inLanguage": "en",
-      "dateModified": "2026-11-13"
+      "dateModified": "2026-11-16"
     },
     {
       "@type": "Dataset",
@@ -100,6 +100,7 @@
         "@id": "https://wpsleaderboard.ai/#organization"
       },
       "isBasedOn": "https://wpsleaderboard.ai/benchmark",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
       "variableMeasured": [
         "Overall score",
         "Gender-sensitivity on detailed prompts that name gender (T1)",
@@ -323,7 +324,7 @@ a:hover{color:var(--osf-teal-dark);}
         <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-golden-deep);display:inline-block;"></span>0.60–0.74</span>
         <span style="display:flex;align-items:center;gap:7px;"><span style="width:22px;height:6px;border-radius:3px;background:var(--osf-red);display:inline-block;"></span>Below 0.60</span>
       </div>
-      <div style="font-size:13px;line-height:1.6;color:var(--text-muted);margin:10px 0 0;max-width:760px;">Scores 0.00–1.00. Bar colours are a reading aid, not pass marks. “Gender cued → sparse” is each model's gender-sensitivity score on detailed prompts that spell out the gender dimensions, and on short, incomplete requests with no gender cue.</div>
+      <div style="font-size:13px;line-height:1.6;color:var(--text-muted);margin:10px 0 0;max-width:760px;">Scores 0.00–1.00. Bar colours are a reading aid, not pass marks. “Gender cued → sparse” is each model's gender-sensitivity score on detailed prompts that spell out the gender dimensions, and on short, incomplete requests with no gender cue. Scores are published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license" style="color:var(--text-muted);text-decoration:underline;">CC BY 4.0</a>.</div>
       <p style="font-size:14px;line-height:1.6;color:var(--text-secondary);margin:12px 0 0;max-width:760px;">Our own WPS Agent is scored on the identical scenarios, criteria and judge panel, and its results are on the <a href="/our-agent" style="font-weight:600;">Our Agent</a> page.</p>
 
       <sc-if value="{{ loaded }}" hint-placeholder-val="{{ false }}">
